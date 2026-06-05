@@ -94,7 +94,8 @@ const mockJobs = [
                         });
 
                         // Reveal Filtered Results
-                        gsap.to('.job-card[style*="display: block"]', {
+                        const visibleCards = Array.from(cards).filter(c => (c as HTMLElement).style.display === 'block');
+                        gsap.to(visibleCards, {
                             opacity: 1,
                             scale: 1,
                             y: 0,

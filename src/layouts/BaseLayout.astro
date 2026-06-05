@@ -76,6 +76,9 @@ const { title, description = siteData.tagline } = Astro.props;
 			html:not(.dark) .group-hover\:border-white\/30:hover { border-color: rgba(0,0,0,0.3) !important; }
 			html:not(.dark) .hover\:text-white:hover { color: #09090b !important; }
 			html:not(.dark) .group-hover\:text-white:hover { color: #09090b !important; }
+			
+			/* Bypass global override for specific elements */
+			.nav-services-text:hover { color: #ffffff !important; }
 
 			html {
 				scroll-behavior: smooth;
@@ -111,6 +114,9 @@ const { title, description = siteData.tagline } = Astro.props;
 			gsap.registerPlugin(ScrollTrigger);
 
 			function initAnimations() {
+				// Prevent SPA conflicts by killing old instances
+				ScrollTrigger.getAll().forEach(t => t.kill());
+
 				// 1. Hero Text Animation (Slide up + Blur)
 				const heroHeadings = document.querySelectorAll('h1');
 				heroHeadings.forEach(heading => {

@@ -8,9 +8,9 @@ import siteData from '../data/siteData.json';
         </a>
         
         <div class="hidden md:flex items-center gap-8">
-            <a href="/" class="text-sm font-medium text-zinc-400 hover:text-[white] transition-colors">Home</a>
+            <a href="/" class="text-sm font-medium text-zinc-400 nav-services-text transition-colors">Home</a>
             <div class="relative group">
-                <button class="text-sm font-medium text-zinc-400 group-hover:text-[white] transition-colors flex items-center gap-1">
+                <button class="text-sm font-medium text-zinc-400 group-hover:text-white nav-services-text transition-colors flex items-center gap-1">
                     Services
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
@@ -56,6 +56,11 @@ import siteData from '../data/siteData.json';
                     ))}
                 </div>
             </div>
+            <button id="mobile-theme-toggle" aria-label="Toggle Theme Mobile" class="mobile-link p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all text-white flex items-center justify-center opacity-0 mt-4">
+                <span class="mr-3 font-bold">Toggle Theme</span>
+                <svg id="mobile-theme-icon-dark" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <svg id="mobile-theme-icon-light" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
             <a href="/contact" class="mobile-link px-10 py-4 rounded-2xl bg-white text-black font-bold text-lg opacity-0">
                 Contact Us
             </a>
@@ -69,29 +74,39 @@ import siteData from '../data/siteData.json';
     document.addEventListener('astro:page-load', () => {
         // Theme Toggle Logic
         const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
         const iconDark = document.getElementById('theme-icon-dark');
         const iconLight = document.getElementById('theme-icon-light');
+        const mobileIconDark = document.getElementById('mobile-theme-icon-dark');
+        const mobileIconLight = document.getElementById('mobile-theme-icon-light');
 
         const updateIcon = () => {
             if (document.documentElement.classList.contains('dark')) {
                 iconDark?.classList.remove('hidden');
                 iconLight?.classList.add('hidden');
+                mobileIconDark?.classList.remove('hidden');
+                mobileIconLight?.classList.add('hidden');
             } else {
                 iconLight?.classList.remove('hidden');
                 iconDark?.classList.add('hidden');
+                mobileIconLight?.classList.remove('hidden');
+                mobileIconDark?.classList.add('hidden');
             }
         };
         
         updateIcon();
 
-        themeToggle?.addEventListener('click', () => {
+        const toggleTheme = () => {
             const element = document.documentElement;
             element.classList.toggle('dark');
             
             const isDark = element.classList.contains('dark');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
             updateIcon();
-        });
+        };
+
+        themeToggle?.addEventListener('click', toggleTheme);
+        mobileThemeToggle?.addEventListener('click', toggleTheme);
 
         // Mobile Menu Logic
         const toggle = document.getElementById('menu-toggle');
