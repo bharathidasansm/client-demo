@@ -3,38 +3,91 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import siteData from '../data/siteData.json';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+
+const services = Object.values(siteData.services);
+const { homePage } = siteData;
 ---
 
-<BaseLayout title="Home" description="ViYukti - Architecting Multi-Industry Excellence">
+<BaseLayout title="Home" description={homePage.hero.subtitle}>
 	<Navigation />
-	<main class="min-h-screen bg-brand-dark flex flex-col items-center justify-center p-6 text-center pt-32">
-		<h1 class="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-			ViYukti
-		</h1>
-		<p class="text-zinc-400 text-xl mb-12 max-w-2xl">
-			One Brand. Six Industries. Infinite Excellence.
-		</p>
-
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full">
-			{Object.values(siteData.services).map((service) => (
-				<a 
-					href={`/services/${service.slug}`}
-					class="group p-8 rounded-3xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-500 text-left relative overflow-hidden"
-				>
-					<div class="relative z-10">
-						<h3 class="text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
-							{service.title}
-						</h3>
-						<p class="text-zinc-500 text-sm leading-relaxed">
-							{service.hero.subtitle}
-						</p>
-					</div>
-					<div class="absolute bottom-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
-						<span class="text-4xl">→</span>
-					</div>
+	
+	<!-- Hero Section -->
+	<header class="relative min-h-[95vh] flex items-center justify-center pt-24 overflow-hidden">
+		<!-- Background Glows -->
+		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
+		
+		<div class="container mx-auto px-6 relative z-10 text-center">
+			<h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 max-w-5xl mx-auto leading-[1.05]">
+				{homePage.hero.title}
+			</h1>
+			<p class="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12 leading-relaxed gsap-reveal">
+				{homePage.hero.subtitle}
+			</p>
+			<div class="flex flex-col sm:flex-row gap-5 justify-center gsap-reveal">
+				<a href="#sectors" class="px-10 py-5 rounded-full bg-white text-black font-bold tracking-widest uppercase text-sm hover:scale-105 transition-transform duration-300">
+					Explore Sectors
 				</a>
-			))}
+				<a href="/contact" class="px-10 py-5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md font-bold tracking-widest uppercase text-sm hover:bg-white/10 transition-all duration-300">
+					Partner With Us
+				</a>
+			</div>
 		</div>
-	</main>
+	</header>
+
+	<!-- Synergy / About Section -->
+	<section class="py-32 border-t border-white/5 bg-zinc-950/50 relative overflow-hidden">
+		<div class="container mx-auto px-6 text-center max-w-4xl">
+			<span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-white/10 mb-8 bg-white/5 text-zinc-400 gsap-reveal">
+				{siteData.companyName} Advantage
+			</span>
+			<h2 class="text-4xl md:text-5xl font-bold mb-8 gsap-reveal">{homePage.about.title}</h2>
+			<p class="text-xl text-zinc-400 leading-relaxed gsap-reveal">
+				{homePage.about.description}
+			</p>
+		</div>
+	</section>
+
+	<!-- Premium Sectors Grid -->
+	<section id="sectors" class="py-32 bg-brand-dark relative">
+		<div class="container mx-auto px-6">
+			<div class="text-center mb-20 gsap-reveal">
+				<h2 class="text-4xl md:text-5xl font-bold mb-6">Our Core Sectors</h2>
+				<p class="text-zinc-500 max-w-2xl mx-auto">Click to explore dedicated solutions engineered for industry leadership.</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{services.map((service) => (
+					<a 
+						href={`/services/${service.slug}`}
+						class={`group block p-10 rounded-[2rem] border bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-700 relative overflow-hidden gsap-card gsap-reveal ${service.colorTheme?.border || 'border-white/10'}`}
+					>
+						<!-- Ambient Hover Glow -->
+						<div class={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${service.colorTheme?.glow || 'bg-white/5'}`}></div>
+						
+						<div class="relative z-10 flex flex-col h-full">
+							<div class="flex justify-between items-start mb-12">
+								<div class={`w-14 h-14 rounded-2xl flex items-center justify-center border transition-all duration-500 group-hover:scale-110 ${service.colorTheme?.border || 'border-white/10'} ${service.colorTheme?.glow || 'bg-white/5'}`}>
+									<div class={`w-5 h-5 rounded-sm animate-pulse ${service.colorTheme?.bg || 'bg-white/20'}`}></div>
+								</div>
+								<div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 transition-colors">
+									<svg class="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+								</div>
+							</div>
+							
+							<div class="mt-auto">
+								<h3 class={`text-3xl font-bold mb-4 transition-colors ${service.colorTheme?.hoverText || 'group-hover:text-white'}`}>
+									{service.title}
+								</h3>
+								<p class="text-zinc-500 text-sm leading-relaxed">
+									{service.hero.subtitle}
+								</p>
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
 	<Footer />
 </BaseLayout>

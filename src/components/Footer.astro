@@ -6,10 +6,10 @@ import siteData from '../data/siteData.json';
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
             <div class="col-span-1 md:col-span-2">
                 <a href="/" class="text-3xl font-black tracking-tighter text-white mb-6 inline-block">
-                    ViYukti
+                    {siteData.companyName}
                 </a>
                 <p class="text-zinc-500 max-w-sm leading-relaxed mb-8">
-                    Architecting multi-industry excellence through innovation, precision, and a commitment to sustainable growth.
+                    {siteData.tagline}
                 </p>
                 <div class="flex gap-4">
                     <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white transition-all cursor-pointer">In</div>
@@ -21,7 +21,7 @@ import siteData from '../data/siteData.json';
             <div>
                 <h5 class="text-white font-bold mb-6">Sectors</h5>
                 <ul class="space-y-4">
-                    {Object.values(siteData.services).map(service => (
+                    {Object.values(siteData.services).map((service) => (
                         <li><a href={`/services/${service.slug}`} class="text-zinc-500 hover:text-white transition-colors text-sm">{service.title}</a></li>
                     ))}
                 </ul>
@@ -38,8 +38,8 @@ import siteData from '../data/siteData.json';
         </div>
 
         <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-zinc-600 text-xs">© 2026 ViYukti. All rights reserved.</p>
-            <p class="text-zinc-600 text-xs">Built with Astro & GSAP</p>
+            <p class="text-zinc-600 text-xs">{siteData.footer.copyright}</p>
+            <p class="text-zinc-600 text-xs">{siteData.footer.credit}</p>
         </div>
     </div>
 </footer>

@@ -1,6 +1,21 @@
 {
   "companyName": "ViYukti",
   "domain": "ViYukti.com",
+  "tagline": "Architecting Multi-Industry Excellence",
+  "footer": {
+    "copyright": "© 2026 ViYukti. All rights reserved.",
+    "credit": "Engineered with Astro & GSAP"
+  },
+  "homePage": {
+    "hero": {
+      "title": "Architecting Multi-Industry Excellence.",
+      "subtitle": "We are a unified conglomerate delivering premium, high-impact solutions across six distinct sectors. Discover our specialized services designed for scale, innovation, and sustainable growth."
+    },
+    "about": {
+      "title": "The Power of Synergy",
+      "description": "By centralizing our expertise under one brand, we deliver unparalleled value. From staffing to sustainable energy, every ViYukti division operates with the same relentless commitment to quality and operational excellence."
+    }
+  },
   "globalContact": {
     "email": "info@viyukti.com",
     "phone": "+91 XXXXXXXXXX",

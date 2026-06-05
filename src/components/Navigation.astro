@@ -1,9 +1,10 @@
 ---
+import siteData from '../data/siteData.json';
 ---
 <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-8 py-4 rounded-2xl border border-white/10 bg-black/20 backdrop-blur-xl">
         <a href="/" class="text-2xl font-black tracking-tighter text-white hover:text-blue-400 transition-colors">
-            ViYukti
+            {siteData.companyName}
         </a>
         
         <div class="hidden md:flex items-center gap-8">
@@ -15,12 +16,11 @@
                 </button>
                 <div class="absolute top-full left-0 pt-4 w-64 opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
                     <div class="p-4 rounded-2xl border border-white/10 bg-zinc-900 shadow-2xl space-y-2">
-                        <a href="/services/recruitment-staffing" class="block p-3 rounded-xl hover:bg-white/5 text-sm text-zinc-400 hover:text-white transition-all">Recruitment</a>
-                        <a href="/services/digital-marketing" class="block p-3 rounded-xl hover:bg-white/5 text-sm text-zinc-400 hover:text-white transition-all">Digital Marketing</a>
-                        <a href="/services/it-development-support" class="block p-3 rounded-xl hover:bg-white/5 text-sm text-zinc-400 hover:text-white transition-all">IT Development</a>
-                        <a href="/services/solar-installation-services" class="block p-3 rounded-xl hover:bg-white/5 text-sm text-zinc-400 hover:text-white transition-all">Solar Services</a>
-                        <a href="/services/real-estate" class="block p-3 rounded-xl hover:bg-white/5 text-sm text-zinc-400 hover:text-white transition-all">Real Estate</a>
-                        <a href="/services/corporate-gifting" class="block p-3 rounded-xl hover:bg-white/5 text-sm text-zinc-400 hover:text-white transition-all">Corporate Gifting</a>
+                        {Object.values(siteData.services).map((service) => (
+                            <a href={`/services/${service.slug}`} class="block p-3 rounded-xl hover:bg-white/5 text-sm text-zinc-400 hover:text-white transition-all">
+                                {service.title}
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -45,12 +45,11 @@
             <div class="space-y-4">
                 <p class="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-black mb-4 mobile-link opacity-0">Our Sectors</p>
                 <div class="grid grid-cols-1 gap-4">
-                    <a href="/services/recruitment-staffing" class="mobile-link text-xl text-zinc-400 hover:text-white opacity-0">Recruitment</a>
-                    <a href="/services/digital-marketing" class="mobile-link text-xl text-zinc-400 hover:text-white opacity-0">Digital Marketing</a>
-                    <a href="/services/it-development-support" class="mobile-link text-xl text-zinc-400 hover:text-white opacity-0">IT Development</a>
-                    <a href="/services/solar-installation-services" class="mobile-link text-xl text-zinc-400 hover:text-white opacity-0">Solar</a>
-                    <a href="/services/real-estate" class="mobile-link text-xl text-zinc-400 hover:text-white opacity-0">Real Estate</a>
-                    <a href="/services/corporate-gifting" class="mobile-link text-xl text-zinc-400 hover:text-white opacity-0">Gifting</a>
+                    {Object.values(siteData.services).map((service) => (
+                        <a href={`/services/${service.slug}`} class="mobile-link text-xl text-zinc-400 hover:text-white opacity-0">
+                            {service.title}
+                        </a>
+                    ))}
                 </div>
             </div>
             <a href="/contact" class="mobile-link px-10 py-4 rounded-2xl bg-white text-black font-bold text-lg opacity-0">
