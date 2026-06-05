@@ -7,6 +7,8 @@ import MetricStats from '../../components/sectors/MetricStats.astro';
 import EnterpriseBreakdown from '../../components/sectors/EnterpriseBreakdown.astro';
 import LuxuryPortfolio from '../../components/sectors/LuxuryPortfolio.astro';
 import GiftingCatalog from '../../components/sectors/GiftingCatalog.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
 
 export async function getStaticPaths() {
   const services = Object.values(siteData.services);
@@ -20,6 +22,7 @@ const { service } = Astro.props;
 ---
 
 <BaseLayout title={service.title} description={service.hero.subtitle}>
+    <Navigation />
     <!-- Industry-Specific Hero -->
     <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
         <div class="absolute inset-0 z-0">
@@ -81,4 +84,5 @@ const { service } = Astro.props;
             </div>
         </div>
     </section>
+    <Footer />
 </BaseLayout>
