@@ -29,8 +29,13 @@
 - **Global Data Binding**: Refactored the architecture so that the Company Name, Tagline, Footer Copyright, and Footer Credits are all strictly pulled from `siteData.json`.
 - **Dynamic Navigation**: Updated the desktop and mobile dropdowns in `Navigation.astro` to auto-generate from the JSON data, ensuring perfect consistency if service names change.
 - **Navigation Fluidity**: Implemented CSS smooth scrolling for anchor links (e.g., "Explore Sectors") and integrated Astro's `<ViewTransitions />` component. 
-- **Bug Fixes (ViewTransitions)**: Wrapped all individual widget GSAP scripts in `astro:page-load` listeners. This guarantees that complex logic (like the Real Estate reveals or Solar Calculator sliders) initializes correctly when navigating via SPA View Transitions.
-- **Bug Fixes (Content)**: Resolved broken image URL in the Gifting catalog.
-- **Smart Routing (Lead Gen)**: Upgraded the "Consult Our Experts" buttons to pass URL parameters (e.g., `?industry=solar`). Implemented client-side JS on the Contact page to automatically read these parameters and pre-fill the form's "Industry of Interest" dropdown.
-- **UI Cleanup**: Removed redundant "Explore Solutions" buttons from the dispatcher. Simplified the Corporate Gifting widget by removing quote overlays and relying strictly on image zoom for hover effects. Updated the gifting CTA to act as a standard "Contact Us" trigger.
-- **Git Milestone**: All UI simplifications and logic cleanups committed.
+- **Bug Fixes**: Wrapped all individual widget GSAP scripts in `astro:page-load` listeners, resolved broken image URL in the Gifting catalog.
+- **Smart Routing (Lead Gen)**: Upgraded the "Consult Our Experts" buttons to pass URL parameters (e.g., `?industry=solar`) and automatically pre-fill the form's "Industry of Interest" dropdown.
+- **UI Cleanup**: Removed redundant "Explore Solutions" buttons from the dispatcher. Simplified the Corporate Gifting widget.
+
+## [2026-06-05] Phase 5: Light/Dark Theme System
+- **Tailwind Configuration**: Enabled explicit `darkMode: 'class'` in Tailwind config.
+- **Global CSS Overrides**: Injected a clever CSS ruleset into `BaseLayout.astro` that automatically overrides the hardcoded dark utility classes (e.g., flipping `text-white` to `text-zinc-900` and `bg-white/5` to `bg-black/5`) when the light theme is active. This instantly enables a pristine light theme without requiring an exhaustive codebase rewrite.
+- **Theme Toggle**: Added a fully functional Sun/Moon toggle button to the main navigation. It instantly switches the CSS context and saves the user's preference to `localStorage`, persisting perfectly across the SPA View Transitions.
+- **Bug Fixes (Theme Integration)**: Resolved a bug where the theme reset during View Transitions by hooking the theme initialization logic into `astro:after-swap`. Fixed GSAP hover interactions and expanded global CSS overrides to ensure cards and buttons look perfect in both dark and light modes.
+- **Git Milestone**: Fully committed Light/Dark mode functionality and SPA persistence fixes.
