@@ -28,6 +28,7 @@
 - **Homepage Redesign**: Upgraded `index.astro` from a simple grid to a premium landing page with a grand hero section, "Synergy" about section, and luxury service cards.
 - **Global Data Binding**: Refactored the architecture so that the Company Name, Tagline, Footer Copyright, and Footer Credits are all strictly pulled from `siteData.json`.
 - **Dynamic Navigation**: Updated the desktop and mobile dropdowns in `Navigation.astro` to auto-generate from the JSON data, ensuring perfect consistency if service names change.
-- **Bug Fixes**: Resolved broken image URL in the Gifting catalog and fixed GSAP animation conflicts in the Real Estate portfolio that caused cards to blink/disappear.
-- **Navigation Fluidity**: Implemented CSS smooth scrolling for anchor links (e.g., "Explore Sectors") and integrated Astro's `<ViewTransitions />` component. GSAP scripts refactored to listen for `astro:page-load` ensuring seamless page-to-page navigation without full browser refreshes.
-- **Git Milestone**: Committed homepage redesign, data binding updates, bug fixes, and smooth scrolling enhancements.
+- **Navigation Fluidity**: Implemented CSS smooth scrolling for anchor links (e.g., "Explore Sectors") and integrated Astro's `<ViewTransitions />` component. 
+- **Bug Fixes (ViewTransitions)**: Wrapped all individual widget GSAP scripts in `astro:page-load` listeners. This guarantees that complex logic (like the Real Estate reveals or Solar Calculator sliders) initializes correctly when navigating via SPA View Transitions.
+- **Bug Fixes (Content)**: Resolved broken image URL in the Gifting catalog and updated the "Download Catalog" intent.
+- **Git Milestone**: Committed SPA bug fixes and image updates.
