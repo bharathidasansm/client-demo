@@ -1,0 +1,110 @@
+---
+const properties = [
+    {
+        name: "ViYukti Heights",
+        type: "Luxury Residential",
+        location: "East Coast Road, Chennai",
+        status: "Pre-Launch",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+        features: ["Ocean View", "Private Pool", "Smart Home"]
+    },
+    {
+        name: "Elite Square",
+        type: "Premium Commercial",
+        location: "OMR IT Corridor, Chennai",
+        status: "Under Construction",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+        features: ["LEED Certified", "24/7 Security", "High-Speed Lifts"]
+    },
+    {
+        name: "The Grand Atrium",
+        type: "Bespoke Offices",
+        location: "Anna Salai, Chennai",
+        status: "Completed",
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+        features: ["Modern Design", "Ample Parking", "Prime Location"]
+    },
+    {
+        name: "Azure Terraces",
+        type: "Seaside Villas",
+        location: "Mahabalipuram",
+        status: "Limited Edition",
+        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+        features: ["Private Beach Access", "Lush Gardens", "Infinity Pool"]
+    }
+];
+---
+
+<div class="w-full max-w-6xl mx-auto py-12" id="real-estate-portfolio">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {properties.map((prop, index) => (
+            <div class="property-card relative h-[500px] rounded-[2.5rem] overflow-hidden group cursor-pointer border border-white/5 gsap-reveal">
+                <!-- Background Image with Zoom Effect -->
+                <div 
+                    class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
+                    style={`background-image: url('${prop.image}')`}
+                ></div>
+                
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+
+                <!-- Status Badge -->
+                <div class="absolute top-8 left-8">
+                    <span class="px-5 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 backdrop-blur-xl text-amber-400 text-xs font-bold uppercase tracking-widest">
+                        {prop.status}
+                    </span>
+                </div>
+
+                <!-- Content Overlay -->
+                <div class="absolute inset-0 p-10 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                    <div class="overflow-hidden">
+                        <p class="text-amber-500/80 text-sm font-semibold uppercase tracking-[0.2em] mb-2 transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                            {prop.type}
+                        </p>
+                    </div>
+                    <h3 class="text-4xl font-bold text-white mb-4 leading-tight">{prop.name}</h3>
+                    <div class="flex items-center gap-2 text-zinc-400 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <span class="text-sm font-medium">{prop.location}</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300">
+                        {prop.features.map(feat => (
+                            <span class="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] text-zinc-300 font-medium">
+                                {feat}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                <!-- Hover Border Effect -->
+                <div class="absolute inset-0 border-2 border-amber-500/0 group-hover:border-amber-500/20 rounded-[2.5rem] transition-all duration-500"></div>
+            </div>
+        ))}
+    </div>
+</div>
+
+<script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.property-card');
+        
+        cards.forEach((card, index) => {
+            gsap.from(card, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: index * 0.1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%",
+                }
+            });
+        });
+    });
+</script>
