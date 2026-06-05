@@ -30,5 +30,6 @@
 - **Dynamic Navigation**: Updated the desktop and mobile dropdowns in `Navigation.astro` to auto-generate from the JSON data, ensuring perfect consistency if service names change.
 - **Navigation Fluidity**: Implemented CSS smooth scrolling for anchor links (e.g., "Explore Sectors") and integrated Astro's `<ViewTransitions />` component. 
 - **Bug Fixes (ViewTransitions)**: Wrapped all individual widget GSAP scripts in `astro:page-load` listeners. This guarantees that complex logic (like the Real Estate reveals or Solar Calculator sliders) initializes correctly when navigating via SPA View Transitions.
-- **Bug Fixes (Content)**: Resolved broken image URL in the Gifting catalog and updated the "Download Catalog" intent.
-- **Git Milestone**: Committed SPA bug fixes and image updates.
+- **Bug Fixes (Content)**: Resolved broken image URL in the Gifting catalog.
+- **Smart Routing (Lead Gen)**: Upgraded the "Consult Our Experts" buttons to pass URL parameters (e.g., `?industry=solar`). Implemented client-side JS on the Contact page to automatically read these parameters and pre-fill the form's "Industry of Interest" dropdown. Added similar logic for the "Download Catalog" button to pre-fill a custom inquiry message.
+- **Git Milestone**: All SPA bugs fixed, Smart Routing implemented, and changes securely committed.

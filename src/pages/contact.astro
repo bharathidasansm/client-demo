@@ -114,10 +114,8 @@ const { globalContact } = siteData;
     document.addEventListener('astro:page-load', () => {
         const urlParams = new URLSearchParams(window.location.search);
         const industry = urlParams.get('industry');
-        const intent = urlParams.get('intent');
         
         const selectElement = document.getElementById('industry-select') as HTMLSelectElement;
-        const messageArea = document.getElementById('message-area') as HTMLTextAreaElement;
 
         if (industry && selectElement) {
             // Find the option that matches the URL parameter and select it
@@ -127,19 +125,6 @@ const { globalContact } = siteData;
                     break;
                 }
             }
-        }
-
-        if (intent === 'catalog' && messageArea) {
-             messageArea.value = "I am interested in downloading the premium corporate gifting catalog and exploring bulk order options.";
-             // Also auto-select the gifting option if they came from the catalog button
-             if (selectElement) {
-                 for (let i = 0; i < selectElement.options.length; i++) {
-                    if (selectElement.options[i].value === 'corporate_gifting') {
-                        selectElement.selectedIndex = i;
-                        break;
-                    }
-                }
-             }
         }
     });
 </script>
