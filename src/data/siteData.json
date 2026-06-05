@@ -1,0 +1,106 @@
+{
+  "companyName": "ViYukti",
+  "domain": "ViYukti.com",
+  "globalContact": {
+    "email": "info@viyukti.com",
+    "phone": "+91 XXXXXXXXXX",
+    "address": "Chennai, Tamil Nadu, India",
+    "formEndpoint": "https://api.web3forms.com/submit"
+  },
+  "services": {
+    "recruitment": {
+      "id": "recruitment",
+      "title": "Recruitment & Staffing",
+      "slug": "recruitment-staffing",
+      "theme": { "primary": "blue-600", "accent": "sky-400" },
+      "hero": {
+        "title": "Connecting Elite Talent with Forward-Thinking Enterprises",
+        "subtitle": "Customized staffing and executive search solutions built for operational excellence.",
+        "bgImage": "/images/recruitment-hero.webp"
+      },
+      "features": [
+        { "title": "Executive Search", "desc": "Sourcing top-tier leadership roles." },
+        { "title": "Contract Staffing", "desc": "Flexible, on-demand workforce scaling." },
+        { "title": "RPO Services", "desc": "End-to-end recruitment process outsourcing." }
+      ],
+      "interactiveData": {
+        "jobCategories": ["IT", "Non-IT", "Management", "Operations"]
+      }
+    },
+    "digital_marketing": {
+      "id": "digital_marketing",
+      "title": "Digital Marketing",
+      "slug": "digital-marketing",
+      "theme": { "primary": "purple-600", "accent": "pink-500" },
+      "hero": {
+        "title": "Data-Driven Marketing That Scales Visibility",
+        "subtitle": "Accelerate growth through performance marketing, SEO, and precise brand positioning.",
+        "bgImage": "/images/marketing-hero.webp"
+      },
+      "features": [
+        { "title": "Performance Marketing", "desc": "High-ROI paid ad campaigns." },
+        { "title": "SEO & Content Strategy", "desc": "Dominating organic search landscapes." }
+      ]
+    },
+    "it_development": {
+      "id": "it_development",
+      "title": "IT Development & Support",
+      "slug": "it-development-support",
+      "theme": { "primary": "cyan-600", "accent": "indigo-500" },
+      "hero": {
+        "title": "Next-Gen Software Engineering & Dedicated IT Support",
+        "subtitle": "Architecting robust, secure, and highly scalable technology frameworks.",
+        "bgImage": "/images/it-hero.webp"
+      },
+      "features": [
+        { "title": "Custom Software", "desc": "Tailor-made web and enterprise applications." },
+        { "title": "Managed IT Services", "desc": "24/7 infrastructure support and monitoring." }
+      ]
+    },
+    "corporate_gifting": {
+      "id": "corporate_gifting",
+      "title": "Corporate Gifting",
+      "slug": "corporate-gifting",
+      "theme": { "primary": "amber-700", "accent": "yellow-500" },
+      "hero": {
+        "title": "Premium Corporate Gifts That Leave Lasting Impressions",
+        "subtitle": "Curated, high-quality, branded corporate merchandise tailored for your stakeholders.",
+        "bgImage": "/images/gifting-hero.webp"
+      },
+      "features": [
+        { "title": "Employee Welcome Kits", "desc": "Customized premium onboarding merchandise." },
+        { "title": "Festive & Luxury Boxes", "desc": "Bespoke executive gifts for high-value clients." }
+      ]
+    },
+    "real_estate": {
+      "id": "real_estate",
+      "title": "Real Estate",
+      "slug": "real-estate",
+      "theme": { "primary": "stone-800", "accent": "amber-600" },
+      "hero": {
+        "title": "Strategic Land Procurement & Luxury Real Estate",
+        "subtitle": "Navigating commercial, residential, and prime industrial asset acquisitions.",
+        "bgImage": "/images/estate-hero.webp"
+      },
+      "features": [
+        { "title": "Commercial Spaces", "desc": "Premium corporate offices and retail spaces." },
+        { "title": "Industrial Land", "desc": "Strategic plots optimized for warehouse and manufacturing." }
+      ]
+    },
+    "solar_services": {
+      "id": "solar_services",
+      "title": "Solar Installation & Services",
+      "slug": "solar-installation-services",
+      "theme": { "primary": "emerald-600", "accent": "lime-400" },
+      "hero": {
+        "title": "Sustainable Clean Energy Infrastructure",
+        "subtitle": "Turnkey rooftop and commercial solar installations engineered to drop overheads.",
+        "bgImage": "/images/solar-hero.webp"
+      },
+      "features": [
+        { "title": "On-Grid Solutions", "desc": "Seamless utility-interactive solar grids." },
+        { "title": "Industrial Rooftops", "desc": "High-capacity arrays generating massive carbon offsets." }
+      ]
+    }
+  }
+}

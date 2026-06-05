@@ -1,0 +1,78 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "ViYukti - Multi-Industry Corporate Excellence" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="bg-brand-dark text-white selection:bg-white/20">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | ViYukti</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="antialiased overflow-x-hidden">
+		<div id="smooth-wrapper">
+			<div id="smooth-content">
+				<slot />
+			</div>
+		</div>
+
+		<style is:global>
+			:root {
+				--accent: 136, 58, 234;
+				--accent-light: 224, 204, 250;
+				--accent-dark: 49, 10, 101;
+			}
+			body {
+				font-family: 'Inter', sans-serif;
+			}
+			/* Custom Scrollbar for Premium Feel */
+			::-webkit-scrollbar {
+				width: 8px;
+			}
+			::-webkit-scrollbar-track {
+				background: #09090b;
+			}
+			::-webkit-scrollbar-thumb {
+				background: #27272a;
+				border-radius: 10px;
+			}
+			::-webkit-scrollbar-thumb:hover {
+				background: #3f3f46;
+			}
+		</style>
+
+		<script>
+			import { gsap } from 'gsap';
+			import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+			gsap.registerPlugin(ScrollTrigger);
+
+			// Logic for smooth scroll & reveals will go here
+			document.addEventListener('DOMContentLoaded', () => {
+				// Global reveal animation
+				gsap.from('section', {
+					opacity: 0,
+					y: 20,
+					duration: 1,
+					stagger: 0.2,
+					ease: 'power3.out',
+					scrollTrigger: {
+						trigger: 'body',
+						start: 'top top',
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
