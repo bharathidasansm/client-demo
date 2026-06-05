@@ -65,54 +65,56 @@ const itServices = [
 <script>
     import { gsap } from 'gsap';
 
-    const items = document.querySelectorAll('.it-accordion-item');
+    document.addEventListener('astro:page-load', () => {
+        const items = document.querySelectorAll('.it-accordion-item');
 
-    items.forEach(item => {
-        const trigger = item.querySelector('.it-accordion-trigger');
-        const content = item.querySelector('.it-accordion-content');
-        const verticalLine = item.querySelector('.vertical-line');
-        const details = item.querySelectorAll('.flex.items-center.gap-3');
+        items.forEach(item => {
+            const trigger = item.querySelector('.it-accordion-trigger');
+            const content = item.querySelector('.it-accordion-content');
+            const verticalLine = item.querySelector('.vertical-line');
+            const details = item.querySelectorAll('.flex.items-center.gap-3');
 
-        let isOpen = false;
+            let isOpen = false;
 
-        trigger?.addEventListener('click', () => {
-            isOpen = !isOpen;
+            trigger?.addEventListener('click', () => {
+                isOpen = !isOpen;
 
-            if (isOpen) {
-                // Close other open items
-                items.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        const otherContent = otherItem.querySelector('.it-accordion-content');
-                        const otherLine = otherItem.querySelector('.vertical-line');
-                        gsap.to(otherContent, { height: 0, opacity: 0, duration: 0.4, ease: "power2.inOut" });
-                        gsap.to(otherLine, { rotation: 0, duration: 0.4 });
-                        otherItem.classList.remove('is-open');
-                    }
-                });
+                if (isOpen) {
+                    // Close other open items
+                    items.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            const otherContent = otherItem.querySelector('.it-accordion-content');
+                            const otherLine = otherItem.querySelector('.vertical-line');
+                            gsap.to(otherContent, { height: 0, opacity: 0, duration: 0.4, ease: "power2.inOut" });
+                            gsap.to(otherLine, { rotation: 0, duration: 0.4 });
+                            otherItem.classList.remove('is-open');
+                        }
+                    });
 
-                // Open this item
-                gsap.to(content, { 
-                    height: 'auto', 
-                    opacity: 1, 
-                    duration: 0.6, 
-                    ease: "power3.out",
-                    onStart: () => {
-                        gsap.from(details, {
-                            x: -10,
-                            opacity: 0,
-                            stagger: 0.05,
-                            duration: 0.4,
-                            ease: "power2.out"
-                        });
-                    }
-                });
-                gsap.to(verticalLine, { rotation: 90, duration: 0.5, ease: "back.out(2)" });
-                item.classList.add('is-open');
-            } else {
-                gsap.to(content, { height: 0, opacity: 0, duration: 0.4, ease: "power2.inOut" });
-                gsap.to(verticalLine, { rotation: 0, duration: 0.4 });
-                item.classList.remove('is-open');
-            }
+                    // Open this item
+                    gsap.to(content, { 
+                        height: 'auto', 
+                        opacity: 1, 
+                        duration: 0.6, 
+                        ease: "power3.out",
+                        onStart: () => {
+                            gsap.from(details, {
+                                x: -10,
+                                opacity: 0,
+                                stagger: 0.05,
+                                duration: 0.4,
+                                ease: "power2.out"
+                            });
+                        }
+                    });
+                    gsap.to(verticalLine, { rotation: 90, duration: 0.5, ease: "back.out(2)" });
+                    item.classList.add('is-open');
+                } else {
+                    gsap.to(content, { height: 0, opacity: 0, duration: 0.4, ease: "power2.inOut" });
+                    gsap.to(verticalLine, { rotation: 0, duration: 0.4 });
+                    item.classList.remove('is-open');
+                }
+            });
         });
     });
 </script>

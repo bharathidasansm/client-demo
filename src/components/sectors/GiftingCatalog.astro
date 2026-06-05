@@ -73,7 +73,7 @@ const products = [
         <p class="text-zinc-400 max-w-2xl mx-auto mb-8">
             Looking for something unique? We offer custom logo engraving and bespoke packaging solutions for large-scale corporate orders.
         </p>
-        <a href="#contact" class="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-amber-600 text-white font-bold hover:bg-amber-500 transition-all hover:scale-105">
+        <a href="/contact?intent=catalog" class="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-amber-600 text-white font-bold hover:bg-amber-500 transition-all hover:scale-105">
             Download Catalog
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
         </a>
@@ -83,23 +83,25 @@ const products = [
 <script>
     import { gsap } from 'gsap';
 
-    // Quote Trigger Animation
-    const buttons = document.querySelectorAll('.quote-trigger');
-    buttons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const productName = (e.currentTarget as HTMLElement).getAttribute('data-product');
-            
-            // Interaction Feedback
-            gsap.to(btn, {
-                scale: 0.95,
-                duration: 0.1,
-                yoyo: true,
-                repeat: 1
-            });
+    document.addEventListener('astro:page-load', () => {
+        // Quote Trigger Animation
+        const buttons = document.querySelectorAll('.quote-trigger');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const productName = (e.currentTarget as HTMLElement).getAttribute('data-product');
+                
+                // Interaction Feedback
+                gsap.to(btn, {
+                    scale: 0.95,
+                    duration: 0.1,
+                    yoyo: true,
+                    repeat: 1
+                });
 
-            // Here you would typically trigger the Web3Forms modal or redirect
-            console.log(`Requesting quote for: ${productName}`);
-            alert(`Inquiry for "${productName}" initiated. Our team will contact you shortly.`);
+                // Here you would typically trigger the Web3Forms modal or redirect
+                console.log(`Requesting quote for: ${productName}`);
+                alert(`Inquiry for "${productName}" initiated. Our team will contact you shortly.`);
+            });
         });
     });
 </script>

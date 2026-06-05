@@ -51,38 +51,40 @@
 <script>
     import { gsap } from 'gsap';
 
-    const range = document.getElementById('bill-range') as HTMLInputElement;
-    const displayBill = document.getElementById('display-bill');
-    const displaySavings = document.getElementById('display-savings');
+    document.addEventListener('astro:page-load', () => {
+        const range = document.getElementById('bill-range') as HTMLInputElement;
+        const displayBill = document.getElementById('display-bill');
+        const displaySavings = document.getElementById('display-savings');
 
-    if (range && displayBill && displaySavings) {
-        range.addEventListener('input', (e) => {
-            const val = parseInt((e.target as HTMLInputElement).value);
-            const savings = Math.round(val * 0.85);
+        if (range && displayBill && displaySavings) {
+            range.addEventListener('input', (e) => {
+                const val = parseInt((e.target as HTMLInputElement).value);
+                const savings = Math.round(val * 0.85);
 
-            // Animate Bill Display
-            displayBill.innerText = `₹${val.toLocaleString()}`;
-            
-            // Animate Savings with GSAP for "Rolling Numbers" feel
-            gsap.to(displaySavings, {
-                innerText: savings,
-                duration: 0.4,
-                snap: { innerText: 1 },
-                ease: "power2.out",
-                onUpdate: function() {
-                    displaySavings.innerText = `₹${Math.floor(Number(this.targets()[0].innerText)).toLocaleString()}`;
-                }
+                // Animate Bill Display
+                displayBill.innerText = `₹${val.toLocaleString()}`;
+                
+                // Animate Savings with GSAP for "Rolling Numbers" feel
+                gsap.to(displaySavings, {
+                    innerText: savings,
+                    duration: 0.4,
+                    snap: { innerText: 1 },
+                    ease: "power2.out",
+                    onUpdate: function() {
+                        displaySavings.innerText = `₹${Math.floor(Number(this.targets()[0].innerText)).toLocaleString()}`;
+                    }
+                });
+
+                // Subtle scale effect on the savings card
+                gsap.to('#solar-calc .bg-emerald-500\\/10', {
+                    scale: 1.02,
+                    duration: 0.1,
+                    yoyo: true,
+                    repeat: 1
+                });
             });
-
-            // Subtle scale effect on the savings card
-            gsap.to('#solar-calc .bg-emerald-500\\/10', {
-                scale: 1.02,
-                duration: 0.1,
-                yoyo: true,
-                repeat: 1
-            });
-        });
-    }
+        }
+    });
 </script>
 
 <style>

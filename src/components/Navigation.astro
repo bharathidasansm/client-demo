@@ -62,60 +62,62 @@ import siteData from '../data/siteData.json';
 <script>
     import { gsap } from 'gsap';
 
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-    const links = document.querySelectorAll('.mobile-link');
-    const line1 = document.getElementById('line1');
-    const line2 = document.getElementById('line2');
-    const line3 = document.getElementById('line3');
+    document.addEventListener('astro:page-load', () => {
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
 
-    let isMenuOpen = false;
+        let isMenuOpen = false;
 
-    const tl = gsap.timeline({ paused: true });
+        const tl = gsap.timeline({ paused: true });
 
-    tl.to(menu, {
-        translateY: 0,
-        opacity: 1,
-        pointerEvents: 'auto',
-        duration: 0.6,
-        ease: 'expo.inOut'
-    })
-    .to(links, {
-        opacity: 1,
-        y: -20,
-        stagger: 0.05,
-        duration: 0.4,
-        ease: 'power2.out'
-    }, "-=0.3");
+        tl.to(menu, {
+            translateY: 0,
+            opacity: 1,
+            pointerEvents: 'auto',
+            duration: 0.6,
+            ease: 'expo.inOut'
+        })
+        .to(links, {
+            opacity: 1,
+            y: -20,
+            stagger: 0.05,
+            duration: 0.4,
+            ease: 'power2.out'
+        }, "-=0.3");
 
-    toggle?.addEventListener('click', () => {
-        isMenuOpen = !isMenuOpen;
+        toggle?.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
 
-        if (isMenuOpen) {
-            tl.play();
-            // Animate Hamburger to X
-            gsap.to(line1, { attr: { d: "M6 18L18 6" }, duration: 0.3 });
-            gsap.to(line2, { opacity: 0, duration: 0.3 });
-            gsap.to(line3, { attr: { d: "M6 6l12 12" }, duration: 0.3 });
-        } else {
-            tl.reverse();
-            // Animate X back to Hamburger
-            gsap.to(line1, { attr: { d: "M4 6h16" }, duration: 0.3 });
-            gsap.to(line2, { opacity: 1, duration: 0.3 });
-            gsap.to(line3, { attr: { d: "M4 18h16" }, duration: 0.3 });
-        }
-    });
-
-    // Close menu when a link is clicked
-    links.forEach(link => {
-        link.addEventListener('click', () => {
             if (isMenuOpen) {
-                isMenuOpen = false;
+                tl.play();
+                // Animate Hamburger to X
+                gsap.to(line1, { attr: { d: "M6 18L18 6" }, duration: 0.3 });
+                gsap.to(line2, { opacity: 0, duration: 0.3 });
+                gsap.to(line3, { attr: { d: "M6 6l12 12" }, duration: 0.3 });
+            } else {
                 tl.reverse();
+                // Animate X back to Hamburger
                 gsap.to(line1, { attr: { d: "M4 6h16" }, duration: 0.3 });
                 gsap.to(line2, { opacity: 1, duration: 0.3 });
                 gsap.to(line3, { attr: { d: "M4 18h16" }, duration: 0.3 });
             }
+        });
+
+        // Close menu when a link is clicked
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMenuOpen) {
+                    isMenuOpen = false;
+                    tl.reverse();
+                    gsap.to(line1, { attr: { d: "M4 6h16" }, duration: 0.3 });
+                    gsap.to(line2, { opacity: 1, duration: 0.3 });
+                    gsap.to(line3, { attr: { d: "M4 18h16" }, duration: 0.3 });
+                }
+            });
         });
     });
 </script>

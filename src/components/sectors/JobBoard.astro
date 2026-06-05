@@ -63,45 +63,47 @@ const mockJobs = [
 <script>
     import { gsap } from 'gsap';
 
-    const buttons = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.job-card');
-    const container = document.getElementById('jobs-container');
+    document.addEventListener('astro:page-load', () => {
+        const buttons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.job-card');
+        const container = document.getElementById('jobs-container');
 
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update Active State
-            buttons.forEach(b => b.classList.remove('active-filter'));
-            btn.classList.add('active-filter');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update Active State
+                buttons.forEach(b => b.classList.remove('active-filter'));
+                btn.classList.add('active-filter');
 
-            const category = btn.getAttribute('data-category');
+                const category = btn.getAttribute('data-category');
 
-            // GSAP Transition
-            gsap.to(cards, {
-                opacity: 0,
-                scale: 0.95,
-                y: 10,
-                duration: 0.3,
-                stagger: 0.05,
-                onComplete: () => {
-                    cards.forEach(card => {
-                        const cardCat = card.getAttribute('data-category');
-                        if (category === 'all' || cardCat === category) {
-                            (card as HTMLElement).style.display = 'block';
-                        } else {
-                            (card as HTMLElement).style.display = 'none';
-                        }
-                    });
+                // GSAP Transition
+                gsap.to(cards, {
+                    opacity: 0,
+                    scale: 0.95,
+                    y: 10,
+                    duration: 0.3,
+                    stagger: 0.05,
+                    onComplete: () => {
+                        cards.forEach(card => {
+                            const cardCat = card.getAttribute('data-category');
+                            if (category === 'all' || cardCat === category) {
+                                (card as HTMLElement).style.display = 'block';
+                            } else {
+                                (card as HTMLElement).style.display = 'none';
+                            }
+                        });
 
-                    // Reveal Filtered Results
-                    gsap.to('.job-card[style*="display: block"]', {
-                        opacity: 1,
-                        scale: 1,
-                        y: 0,
-                        duration: 0.4,
-                        stagger: 0.1,
-                        ease: "back.out(1.2)"
-                    });
-                }
+                        // Reveal Filtered Results
+                        gsap.to('.job-card[style*="display: block"]', {
+                            opacity: 1,
+                            scale: 1,
+                            y: 0,
+                            duration: 0.4,
+                            stagger: 0.1,
+                            ease: "back.out(1.2)"
+                        });
+                    }
+                });
             });
         });
     });
