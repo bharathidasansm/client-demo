@@ -34,7 +34,7 @@ const mockJobs = [
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="jobs-container">
         {mockJobs.map((job) => (
             <div 
-                class="job-card p-6 rounded-2xl border border-white/10 bg-white/[0.02] text-left group hover:border-white/20 transition-colors"
+                class="job-card p-6 rounded-2xl border border-white/10 bg-white/[0.02] text-left group hover:border-white/20 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10"
                 data-category={job.category}
             >
                 <div class="flex justify-between items-start mb-4">
@@ -43,8 +43,8 @@ const mockJobs = [
                     </span>
                     <span class="text-xs text-zinc-500 font-mono">{job.location}</span>
                 </div>
-                <h4 class="text-xl font-bold mb-6 group-hover:text-blue-400 transition-colors">{job.title}</h4>
-                <button class="w-full py-3 rounded-xl border border-white/10 bg-white/5 text-sm font-bold group-hover:bg-white group-hover:text-black transition-all">
+                <h4 class="text-xl font-bold mb-6 group-hover:text-blue-400 transition-colors duration-500">{job.title}</h4>
+                <button class="w-full py-3 rounded-xl border border-white/10 bg-white/5 text-sm font-bold group-hover:bg-white group-hover:text-black transition-all duration-500">
                     View Details
                 </button>
             </div>
