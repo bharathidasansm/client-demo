@@ -12,3 +12,10 @@
 - **Service Dispatcher**: Implemented `src/pages/services/[slug].astro` which dynamically renders content for all 6 industries from a single template.
 - **Master Hub**: Created `index.astro` with a high-contrast industry selection grid.
 - **Git Milestone**: Committed core framework changes.
+
+## [2026-06-05] Phase 3: Interactive Industry Widgets
+- **Global GSAP Enhancements**: Upgraded `BaseLayout.astro` with "Slide Up + Blur" hero reveals and "Fade-in + Scale" scroll reveals for all elements.
+- **Solar Widget**: Built `SolarCalculator.astro` with GSAP-powered rolling number animations for real-time savings estimation.
+- **Recruitment Widget**: Built `JobBoard.astro` with a client-side filtering system. Uses GSAP staggered animations to shuffle and reveal job cards by category.
+- **Device Compatibility**: Verified responsive grids and interaction touchpoints for mobile/desktop.
+- **Git Milestone**: Committed Recruitment & Solar widgets.

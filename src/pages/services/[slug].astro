@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import siteData from '../../data/siteData.json';
 import SolarCalculator from '../../components/sectors/SolarCalculator.astro';
 import JobBoard from '../../components/sectors/JobBoard.astro';
+import MetricStats from '../../components/sectors/MetricStats.astro';
 
 export async function getStaticPaths() {
   const services = Object.values(siteData.services);
@@ -69,7 +70,7 @@ const { service } = Astro.props;
             <div class="p-12 rounded-3xl border border-dashed border-white/10 min-h-[300px] flex items-center justify-center">
                 {service.id === 'solar_services' && <SolarCalculator />}
                 {service.id === 'recruitment' && <JobBoard />}
-                {service.id === 'digital_marketing' && <p>Animated Performance Metrics Coming Soon...</p>}
+                {service.id === 'digital_marketing' && <MetricStats />}
                 {/* Add more conditions for other IDs */}
                 {!['solar_services', 'recruitment', 'digital_marketing'].includes(service.id) && <p>Premium {service.title} Module Loading...</p>}
             </div>
