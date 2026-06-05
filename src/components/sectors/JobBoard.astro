@@ -1,0 +1,108 @@
+---
+import siteData from '../../data/siteData.json';
+const categories = siteData.services.recruitment.interactiveData.jobCategories;
+
+// Mock jobs for the interactive layout
+const mockJobs = [
+    { id: 1, title: "Senior Software Engineer", category: "IT", location: "Remote" },
+    { id: 2, title: "Operations Manager", category: "Operations", location: "Chennai" },
+    { id: 3, title: "Project Coordinator", category: "Management", location: "Mumbai" },
+    { id: 4, title: "HR Business Partner", category: "Non-IT", location: "Bangalore" },
+    { id: 5, title: "Full Stack Developer", category: "IT", location: "Hyderabad" },
+    { id: 6, title: "Supply Chain Lead", category: "Operations", location: "Remote" },
+];
+---
+
+<div class="w-full max-w-5xl mx-auto" id="job-board">
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button 
+            class="filter-btn px-6 py-2 rounded-full border border-white/10 bg-white/5 text-sm font-semibold hover:bg-white/10 transition-all active-filter"
+            data-category="all"
+        >
+            All Positions
+        </button>
+        {categories.map((cat) => (
+            <button 
+                class="filter-btn px-6 py-2 rounded-full border border-white/10 bg-white/5 text-sm font-semibold hover:bg-white/10 transition-all"
+                data-category={cat}
+            >
+                {cat}
+            </button>
+        ))}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="jobs-container">
+        {mockJobs.map((job) => (
+            <div 
+                class="job-card p-6 rounded-2xl border border-white/10 bg-white/[0.02] text-left group hover:border-white/20 transition-colors"
+                data-category={job.category}
+            >
+                <div class="flex justify-between items-start mb-4">
+                    <span class="px-3 py-1 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-widest text-zinc-400">
+                        {job.category}
+                    </span>
+                    <span class="text-xs text-zinc-500 font-mono">{job.location}</span>
+                </div>
+                <h4 class="text-xl font-bold mb-6 group-hover:text-blue-400 transition-colors">{job.title}</h4>
+                <button class="w-full py-3 rounded-xl border border-white/10 bg-white/5 text-sm font-bold group-hover:bg-white group-hover:text-black transition-all">
+                    View Details
+                </button>
+            </div>
+        ))}
+    </div>
+</div>
+
+<style>
+    .active-filter {
+        background: white !important;
+        color: black !important;
+        border-color: white !important;
+    }
+</style>
+
+<script>
+    import { gsap } from 'gsap';
+
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.job-card');
+    const container = document.getElementById('jobs-container');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update Active State
+            buttons.forEach(b => b.classList.remove('active-filter'));
+            btn.classList.add('active-filter');
+
+            const category = btn.getAttribute('data-category');
+
+            // GSAP Transition
+            gsap.to(cards, {
+                opacity: 0,
+                scale: 0.95,
+                y: 10,
+                duration: 0.3,
+                stagger: 0.05,
+                onComplete: () => {
+                    cards.forEach(card => {
+                        const cardCat = card.getAttribute('data-category');
+                        if (category === 'all' || cardCat === category) {
+                            (card as HTMLElement).style.display = 'block';
+                        } else {
+                            (card as HTMLElement).style.display = 'none';
+                        }
+                    });
+
+                    // Reveal Filtered Results
+                    gsap.to('.job-card[style*="display: block"]', {
+                        opacity: 1,
+                        scale: 1,
+                        y: 0,
+                        duration: 0.4,
+                        stagger: 0.1,
+                        ease: "back.out(1.2)"
+                    });
+                }
+            });
+        });
+    });
+</script>

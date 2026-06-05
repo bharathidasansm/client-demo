@@ -58,19 +58,54 @@ const { title, description = "ViYukti - Multi-Industry Corporate Excellence" } =
 
 			gsap.registerPlugin(ScrollTrigger);
 
-			// Logic for smooth scroll & reveals will go here
 			document.addEventListener('DOMContentLoaded', () => {
-				// Global reveal animation
-				gsap.from('section', {
-					opacity: 0,
-					y: 20,
-					duration: 1,
-					stagger: 0.2,
-					ease: 'power3.out',
-					scrollTrigger: {
-						trigger: 'body',
-						start: 'top top',
-					}
+				// 1. Hero Text Animation (Slide up + Blur)
+				const heroHeadings = document.querySelectorAll('h1');
+				heroHeadings.forEach(heading => {
+					gsap.from(heading, {
+						y: 40,
+						opacity: 0,
+						filter: 'blur(10px)',
+						duration: 1.2,
+						ease: 'expo.out',
+					});
+				});
+
+				// 2. Staggered Feature Reveals
+				const animatedElements = document.querySelectorAll('.gsap-reveal');
+				animatedElements.forEach((el) => {
+					gsap.from(el, {
+						y: 30,
+						opacity: 0,
+						duration: 0.8,
+						ease: 'power2.out',
+						scrollTrigger: {
+							trigger: el,
+							start: 'top 85%',
+							toggleActions: 'play none none none',
+						}
+					});
+				});
+
+				// 3. Hover Micro-interactions (Global class)
+				const cards = document.querySelectorAll('.gsap-card');
+				cards.forEach(card => {
+					card.addEventListener('mouseenter', () => {
+						gsap.to(card, {
+							y: -5,
+							borderColor: 'rgba(255,255,255,0.2)',
+							backgroundColor: 'rgba(255,255,255,0.05)',
+							duration: 0.3
+						});
+					});
+					card.addEventListener('mouseleave', () => {
+						gsap.to(card, {
+							y: 0,
+							borderColor: 'rgba(255,255,255,0.1)',
+							backgroundColor: 'rgba(255,255,255,0.02)',
+							duration: 0.3
+						});
+					});
 				});
 			});
 		</script>
