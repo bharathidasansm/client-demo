@@ -1,5 +1,6 @@
 ---
 import siteData from '../data/siteData.json';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title: string;
@@ -21,6 +22,7 @@ const { title, description = siteData.tagline } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<ViewTransitions />
 	</head>
 	<body class="antialiased overflow-x-hidden">
 		<div id="smooth-wrapper">
@@ -30,6 +32,9 @@ const { title, description = siteData.tagline } = Astro.props;
 		</div>
 
 		<style is:global>
+			html {
+				scroll-behavior: smooth;
+			}
 			:root {
 				--accent: 136, 58, 234;
 				--accent-light: 224, 204, 250;
@@ -60,7 +65,7 @@ const { title, description = siteData.tagline } = Astro.props;
 
 			gsap.registerPlugin(ScrollTrigger);
 
-			document.addEventListener('DOMContentLoaded', () => {
+			function initAnimations() {
 				// 1. Hero Text Animation (Slide up + Blur)
 				const heroHeadings = document.querySelectorAll('h1');
 				heroHeadings.forEach(heading => {
@@ -109,7 +114,10 @@ const { title, description = siteData.tagline } = Astro.props;
 						});
 					});
 				});
-			});
+			}
+
+			// Run on initial load and on every page transition
+			document.addEventListener('astro:page-load', initAnimations);
 		</script>
 	</body>
 </html>
