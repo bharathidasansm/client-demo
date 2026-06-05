@@ -17,5 +17,6 @@
 - **Global GSAP Enhancements**: Upgraded `BaseLayout.astro` with "Slide Up + Blur" hero reveals and "Fade-in + Scale" scroll reveals for all elements.
 - **Solar Widget**: Built `SolarCalculator.astro` with GSAP-powered rolling number animations for real-time savings estimation.
 - **Recruitment Widget**: Built `JobBoard.astro` with a client-side filtering system. Uses GSAP staggered animations to shuffle and reveal job cards by category.
+- **Digital Marketing Widget**: Built `MetricStats.astro` featuring high-impact numerical counters that animate on scroll using GSAP ScrollTrigger.
 - **Device Compatibility**: Verified responsive grids and interaction touchpoints for mobile/desktop.
-- **Git Milestone**: Committed Recruitment & Solar widgets.
+- **Git Milestone**: Committed Digital Marketing metrics.
