@@ -1,0 +1,105 @@
+---
+const products = [
+    {
+        id: "exec-kit",
+        name: "Executive Welcome Kit",
+        category: "Onboarding",
+        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+        description: "Premium leather journal, matte black pen, and insulated tumbler."
+    },
+    {
+        id: "tech-bundle",
+        name: "Digital Nomad Bundle",
+        category: "Tech Gadgets",
+        image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80",
+        description: "10,000mAh power bank, noise-canceling earbuds, and cable organizer."
+    },
+    {
+        id: "luxury-box",
+        name: "Artisanal Luxury Box",
+        category: "Festive",
+        image: "https://images.unsplash.com/photo-1549465220-1d8c9d9c4709?auto=format&fit=crop&w=800&q=80",
+        description: "Handcrafted chocolates, premium tea selection, and a scented soy candle."
+    },
+    {
+        id: "wellness-set",
+        name: "Wellness & Balance Set",
+        category: "Self-Care",
+        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80",
+        description: "Organic yoga mat, stainless steel water bottle, and aromatherapy diffuser."
+    }
+];
+---
+
+<div class="w-full max-w-6xl mx-auto py-12" id="gifting-catalog">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {products.map((product) => (
+            <div class="gift-card group relative bg-white/[0.01] border border-white/5 rounded-3xl overflow-hidden gsap-reveal">
+                <!-- Product Image Container -->
+                <div class="aspect-square overflow-hidden relative">
+                    <img 
+                        src={product.image} 
+                        alt={product.name}
+                        class="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                    />
+                    <!-- Quote Overlay -->
+                    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-6">
+                        <button class="quote-trigger w-full py-4 rounded-2xl bg-white text-black font-bold text-sm tracking-widest uppercase hover:bg-amber-400 transition-colors" data-product={product.name}>
+                            Request Quote
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-8 text-left">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-500/60 mb-2 block">
+                        {product.category}
+                    </span>
+                    <h4 class="text-xl font-bold text-white mb-3">{product.name}</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed line-clamp-2">
+                        {product.description}
+                    </p>
+                </div>
+
+                <!-- Decorative Accent -->
+                <div class="absolute top-4 right-4 w-2 h-2 rounded-full bg-amber-500/20 group-hover:bg-amber-500 transition-colors"></div>
+            </div>
+        ))}
+    </div>
+
+    <!-- Quick Contact / Form Trigger -->
+    <div class="mt-20 p-12 rounded-[3rem] bg-gradient-to-br from-amber-500/10 to-transparent border border-amber-500/10 text-center gsap-reveal">
+        <h3 class="text-3xl font-bold mb-4">Bulk Orders & Custom Branding</h3>
+        <p class="text-zinc-400 max-w-2xl mx-auto mb-8">
+            Looking for something unique? We offer custom logo engraving and bespoke packaging solutions for large-scale corporate orders.
+        </p>
+        <a href="#contact" class="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-amber-600 text-white font-bold hover:bg-amber-500 transition-all hover:scale-105">
+            Download Catalog
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        </a>
+    </div>
+</div>
+
+<script>
+    import { gsap } from 'gsap';
+
+    // Quote Trigger Animation
+    const buttons = document.querySelectorAll('.quote-trigger');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const productName = (e.currentTarget as HTMLElement).getAttribute('data-product');
+            
+            // Interaction Feedback
+            gsap.to(btn, {
+                scale: 0.95,
+                duration: 0.1,
+                yoyo: true,
+                repeat: 1
+            });
+
+            // Here you would typically trigger the Web3Forms modal or redirect
+            console.log(`Requesting quote for: ${productName}`);
+            alert(`Inquiry for "${productName}" initiated. Our team will contact you shortly.`);
+        });
+    });
+</script>

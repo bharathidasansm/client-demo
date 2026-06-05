@@ -6,6 +6,7 @@ import JobBoard from '../../components/sectors/JobBoard.astro';
 import MetricStats from '../../components/sectors/MetricStats.astro';
 import EnterpriseBreakdown from '../../components/sectors/EnterpriseBreakdown.astro';
 import LuxuryPortfolio from '../../components/sectors/LuxuryPortfolio.astro';
+import GiftingCatalog from '../../components/sectors/GiftingCatalog.astro';
 
 export async function getStaticPaths() {
   const services = Object.values(siteData.services);
@@ -75,7 +76,8 @@ const { service } = Astro.props;
                 {service.id === 'digital_marketing' && <MetricStats />}
                 {service.id === 'it_development' && <EnterpriseBreakdown />}
                 {service.id === 'real_estate' && <LuxuryPortfolio />}
-                {!['solar_services', 'recruitment', 'digital_marketing', 'it_development', 'real_estate'].includes(service.id) && <p>Premium {service.title} Module Loading...</p>}
+                {service.id === 'corporate_gifting' && <GiftingCatalog />}
+                {!['solar_services', 'recruitment', 'digital_marketing', 'it_development', 'real_estate', 'corporate_gifting'].includes(service.id) && <p>Premium {service.title} Module Loading...</p>}
             </div>
         </div>
     </section>
