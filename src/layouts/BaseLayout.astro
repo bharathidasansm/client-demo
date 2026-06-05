@@ -11,7 +11,7 @@ const { title, description = siteData.tagline } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-brand-dark text-white selection:bg-white/20">
+<html lang="en" class="dark bg-brand-dark text-white selection:bg-white/20">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -23,6 +23,23 @@ const { title, description = siteData.tagline } = Astro.props;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 		<ViewTransitions />
+		<script is:inline>
+			const theme = (() => {
+				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+					return localStorage.getItem('theme');
+				}
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					return 'dark';
+				}
+				return 'light';
+			})();
+			if (theme === 'light') {
+				document.documentElement.classList.remove('dark');
+			} else {
+				document.documentElement.classList.add('dark');
+			}
+			window.localStorage.setItem('theme', theme);
+		</script>
 	</head>
 	<body class="antialiased overflow-x-hidden">
 		<div id="smooth-wrapper">
@@ -32,6 +49,26 @@ const { title, description = siteData.tagline } = Astro.props;
 		</div>
 
 		<style is:global>
+			/* Light Mode Overrides (Global) */
+			html:not(.dark) body { background-color: #f4f4f5; color: #09090b; }
+			html:not(.dark) .bg-brand-dark { background-color: #f4f4f5 !important; }
+			html:not(.dark) .text-white { color: #09090b !important; }
+			html:not(.dark) .bg-white { background-color: #09090b !important; color: #ffffff !important; }
+			html:not(.dark) .text-black { color: #ffffff !important; }
+			html:not(.dark) .border-white\/10 { border-color: rgba(0,0,0,0.1) !important; }
+			html:not(.dark) .border-white\/5 { border-color: rgba(0,0,0,0.05) !important; }
+			html:not(.dark) .bg-white\/5 { background-color: rgba(0,0,0,0.05) !important; }
+			html:not(.dark) .bg-white\/\[0\.01\] { background-color: rgba(0,0,0,0.01) !important; }
+			html:not(.dark) .bg-white\/\[0\.02\] { background-color: rgba(0,0,0,0.02) !important; }
+			html:not(.dark) .bg-black\/20 { background-color: rgba(255,255,255,0.7) !important; }
+			html:not(.dark) .text-zinc-400 { color: #52525b !important; }
+			html:not(.dark) .text-zinc-500 { color: #71717a !important; }
+			html:not(.dark) .bg-zinc-950\/50 { background-color: #e4e4e7 !important; }
+			html:not(.dark) .hover\:bg-white\/10:hover { background-color: rgba(0,0,0,0.1) !important; }
+			html:not(.dark) .hover\:bg-white\/5:hover { background-color: rgba(0,0,0,0.05) !important; }
+			html:not(.dark) .hover\:text-white:hover { color: #09090b !important; }
+			html:not(.dark) .group-hover\:text-white:hover { color: #09090b !important; }
+
 			html {
 				scroll-behavior: smooth;
 			}

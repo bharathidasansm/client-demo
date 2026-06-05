@@ -31,5 +31,6 @@
 - **Navigation Fluidity**: Implemented CSS smooth scrolling for anchor links (e.g., "Explore Sectors") and integrated Astro's `<ViewTransitions />` component. 
 - **Bug Fixes (ViewTransitions)**: Wrapped all individual widget GSAP scripts in `astro:page-load` listeners. This guarantees that complex logic (like the Real Estate reveals or Solar Calculator sliders) initializes correctly when navigating via SPA View Transitions.
 - **Bug Fixes (Content)**: Resolved broken image URL in the Gifting catalog.
-- **Smart Routing (Lead Gen)**: Upgraded the "Consult Our Experts" buttons to pass URL parameters (e.g., `?industry=solar`). Implemented client-side JS on the Contact page to automatically read these parameters and pre-fill the form's "Industry of Interest" dropdown. Added similar logic for the "Download Catalog" button to pre-fill a custom inquiry message.
-- **Git Milestone**: All SPA bugs fixed, Smart Routing implemented, and changes securely committed.
+- **Smart Routing (Lead Gen)**: Upgraded the "Consult Our Experts" buttons to pass URL parameters (e.g., `?industry=solar`). Implemented client-side JS on the Contact page to automatically read these parameters and pre-fill the form's "Industry of Interest" dropdown.
+- **UI Cleanup**: Removed redundant "Explore Solutions" buttons from the dispatcher. Simplified the Corporate Gifting widget by removing quote overlays and relying strictly on image zoom for hover effects. Updated the gifting CTA to act as a standard "Contact Us" trigger.
+- **Git Milestone**: All UI simplifications and logic cleanups committed.
