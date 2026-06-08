@@ -21,7 +21,8 @@
     "phone": "+91 XXXXXXXXXX",
     "address": "Chennai, Tamil Nadu, India",
     "formEndpoint": "https://api.web3forms.com/submit",
-    "googleAnalyticsId": "G-XXXXXXXXXX"
+    "googleAnalyticsId": "G-BRC38EDQHF",
+    "web3FormsAccessKey": "47cf5750-7d94-42a7-9460-3f56debf1f01"
   },
   "services": {
     "recruitment": {

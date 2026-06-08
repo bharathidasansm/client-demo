@@ -22,6 +22,16 @@ const { title, description = siteData.tagline } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		
+		<!-- Google Analytics -->
+		<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${siteData.globalContact.googleAnalyticsId}`}></script>
+		<script is:inline define:vars={{ gaId: siteData.globalContact.googleAnalyticsId }}>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', gaId);
+		</script>
+
 		<ViewTransitions />
 		<script is:inline>
 			function applyTheme() {
