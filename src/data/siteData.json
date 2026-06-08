@@ -20,7 +20,8 @@
     "email": "info@viyukti.com",
     "phone": "+91 XXXXXXXXXX",
     "address": "Chennai, Tamil Nadu, India",
-    "formEndpoint": "https://api.web3forms.com/submit"
+    "formEndpoint": "https://api.web3forms.com/submit",
+    "googleAnalyticsId": "G-XXXXXXXXXX"
   },
   "services": {
     "recruitment": {
