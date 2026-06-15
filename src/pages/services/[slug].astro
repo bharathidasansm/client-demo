@@ -9,6 +9,7 @@ import LuxuryPortfolio from '../../components/sectors/LuxuryPortfolio.astro';
 import GiftingCatalog from '../../components/sectors/GiftingCatalog.astro';
 import Navigation from '../../components/Navigation.astro';
 import Footer from '../../components/Footer.astro';
+import { ChevronRight, CheckCircle2, Plus, ArrowRight, Target, Users, ShieldCheck, Zap } from 'lucide-astro';
 
 export async function getStaticPaths() {
   const services = Object.values(siteData.services);
@@ -19,10 +20,15 @@ export async function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+
+// Safely access deep data for recruitment
+const isRecruitment = service.id === 'recruitment';
+const rData = service;
 ---
 
 <BaseLayout title={service.title} description={service.hero.subtitle}>
     <Navigation />
+    
     <!-- Industry-Specific Hero -->
     <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
         <div class="absolute inset-0 z-0">
@@ -38,9 +44,14 @@ const { service } = Astro.props;
             <h1 class="text-5xl md:text-8xl font-bold tracking-tight mb-8 max-w-5xl mx-auto leading-[1.1]">
                 {service.hero.title}
             </h1>
-            <p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed gsap-reveal">
+            <p class="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-8 leading-relaxed gsap-reveal">
                 {service.hero.subtitle}
             </p>
+            {service.hero.description && (
+                <p class="text-zinc-500 max-w-2xl mx-auto mb-12 italic gsap-reveal">
+                    {service.hero.description}
+                </p>
+            )}
             <div class="flex flex-col sm:flex-row gap-5 justify-center gsap-reveal">
                 <a href={`/contact-us?industry=${service.id}`} class="px-10 py-4 rounded-full bg-white text-black font-bold hover:scale-105 transition-transform duration-300">
                     Consult Our Experts
@@ -49,37 +60,211 @@ const { service } = Astro.props;
         </div>
     </section>
 
-    <!-- Feature Grid -->
-    <section class="py-32 bg-brand-dark relative border-t border-white/5">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {service.features.map((feature) => (
-                    <div class="p-10 rounded-3xl border border-white/10 bg-white/[0.02] transition-all duration-500 gsap-card gsap-reveal">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 mb-8 flex items-center justify-center">
-                            <div class="w-6 h-6 bg-white/20 rounded-full animate-pulse"></div>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">{feature.title}</h3>
-                        <p class="text-zinc-500 leading-relaxed text-lg">{feature.desc}</p>
-                    </div>
-                ))}
+    {isRecruitment && (
+        <!-- Specialized Recruitment Sections -->
+        
+        <!-- Trust Partner Intro -->
+        <section class="py-24 bg-zinc-900/30 border-y border-white/5">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <h2 class="text-3xl md:text-5xl font-black mb-8 gsap-reveal">{rData.trustIntro.title}</h2>
+                <p class="text-xl text-zinc-400 leading-relaxed gsap-reveal">{rData.trustIntro.text}</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Dynamic Widget Area -->
-    <section class="py-24 border-t border-white/5 bg-zinc-950/50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-12">Industry Specific Solutions</h2>
-            <div class="p-12 rounded-3xl border border-dashed border-white/10 min-h-[300px] flex items-center justify-center">
-                {service.id === 'solar_services' && <SolarCalculator />}
-                {service.id === 'recruitment' && <JobBoard />}
-                {service.id === 'digital_marketing' && <MetricStats />}
-                {service.id === 'it_development' && <EnterpriseBreakdown />}
-                {service.id === 'real_estate' && <LuxuryPortfolio />}
-                {service.id === 'corporate_gifting' && <GiftingCatalog />}
-                {!['solar_services', 'recruitment', 'digital_marketing', 'it_development', 'real_estate', 'corporate_gifting'].includes(service.id) && <p>Premium {service.title} Module Loading...</p>}
+        <!-- Recruitment Solutions Grid -->
+        <section class="py-32 bg-zinc-950">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-black mb-20 text-center">Our Recruitment & Staffing Solutions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {rData.solutions.map((sol: any) => (
+                        <div class="p-10 rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all gsap-reveal group">
+                            <h3 class="text-2xl font-bold mb-6 text-white group-hover:text-blue-400 transition-colors">{sol.title}</h3>
+                            <p class="text-zinc-500 text-sm leading-relaxed mb-8">{sol.desc}</p>
+                            
+                            {sol.benefits && (
+                                <div class="space-y-3">
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-zinc-600">Key Benefits</p>
+                                    {sol.benefits.map((b: string) => (
+                                        <div class="flex items-center gap-3 text-xs text-zinc-400">
+                                            <CheckCircle2 size={14} class="text-blue-500" /> {b}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            {sol.idealFor && (
+                                <div class="space-y-3">
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-zinc-600">Ideal For</p>
+                                    {sol.idealFor.map((b: string) => (
+                                        <div class="flex items-center gap-3 text-xs text-zinc-400">
+                                            <div class="w-1.5 h-1.5 rounded-full bg-zinc-600"></div> {b}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            {sol.positions && (
+                                <div class="space-y-3">
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-zinc-600">Positions We Recruit</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        {sol.positions.map((p: string) => (
+                                            <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] font-bold text-zinc-300 border border-white/5">{p}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {sol.suitableFor && (
+                                <div class="space-y-3">
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-zinc-600">Suitable For</p>
+                                    {sol.suitableFor.map((b: string) => (
+                                        <div class="flex items-center gap-3 text-xs text-zinc-400">
+                                            <Plus size={14} class="text-zinc-600" /> {b}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            {sol.includes && (
+                                <div class="space-y-3">
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-zinc-600">Services Include</p>
+                                    <div class="grid grid-cols-1 gap-2">
+                                        {sol.includes.map((i: string) => (
+                                            <div class="text-[11px] text-zinc-400 border-l border-white/10 pl-4 py-1">{i}</div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Recruitment Process Stepper -->
+        <section class="py-32 bg-zinc-900/50 border-y border-white/5">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl font-black mb-6">Our Recruitment Process</h2>
+                    <p class="text-zinc-500">A structured 7-step methodology for talent excellence.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {rData.process.map((step: any, idx: number) => (
+                        <div class="p-8 rounded-3xl bg-zinc-950 border border-white/5 relative group hover:border-blue-500/30 transition-all gsap-reveal">
+                            <span class="text-5xl font-black text-white/[0.03] absolute top-4 right-8 group-hover:text-blue-500/10 transition-colors">0{idx+1}</span>
+                            <h4 class="text-lg font-bold mb-4 text-white">{step.title}</h4>
+                            <p class="text-zinc-500 text-sm leading-relaxed">{step.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries & Why Choose -->
+        <section class="py-32 bg-zinc-950">
+            <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-20">
+                <div class="gsap-reveal">
+                    <h2 class="text-4xl font-black mb-12">Industries We Serve</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        {rData.industries.map((ind: string) => (
+                            <div class="flex items-center gap-4 p-4 rounded-2xl border border-white/5 bg-white/[0.01]">
+                                <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                                <span class="text-zinc-300 text-sm font-medium">{ind}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div class="gsap-reveal">
+                    <h2 class="text-4xl font-black mb-12">Why Choose ViYukti?</h2>
+                    <div class="space-y-8">
+                        {rData.whyChoose.map((item: any) => (
+                            <div class="flex gap-6 group">
+                                <div class="shrink-0 w-12 h-12 rounded-2xl bg-blue-600/10 border border-blue-600/20 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                    <Target size={20} />
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2 text-white">{item.title}</h4>
+                                    <p class="text-zinc-500 leading-relaxed text-sm">{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supporting Every Size -->
+        <section class="py-32 bg-white text-black">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-6xl font-black mb-12">Supporting Businesses of Every Size</h2>
+                <p class="text-xl text-black/60 max-w-3xl mx-auto mb-16 font-medium">No hiring requirement is too small or too large for our team.</p>
+                <div class="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+                    {rData.targetClients.map((client: string) => (
+                        <div class="px-8 py-4 rounded-2xl border border-black/10 bg-black/5 font-bold tracking-tight text-lg hover:bg-black hover:text-white transition-all duration-300 cursor-default">
+                            {client}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-40 bg-zinc-900 border-t border-white/5 relative overflow-hidden">
+             <div class="container mx-auto px-6 text-center relative z-10">
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 max-w-5xl mx-auto leading-tight">
+                    {rData.finalCta.title}
+                </h2>
+                <p class="text-xl text-zinc-400 max-w-3xl mx-auto mb-8 leading-relaxed font-medium">
+                    {rData.finalCta.text}
+                </p>
+                <p class="text-lg text-white mb-16 italic opacity-60">
+                    {rData.finalCta.closing}
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="/contact-us?industry=recruitment" class="px-10 py-6 rounded-full bg-white text-black font-black tracking-widest uppercase text-sm hover:scale-105 transition-transform flex items-center justify-center gap-3">
+                        Find The Right Talent <ArrowRight size={20} />
+                    </a>
+                </div>
+            </div>
+        </section>
+    )}
+
+    {!isRecruitment && (
+        <>
+            <!-- Feature Grid for other services -->
+            <section class="py-32 bg-brand-dark relative border-t border-white/5">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {service.features.map((feature: any) => (
+                            <div class="p-10 rounded-3xl border border-white/10 bg-white/[0.02] transition-all duration-500 gsap-card gsap-reveal">
+                                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 mb-8 flex items-center justify-center">
+                                    <div class="w-6 h-6 bg-white/20 rounded-full animate-pulse"></div>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-4">{feature.title}</h3>
+                                <p class="text-zinc-500 leading-relaxed text-lg">{feature.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dynamic Widget Area -->
+            <section class="py-24 border-t border-white/5 bg-zinc-950/50">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-3xl font-bold mb-12">Industry Specific Solutions</h2>
+                    <div class="p-12 rounded-3xl border border-dashed border-white/10 min-h-[300px] flex items-center justify-center">
+                        {service.id === 'solar_services' && <SolarCalculator />}
+                        {service.id === 'recruitment' && <JobBoard />}
+                        {service.id === 'digital_marketing' && <MetricStats />}
+                        {service.id === 'it_development' && <EnterpriseBreakdown />}
+                        {service.id === 'real_estate' && <LuxuryPortfolio />}
+                        {service.id === 'corporate_gifting' && <GiftingCatalog />}
+                        {!['solar_services', 'recruitment', 'digital_marketing', 'it_development', 'real_estate', 'corporate_gifting'].includes(service.id) && <p>Premium {service.title} Module Loading...</p>}
+                    </div>
+                </div>
+            </section>
+        </>
+    )}
+    
     <Footer />
 </BaseLayout>

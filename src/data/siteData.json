@@ -20,40 +20,16 @@
       "description": "ViYukti is a modern business solutions company dedicated to helping organizations overcome challenges and unlock new opportunities. We work with startups, SMEs, enterprises, institutions, and individual clients by providing comprehensive services across multiple sectors."
     },
     "serviceSummaries": [
-      {
-        "title": "Recruitment & Staffing",
-        "desc": "Helping businesses build high-performing teams through permanent staffing, contract staffing, executive hiring, and workforce management solutions."
-      },
-      {
-        "title": "Digital Marketing",
-        "desc": "Driving brand visibility, lead generation, and online growth through SEO, social media marketing, paid advertising, content marketing, and performance-driven campaigns."
-      },
-      {
-        "title": "IT Development & Support",
-        "desc": "Delivering technology solutions including website development, mobile applications, custom software, ERP systems, CRM solutions, and ongoing IT support."
-      },
-      {
-        "title": "Corporate Gifting",
-        "desc": "Providing customized gifting solutions that strengthen employee engagement, customer relationships, and brand recognition."
-      },
-      {
-        "title": "Real Estate Solutions",
-        "desc": "Assisting businesses and individuals with property consulting, investment opportunities, commercial spaces, residential projects, and real estate advisory services."
-      },
-      {
-        "title": "Solar Installation & Services",
-        "desc": "Promoting sustainable energy through residential, commercial, and industrial solar solutions, maintenance services, and energy optimization."
-      }
+      { "title": "Recruitment & Staffing", "desc": "Helping businesses build high-performing teams through permanent staffing, contract staffing, executive hiring, and workforce management solutions." },
+      { "title": "Digital Marketing", "desc": "Driving brand visibility, lead generation, and online growth through SEO, social media marketing, paid advertising, content marketing, and performance-driven campaigns." },
+      { "title": "IT Development & Support", "desc": "Delivering technology solutions including website development, mobile applications, custom software, ERP systems, CRM solutions, and ongoing IT support." },
+      { "title": "Corporate Gifting", "desc": "Providing customized gifting solutions that strengthen employee engagement, customer relationships, and brand recognition." },
+      { "title": "Real Estate Solutions", "desc": "Assisting businesses and individuals with property consulting, investment opportunities, commercial spaces, residential projects, and real estate advisory services." },
+      { "title": "Solar Installation & Services", "desc": "Promoting sustainable energy through residential, commercial, and industrial solar solutions, maintenance services, and energy optimization." }
     ],
     "visionMission": {
-      "vision": {
-        "title": "Our Vision",
-        "text": "To become India's most trusted integrated business solutions partner by helping organizations achieve sustainable growth through innovation, technology, talent, and strategic support."
-      },
-      "mission": {
-        "title": "Our Mission",
-        "text": "Our mission is to empower businesses with practical solutions that drive measurable results. We strive to build long-term relationships by delivering excellence, maintaining transparency, and consistently creating value for our clients. We aim to be more than a service provider—we aim to be a growth partner that businesses can rely on at every stage of their journey."
-      }
+      "vision": { "title": "Our Vision", "text": "To become India's most trusted integrated business solutions partner by helping organizations achieve sustainable growth through innovation, technology, talent, and strategic support." },
+      "mission": { "title": "Our Mission", "text": "Our mission is to empower businesses with practical solutions that drive measurable results. We strive to build long-term relationships by delivering excellence, maintaining transparency, and consistently creating value for our clients. We aim to be more than a service provider—we aim to be a growth partner that businesses can rely on at every stage of their journey." }
     },
     "whyExists": {
       "title": "Why ViYukti Exists",
@@ -95,7 +71,10 @@
       "title": "Building a Better Future Together",
       "text": "At ViYukti, we believe that growth is not just about increasing revenue—it's about creating opportunities, embracing innovation, building strong teams, and making smarter business decisions. Whether you're looking to hire top talent, grow your online presence, develop technology solutions, strengthen business relationships, explore property opportunities, or transition to renewable energy, ViYukti is ready to help.",
       "commitment": "Our commitment is simple: Deliver meaningful solutions that create lasting impact."
-    }
+    },
+    "industries": [
+      "Information Technology", "Manufacturing", "Healthcare", "Education", "Retail & E-commerce", "Real Estate", "Hospitality", "Logistics & Supply Chain", "Financial Services", "Energy & Utilities", "Professional Services", "Startups & Emerging Businesses"
+    ]
   },
   "contactPage": {
     "hero": {
@@ -126,15 +105,7 @@
       "title": "Request a Free Consultation",
       "subtitle": "Looking for expert guidance for your business?",
       "description": "Our consultants can help you identify opportunities, solve challenges, and create a roadmap for growth.",
-      "areas": [
-        "Recruitment & Staffing",
-        "Digital Marketing",
-        "Website Development",
-        "Mobile App Development",
-        "Corporate Gifting",
-        "Real Estate Advisory",
-        "Solar Installation Services"
-      ],
+      "areas": [ "Recruitment & Staffing", "Digital Marketing", "Website Development", "Mobile App Development", "Corporate Gifting", "Real Estate Advisory", "Solar Installation Services" ],
       "closing": "Schedule a free consultation and discover how ViYukti can help your organization achieve its objectives."
     },
     "trustReasons": [
@@ -158,13 +129,7 @@
       "subtitle": "Get Smarter Business Solutions with ViYukti. Every business needs the right people, smart technology, strong visibility, and dependable support to grow. ViYukti delivers customized solutions designed around your goals, industry, budget, and long-term vision.",
       "description": "Whether you are a startup, growing company, corporate organization, or enterprise, our team works closely with you to understand your needs and provide practical, result-focused solutions."
     },
-    "whyChoose": [
-      "Trusted Business Solutions Partner",
-      "Multi-Industry Expertise",
-      "Customized Solutions",
-      "PAN India Services",
-      "Dedicated Support Team"
-    ],
+    "whyChoose": [ "Trusted Business Solutions Partner", "Multi-Industry Expertise", "Customized Solutions", "PAN India Services", "Dedicated Support Team" ],
     "whoWeAre": {
       "title": "Who We Are",
       "subtitle": "More Than a Service Provider. A Growth Partner Built for Modern Business.",
@@ -172,14 +137,7 @@
       "extendedDescription": "We understand that modern businesses require more than a single service provider. Companies today need reliable partners who can support multiple growth areas with efficiency, transparency, and expertise. That is why ViYukti works as a complete growth partner, offering integrated solutions tailored to your unique business requirements.",
       "approach": "Our approach is simple: understand your goals, identify the right opportunities, create a customized strategy, and deliver solutions that support long-term success.",
       "differentiation": "At ViYukti, we focus on building lasting business relationships through trust, quality, and measurable value. Our team combines industry knowledge, professional execution, and customer-first service to help businesses move forward with confidence.",
-      "reasons": [
-        "Industry Expertise",
-        "Dedicated Professionals",
-        "Customized Strategies",
-        "Transparent Process",
-        "Cost-Effective Solutions",
-        "Long-Term Partnership Approach"
-      ]
+      "reasons": [ "Industry Expertise", "Dedicated Professionals", "Customized Strategies", "Transparent Process", "Cost-Effective Solutions", "Long-Term Partnership Approach" ]
     },
     "leadershipQuote": {
       "text": "We don't just fill a brief—we understand your business well enough to anticipate the next one.",
@@ -189,59 +147,17 @@
       "title": "Why Partner With ViYukti?",
       "description": "Most businesses waste time, budget, and momentum managing too many vendors. ViYukti consolidates expertise across six high-impact domains—so you get a single point of accountability and a unified strategy built around your goals.",
       "cards": [
-        {
-          "title": "Multi-Service Expertise",
-          "tag": "One point of contact",
-          "description": "Stop managing a dozen vendors. ViYukti brings Recruitment, IT, Marketing, Solar, Real Estate, and Corporate Gifting under one roof—with a team that understands how each vertical connects to your bigger picture. Fewer handoffs. Faster decisions. Better results."
-        },
-        {
-          "title": "Industry Professionals",
-          "tag": "Domain-certified teams",
-          "description": "Every service vertical is led by experienced specialists—not generalists winging it. Our professionals bring sector-specific knowledge, refined through real-world delivery across industries and geographies. You work with people who have done it before."
-        },
-        {
-          "title": "Customized Approach",
-          "tag": "Discovery-first process",
-          "description": "No templates. No off-the-shelf packages. Every engagement starts with a deep discovery phase where we understand your goals, constraints, and timelines—then design a solution built specifically around you."
-        },
-        {
-          "title": "End-to-End Support",
-          "tag": "Post-delivery maintenance",
-          "description": "We don't hand you a plan and disappear. From the first consultation through implementation, go-live, and ongoing maintenance—ViYukti stays with you at every stage, ensuring continuity and accountability throughout the journey."
-        },
-        {
-          "title": "Cost Optimization",
-          "tag": "Measurable ROI",
-          "description": "Consolidated delivery eliminates redundancy, reduces vendor overhead, and improves ROI on every rupee spent. Our efficient processes are designed to maximize the value you get—without cutting corners on quality."
-        },
-        {
-          "title": "Technology-Driven Execution",
-          "tag": "Data-backed outcomes",
-          "description": "We leverage modern tools, automation, and data-driven strategies to deliver outcomes you can measure—not just activities you can report. Every engagement is backed by the right technology for the task at hand."
-        }
+        { "title": "Multi-Service Expertise", "tag": "One point of contact", "description": "Stop managing a dozen vendors. ViYukti brings Recruitment, IT, Marketing, Solar, Real Estate, and Corporate Gifting under one roof—with a team that understands how each vertical connects to your bigger picture. Fewer handoffs. Faster decisions. Better results." },
+        { "title": "Industry Professionals", "tag": "Domain-certified teams", "description": "Every service vertical is led by experienced specialists—not generalists winging it. Our professionals bring sector-specific knowledge, refined through real-world delivery across industries and geographies. You work with people who have done it before." },
+        { "title": "Customized Approach", "tag": "Discovery-first process", "description": "No templates. No off-the-shelf packages. Every engagement starts with a deep discovery phase where we understand your goals, constraints, and timelines—then design a solution built specifically around you." },
+        { "title": "End-to-End Support", "tag": "Post-delivery maintenance", "description": "We don't hand you a plan and disappear. From the first consultation through implementation, go-live, and ongoing maintenance—ViYukti stays with you at every stage, ensuring continuity and accountability throughout the journey." },
+        { "title": "Cost Optimization", "tag": "Measurable ROI", "description": "Consolidated delivery eliminates redundancy, reduces vendor overhead, and improves ROI on every rupee spent. Our efficient processes are designed to maximize the value you get—without cutting corners on quality." },
+        { "title": "Technology-Driven Execution", "tag": "Data-backed outcomes", "description": "We leverage modern tools, automation, and data-driven strategies to deliver outcomes you can measure—not just activities you can report. Every engagement is backed by the right technology for the task at hand." }
       ],
-      "statsBar": [
-        "6+ Service Verticals",
-        "PAN India Coverage",
-        "1 Unified Partner",
-        "24hr Response Commitment"
-      ],
+      "statsBar": [ "6+ Service Verticals", "PAN India Coverage", "1 Unified Partner", "24hr Response Commitment" ],
       "microCopy": "Free consultation · No commitment · Response within 24 hours"
     },
-    "industries": [
-      "Information Technology",
-      "Manufacturing",
-      "Healthcare",
-      "Education",
-      "Retail & E-commerce",
-      "Real Estate",
-      "Hospitality",
-      "Logistics & Supply Chain",
-      "Financial Services",
-      "Energy & Utilities",
-      "Professional Services",
-      "Startups & Emerging Businesses"
-    ],
+    "industries": [ "Information Technology", "Manufacturing", "Healthcare", "Retail & E-commerce", "Real Estate", "Education", "Hospitality", "Logistics", "Energy & Utilities", "Financial Services" ],
     "howWeWork": [
       { "step": "Step 1", "title": "Discovery & Consultation", "desc": "Understanding your business needs and objectives." },
       { "step": "Step 2", "title": "Strategic Planning", "desc": "Developing customized solutions." },
@@ -286,25 +202,77 @@
       "theme": { "primary": "blue-600", "accent": "sky-400" },
       "hero": {
         "title": "Build High-Performing Teams",
-        "subtitle": "We connect businesses with qualified professionals across industries through permanent staffing, contract staffing, executive hiring, and workforce management solutions.",
+        "subtitle": "Finding the right talent is one of the most critical factors in business success. At ViYukti, we help organizations build high-performing teams through strategic recruitment and staffing solutions tailored to their workforce requirements.",
+        "description": "Whether you're a startup looking for your first employees, a growing company expanding operations, or an enterprise seeking specialized talent, our recruitment experts provide efficient, reliable, and scalable hiring solutions. Our goal is simple: connect businesses with the right people at the right time.",
         "bgImage": "/images/recruitment-hero.webp"
       },
-      "servicesInclude": [
-        "Permanent Recruitment",
-        "Contract Staffing",
-        "Executive Search",
-        "Bulk Hiring",
-        "Payroll Support",
-        "HR Outsourcing"
+      "trustIntro": {
+        "title": "Your Trusted Recruitment & Staffing Partner",
+        "text": "Hiring skilled professionals can be time-consuming, expensive, and challenging in today's competitive job market. ViYukti simplifies the hiring process by leveraging industry expertise, advanced sourcing techniques, and an extensive talent network to identify candidates who align with your business goals and organizational culture."
+      },
+      "solutions": [
+        {
+          "title": "Permanent Staffing",
+          "desc": "Finding the right full-time employees is essential for building a stable and productive workforce. Our permanent staffing solutions help organizations recruit qualified professionals across various industries and job functions.",
+          "benefits": ["Access to pre-screened candidates", "Reduced hiring time", "Improved employee retention", "Industry-specific recruitment expertise", "Better cultural fit"]
+        },
+        {
+          "title": "Contract Staffing",
+          "desc": "Businesses often require temporary professionals to support short-term projects, seasonal demands, or specialized assignments. Our contract staffing services provide flexible workforce solutions that help organizations remain agile and efficient.",
+          "idealFor": ["Project-based hiring", "Seasonal workforce requirements", "Temporary replacements", "Specialized skill requirements", "Workforce expansion"]
+        },
+        {
+          "title": "Executive Search & Leadership Hiring",
+          "desc": "Leadership plays a crucial role in organizational growth and performance. ViYukti specializes in identifying and attracting experienced executives and senior professionals who can drive strategic success.",
+          "positions": ["CEOs", "Directors", "Vice Presidents", "General Managers", "Department Heads", "Senior Leadership Roles"]
+        },
+        {
+          "title": "Bulk Hiring Solutions",
+          "desc": "When businesses need to recruit multiple candidates within a short timeframe, our bulk hiring services ensure fast and efficient workforce acquisition.",
+          "suitableFor": ["Manufacturing Facilities", "Retail Chains", "Customer Support Teams", "Logistics Operations", "Large Expansion Projects", "Startup Growth Initiatives"]
+        },
+        {
+          "title": "HR Outsourcing Services",
+          "desc": "Managing HR operations internally can consume valuable resources. Our HR outsourcing services help organizations streamline workforce management while reducing administrative burdens.",
+          "includes": ["Employee Onboarding", "HR Documentation", "Attendance Management", "Employee Record Maintenance", "Compliance Support", "Workforce Administration"]
+        },
+        {
+          "title": "Payroll Management Services",
+          "desc": "Accurate payroll processing is essential for maintaining employee satisfaction and regulatory compliance. Our payroll solutions help businesses manage employee compensation efficiently and securely.",
+          "includes": ["Salary Processing", "Tax Calculations", "Statutory Compliance", "Payslip Generation", "Employee Benefits Administration", "Reporting & Documentation"]
+        }
       ],
-      "cta": "Learn More",
-      "features": [
-        { "title": "Executive Search", "desc": "Sourcing top-tier leadership roles." },
-        { "title": "Contract Staffing", "desc": "Flexible, on-demand workforce scaling." },
-        { "title": "RPO Services", "desc": "End-to-end recruitment process outsourcing." }
+      "industries": ["Information Technology", "Manufacturing", "Healthcare", "Retail & E-commerce", "Real Estate", "Education", "Logistics & Supply Chain", "Hospitality", "Financial Services", "Energy & Utilities", "Telecommunications", "Professional Services"],
+      "whyChoose": [
+        { "title": "Extensive Talent Network", "desc": "We maintain access to a large pool of qualified professionals across multiple industries and experience levels." },
+        { "title": "Faster Hiring Process", "desc": "Our structured recruitment methodology reduces hiring timelines and helps businesses fill positions quickly." },
+        { "title": "Quality Candidate Screening", "desc": "Every candidate undergoes thorough evaluation to ensure they meet role-specific requirements and organizational expectations." },
+        { "title": "Customized Recruitment Solutions", "desc": "We understand that every business is unique. Our hiring strategies are tailored to your workforce goals and company culture." },
+        { "title": "Cost-Effective Hiring", "desc": "Our services help reduce recruitment costs while improving hiring outcomes." },
+        { "title": "Dedicated Recruitment Experts", "desc": "Our experienced consultants provide personalized support throughout the hiring process." }
       ],
-      "interactiveData": {
-        "jobCategories": ["IT", "Non-IT", "Management", "Operations"]
+      "process": [
+        { "step": "Step 1", "title": "Requirement Analysis", "desc": "We work closely with clients to understand job roles, skills, experience requirements, and organizational culture." },
+        { "step": "Step 2", "title": "Talent Sourcing", "desc": "Using advanced recruitment tools, databases, referrals, and industry networks, we identify suitable candidates." },
+        { "step": "Step 3", "title": "Candidate Screening", "desc": "We evaluate applicants through resume reviews, interviews, and skill assessments." },
+        { "step": "Step 4", "title": "Shortlisting", "desc": "Only the most qualified candidates are presented for client consideration." },
+        { "step": "Step 5", "title": "Interview Coordination", "desc": "We assist with interview scheduling, candidate communication, and feedback management." },
+        { "step": "Step 6", "title": "Offer Management", "desc": "Our team supports salary negotiations, offer acceptance, and onboarding processes." },
+        { "step": "Step 7", "title": "Post-Placement Support", "desc": "We continue supporting both clients and candidates to ensure successful integration." }
+      ],
+      "benefits": [ "Access to top talent", "Reduced hiring risks", "Faster recruitment cycles", "Improved workforce quality", "Better employee retention", "Increased operational efficiency", "Reduced HR workload" ],
+      "targetClients": [ "Startups", "Small Businesses", "Medium Enterprises", "Large Corporations", "Educational Institutions", "Healthcare Organizations", "Manufacturing Companies", "Technology Firms" ],
+      "faqs": [
+        { "q": "What types of recruitment services do you offer?", "a": "We provide permanent staffing, contract staffing, executive search, bulk hiring, HR outsourcing, and payroll management services." },
+        { "q": "How quickly can positions be filled?", "a": "Hiring timelines vary based on role complexity, but our recruitment process is designed to reduce time-to-hire significantly." },
+        { "q": "Do you recruit across India?", "a": "Yes. We provide PAN India recruitment and staffing solutions." },
+        { "q": "Can you help with specialized hiring requirements?", "a": "Absolutely. Our recruitment consultants have experience sourcing candidates for technical, managerial, and industry-specific roles." },
+        { "q": "Do you support startups?", "a": "Yes. We regularly help startups build strong teams during critical growth stages." }
+      ],
+      "finalCta": {
+        "title": "Let's Build Your Workforce Together",
+        "text": "The success of every organization starts with its people. At ViYukti, we help businesses attract, hire, and retain talented professionals who contribute to long-term growth and success.",
+        "closing": "Whether you need a single specialist, a leadership team, or a large workforce, our recruitment and staffing experts are ready to help."
       }
     },
     "digital_marketing": {
@@ -317,14 +285,7 @@
         "subtitle": "Our data-driven digital marketing services help brands increase visibility, generate leads, and maximize ROI.",
         "bgImage": "/images/marketing-hero.webp"
       },
-      "servicesInclude": [
-        "SEO Services",
-        "Google Ads",
-        "Social Media Marketing",
-        "Content Marketing",
-        "Performance Marketing",
-        "Website Optimization"
-      ],
+      "servicesInclude": [ "SEO Services", "Google Ads", "Social Media Marketing", "Content Marketing", "Performance Marketing", "Website Optimization" ],
       "cta": "Grow Your Business",
       "features": [
         { "title": "Performance Marketing", "desc": "High-ROI paid ad campaigns." },
@@ -341,14 +302,7 @@
         "subtitle": "We provide custom software development, web applications, mobile apps, and IT support services to help businesses stay ahead in the digital era.",
         "bgImage": "/images/it-hero.webp"
       },
-      "servicesInclude": [
-        "Website Development",
-        "Mobile App Development",
-        "ERP Solutions",
-        "CRM Development",
-        "Cloud Services",
-        "Technical Support"
-      ],
+      "servicesInclude": [ "Website Development", "Mobile App Development", "ERP Solutions", "CRM Development", "Cloud Services", "Technical Support" ],
       "cta": "Explore IT Services",
       "features": [
         { "title": "Custom Software", "desc": "Tailor-made web and enterprise applications." },
@@ -365,14 +319,7 @@
         "subtitle": "Premium corporate gifting solutions designed to enhance employee engagement, customer loyalty, and brand recognition.",
         "bgImage": "/images/gifting-hero.webp"
       },
-      "servicesInclude": [
-        "Employee Gifts",
-        "Festival Gifts",
-        "Client Gifts",
-        "Customized Merchandise",
-        "Promotional Products",
-        "Luxury Corporate Gifts"
-      ],
+      "servicesInclude": [ "Employee Gifts", "Festival Gifts", "Client Gifts", "Customized Merchandise", "Promotional Products", "Luxury Corporate Gifts" ],
       "cta": "View Gift Solutions",
       "features": [
         { "title": "Employee Welcome Kits", "desc": "Customized premium onboarding merchandise." },
@@ -389,14 +336,7 @@
         "subtitle": "Helping individuals and businesses find commercial and residential properties that align with their investment goals.",
         "bgImage": "/images/estate-hero.webp"
       },
-      "servicesInclude": [
-        "Residential Properties",
-        "Commercial Properties",
-        "Property Consultation",
-        "Investment Advisory",
-        "Property Management",
-        "Project Marketing"
-      ],
+      "servicesInclude": [ "Residential Properties", "Commercial Properties", "Property Consultation", "Investment Advisory", "Property Management", "Project Marketing" ],
       "cta": "Explore Properties",
       "features": [
         { "title": "Commercial Spaces", "desc": "Premium corporate offices and retail spaces." },
@@ -413,14 +353,7 @@
         "subtitle": "Providing reliable solar solutions for residential, commercial, and industrial sectors.",
         "bgImage": "/images/solar-hero.webp"
       },
-      "servicesInclude": [
-        "Rooftop Solar Installation",
-        "Commercial Solar Projects",
-        "Solar Maintenance",
-        "Energy Audits",
-        "AMC Services",
-        "Solar Consultancy"
-      ],
+      "servicesInclude": [ "Rooftop Solar Installation", "Commercial Solar Projects", "Solar Maintenance", "Energy Audits", "AMC Services", "Solar Consultancy" ],
       "cta": "Go Solar",
       "features": [
         { "title": "On-Grid Solutions", "desc": "Seamless utility-interactive solar grids." },
