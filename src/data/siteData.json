@@ -313,16 +313,91 @@
       "slug": "it-development-support",
       "theme": { "primary": "cyan-600", "accent": "indigo-500" },
       "hero": {
-        "title": "Technology Solutions That Scale",
-        "subtitle": "We provide custom software development, web applications, mobile apps, and IT support services to help businesses stay ahead in the digital era.",
+        "title": "IT Development & Support Services",
+        "subtitle": "At ViYukti, we provide comprehensive IT Development & Support Services designed to help businesses leverage technology effectively.",
+        "description": "From website development and mobile applications to custom software, ERP systems, cloud solutions, and ongoing technical support, we help businesses transform ideas into scalable digital solutions.",
         "bgImage": "/images/it-hero.webp"
       },
-      "servicesInclude": [ "Website Development", "Mobile App Development", "ERP Solutions", "CRM Development", "Cloud Services", "Technical Support" ],
-      "cta": "Explore IT Services",
-      "features": [
-        { "title": "Custom Software", "desc": "Tailor-made web and enterprise applications." },
-        { "title": "Managed IT Services", "desc": "24/7 infrastructure support and monitoring." }
-      ]
+      "trustIntro": {
+        "title": "Transforming Businesses Through Technology",
+        "text": "Technology is no longer just a support function—it is a strategic business asset. ViYukti helps businesses embrace digital transformation by providing end-to-end technology services that address both current needs and future growth opportunities."
+      },
+      "whyMatters": [ "Accelerate Digital Transformation", "Enhance Operational Efficiency", "Improve Customer Experience", "Create Competitive Advantages", "Scalable Business Growth", "Data-Driven Decision Making", "Future-Ready Infrastructure", "Reduced Operational Costs" ],
+      "solutions": [
+        { 
+          "title": "Website Development", 
+          "desc": "We create modern, responsive, and user-friendly websites that reflect your brand and help achieve your business goals.", 
+          "includes": ["Corporate Websites", "Business Websites", "E-commerce Websites", "Landing Pages", "CMS Development", "Website Redesign Services", "Custom Web Applications"],
+          "benefits": ["Mobile-Friendly Design", "Fast Loading Speed", "SEO-Optimized Structure", "Enhanced User Experience", "Scalable Architecture"]
+        },
+        { 
+          "title": "Mobile App Development", 
+          "desc": "Our development team builds intuitive, secure, and high-performance mobile applications for various industries.", 
+          "includes": ["Android App Development", "iOS App Development", "Hybrid App Development", "Enterprise Applications", "Customer Engagement Apps", "Business Process Applications"],
+          "benefits": ["User-Friendly Interface", "High Performance", "Secure Architecture", "Cross-Platform Compatibility", "Future Scalability"]
+        },
+        { 
+          "title": "Custom Software Development", 
+          "desc": "Our custom software development services are designed to create tailored applications that solve specific business challenges.", 
+          "includes": ["Business Management Systems", "Workflow Automation Software", "Inventory Management Systems", "CRM Solutions", "Industry-Specific Applications", "Enterprise Software"],
+          "benefits": ["Improved Efficiency", "Reduced Manual Processes", "Better Data Management", "Increased Productivity", "Business-Specific Functionality"]
+        },
+        { 
+          "title": "ERP Solutions", 
+          "desc": "Enterprise Resource Planning (ERP) systems help organizations manage and integrate key business processes within a centralized platform.", 
+          "includes": ["Human Resources", "Finance & Accounting", "Inventory Management", "Procurement", "Sales Management", "Operations Management"],
+          "benefits": ["Centralized Data Management", "Improved Decision-Making", "Enhanced Productivity", "Process Automation", "Better Reporting Capabilities"]
+        },
+        { 
+          "title": "CRM Development", 
+          "desc": "Customer Relationship Management systems help businesses manage customer interactions, sales processes, and customer service activities.", 
+          "includes": ["Lead Management", "Customer Database", "Sales Tracking", "Marketing Automation", "Customer Support Management", "Reporting & Analytics"],
+          "benefits": ["Improved Customer Satisfaction", "Increased Sales Opportunities", "Strengthened Long-Term Relationships", "Data-Driven Insights", "Streamlined Communication"]
+        },
+        { 
+          "title": "Cloud Solutions", 
+          "desc": "Cloud technology enables businesses to access data and applications securely from anywhere while improving scalability and operational flexibility.", 
+          "includes": ["Cloud Migration", "Cloud Infrastructure Setup", "Cloud Security Solutions", "Backup & Disaster Recovery", "Cloud Application Deployment"],
+          "benefits": ["Reduced Infrastructure Costs", "Enhanced Accessibility", "Improved Security", "Scalability", "Business Continuity"]
+        },
+        { 
+          "title": "IT Support & Maintenance", 
+          "desc": "Technology systems require ongoing monitoring, maintenance, and support to ensure optimal performance.", 
+          "includes": ["Technical Troubleshooting", "Software Updates", "System Monitoring", "Performance Optimization", "Security Maintenance", "User Support"],
+          "benefits": ["Secure & Stable Systems", "Operational Continuity", "Proactive Problem Solving", "System Longevity", "Expert Technical Assistance"]
+        }
+      ],
+      "process": [
+        { "step": "Step 1", "title": "Discovery & Consultation", "desc": "We begin by understanding your objectives, challenges, and requirements." },
+        { "step": "Step 2", "title": "Planning & Strategy", "desc": "Our team develops a detailed roadmap for successful implementation." },
+        { "step": "Step 3", "title": "Design & Development", "desc": "We create user-focused designs and build robust technical solutions." },
+        { "step": "Step 4", "title": "Testing & Quality Assurance", "desc": "Every solution undergoes comprehensive testing before deployment." },
+        { "step": "Step 5", "title": "Deployment", "desc": "We launch the solution with minimal disruption to your operations." },
+        { "step": "Step 6", "title": "Ongoing Support", "desc": "Continuous maintenance and technical support ensure long-term success." }
+      ],
+      "industries": ["Information Technology", "Healthcare", "Education", "Manufacturing", "Real Estate", "Retail & E-commerce", "Logistics", "Hospitality", "Financial Services", "Professional Services"],
+      "whyChoose": [
+        { "title": "Experienced Technology Team", "desc": "Our professionals bring expertise across multiple technologies, frameworks, and business domains." },
+        { "title": "Customized Solutions", "desc": "We develop solutions tailored to your specific requirements rather than relying on one-size-fits-all approaches." },
+        { "title": "Quality-Focused Development", "desc": "Every project follows structured development processes and quality assurance standards." },
+        { "title": "Scalability", "desc": "Our solutions are designed to grow alongside your business." },
+        { "title": "Security First", "desc": "We implement industry best practices to protect your data, systems, and applications." },
+        { "title": "Long-Term Support", "desc": "Beyond development, we provide ongoing support to help maximize the value of your technology investments." }
+      ],
+      "benefits": [ "Faster Digital Transformation", "Improved Operational Efficiency", "Enhanced Customer Experience", "Reduced Technology Challenges", "Scalable Business Solutions", "Dedicated Technical Expertise", "Cost-Effective Development" ],
+      "targetClients": [ "Startups", "Growing SMEs", "Corporate Enterprises", "E-commerce Brands", "Educational Institutions", "Healthcare Organizations", "Manufacturing Companies" ],
+      "faqs": [
+        { "q": "Do you develop custom software solutions?", "a": "Yes. We design and develop software tailored to your business requirements." },
+        { "q": "Can you redesign an existing website?", "a": "Absolutely. We provide website redesign and modernization services." },
+        { "q": "Do you offer mobile app development?", "a": "Yes. We develop Android, iOS, and hybrid mobile applications." },
+        { "q": "Do you provide ongoing support after project completion?", "a": "Yes. We offer maintenance, monitoring, updates, and technical support services." },
+        { "q": "Can you help with cloud migration?", "a": "Yes. We provide complete cloud consulting, migration, and infrastructure support." }
+      ],
+      "finalCta": {
+        "title": "Let's Build Your Digital Future",
+        "text": "Technology should empower your business, not complicate it. Whether you need a website, mobile application, custom software, ERP system, cloud solution, or ongoing IT support, our team is ready to help.",
+        "closing": "Partner with ViYukti and transform your business through smart technology solutions designed for growth, efficiency, and long-term success."
+      }
     },
     "corporate_gifting": {
       "id": "corporate_gifting",

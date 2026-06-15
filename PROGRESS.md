@@ -1,5 +1,13 @@
 # ViYukti Project Progress
 
+## [2026-06-16] Phase 12: IT Development & Support Deep-Dive
+- **Copy-Perfect Data Expansion**: Refined `src/data/siteData.json` with the client's detailed service copy, covering Website Development, Mobile Apps, Custom Software, ERP, CRM, Cloud Solutions, and IT Support.
+- **Dynamic Specialized Layout**: Upgraded `src/pages/services/[slug].astro` to enable the "Complex Content" architecture for the IT sector:
+    - **Adaptive Solutions Grid**: Showcases technical inclusions and service depth for 7 distinct technology verticals.
+    - **Methodology Stepper**: Implemented a 6-step lifecycle from Discovery & Consultation to Deployment & Ongoing Support.
+    - **Technical Trust & Benefits**: Integrated refined whyChoose metrics and industry-specific benefits.
+- **Local Git Milestone**: Committed all changes locally.
+
 ## [2026-06-15] Phase 11: Digital Marketing Deep-Dive
 - **Comprehensive Data Expansion**: Enriched `src/data/siteData.json` with a massive update to the digital marketing sector, including 8 solution categories (SEO, PPC, Social Media, Content, etc.), a 5-step process, and importance checklists.
 - **Dynamic Specialized Layout**: Upgraded `src/pages/services/[slug].astro` to a highly flexible "Complex Content" architecture:
