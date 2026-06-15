@@ -303,23 +303,7 @@ const { homePage } = siteData;
 
 	gsap.registerPlugin(ScrollTrigger);
 
-	function initAnimations() {
-		// General Reveal
-		gsap.utils.toArray('.gsap-reveal').forEach((el: any) => {
-			gsap.from(el, {
-				scrollTrigger: {
-					trigger: el,
-					start: 'top 85%',
-					toggleActions: 'play none none reverse'
-				},
-				y: 30,
-				opacity: 0,
-				filter: 'blur(10px)',
-				duration: 1.2,
-				ease: 'expo.out'
-			});
-		});
-
+	function initCounters() {
 		// Counter Animation
 		gsap.utils.toArray('.counter-value').forEach((el: any) => {
 			const target = parseInt(el.getAttribute('data-target'));
@@ -343,8 +327,6 @@ const { homePage } = siteData;
 
 	// Initialize on load
 	document.addEventListener('astro:page-load', () => {
-		// Clean up previous triggers
-		ScrollTrigger.getAll().forEach(t => t.kill());
-		initAnimations();
+		initCounters();
 	});
 </script>
