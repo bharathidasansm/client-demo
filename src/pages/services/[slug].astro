@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 const { service } = Astro.props;
 
 // Flag for pages with expanded detailed content
-const hasComplexContent = ['recruitment', 'digital_marketing', 'it_development', 'corporate_gifting', 'real_estate'].includes(service.id);
+const hasComplexContent = ['recruitment', 'digital_marketing', 'it_development', 'corporate_gifting', 'real_estate', 'solar_services'].includes(service.id);
 const sData = service as any;
 ---
 

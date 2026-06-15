@@ -573,16 +573,85 @@
       "slug": "solar-installation-services",
       "theme": { "primary": "emerald-600", "accent": "lime-400" },
       "hero": {
-        "title": "Sustainable Energy for the Future",
-        "subtitle": "Providing reliable solar solutions for residential, commercial, and industrial sectors.",
+        "title": "Solar Installation & Services",
+        "subtitle": "At ViYukti, we provide comprehensive solar installation and maintenance services for residential, commercial, and industrial clients.",
+        "description": "Our team of experienced professionals delivers end-to-end solar solutions, from initial consultation and site assessment to system design, installation, monitoring, and ongoing maintenance.",
         "bgImage": "/images/solar-hero.webp"
       },
-      "servicesInclude": [ "Rooftop Solar Installation", "Commercial Solar Projects", "Solar Maintenance", "Energy Audits", "AMC Services", "Solar Consultancy" ],
-      "cta": "Go Solar",
-      "features": [
-        { "title": "On-Grid Solutions", "desc": "Seamless utility-interactive solar grids." },
-        { "title": "Industrial Rooftops", "desc": "High-capacity arrays generating massive carbon offsets." }
-      ]
+      "trustIntro": {
+        "title": "Power Your Future with Clean Energy",
+        "text": "Solar energy is one of the fastest-growing renewable energy sources worldwide. At ViYukti, we help clients transition to clean energy through advanced solar technologies, professional installation services, and long-term support."
+      },
+      "whyMatters": [ "Lower Electricity Bills", "Long-Term Cost Savings", "Sustainable Energy Production", "Reduced Carbon Footprint", "Increased Property Value", "Low Maintenance Requirements", "Energy Independence", "Government Incentives & Subsidies" ],
+      "solutions": [
+        { 
+          "title": "Residential Solar Installation", 
+          "desc": "Transform your home into an energy-efficient property with rooftop solar solutions designed to meet your daily electricity needs.", 
+          "includes": ["Rooftop Solar Panels", "Grid-Tied Solar Systems", "Hybrid Solar Systems", "Solar Inverter Installation", "Battery Backup Solutions", "Solar System Maintenance"],
+          "benefits": ["Maximized Generation", "Reduced Expenses", "Energy Security", "Carbon Offset", "Property Appreciation"]
+        },
+        { 
+          "title": "Commercial Solar Solutions", 
+          "desc": "Businesses can significantly reduce operational costs and improve sustainability by adopting customized solar energy systems.", 
+          "includes": ["Office Buildings", "Retail Stores", "Shopping Complexes", "Educational Institutions", "Hotels & Resorts", "Healthcare Facilities"],
+          "benefits": ["Operational Cost Savings", "Faster ROI", "Sustainability Leadership", "Energy Reliability", "Tax Benefits"]
+        },
+        { 
+          "title": "Industrial Solar Installation", 
+          "desc": "Our industrial solar solutions help organizations optimize high energy usage and improve operational efficiency across large-scale facilities.", 
+          "includes": ["Manufacturing Plants", "Warehouses", "Logistics Facilities", "Processing Units", "Industrial Parks"],
+          "benefits": ["Significant Cost Reduction", "Scalable Power", "Performance Stability", "Compliance Support", "Maximized Output"]
+        },
+        { 
+          "title": "Solar Maintenance & Support", 
+          "desc": "Regular maintenance is essential for maintaining peak performance and extending the lifespan of your solar investment.", 
+          "includes": ["Solar Panel Cleaning", "System Inspections", "Performance Monitoring", "Inverter Checks", "Wiring Inspections", "Preventive Maintenance"],
+          "benefits": ["Peak Efficiency", "System Longevity", "Reduced Downtime", "Safety Assurance", "Expert Troubleshooting"]
+        },
+        { 
+          "title": "Annual Maintenance Contracts (AMC)", 
+          "desc": "ViYukti offers comprehensive AMC services to ensure consistent energy generation and technical priority throughout the year.", 
+          "includes": ["Scheduled Inspections", "Priority Technical Support", "Performance Optimization", "Efficiency Reports", "Minor Repair Support"],
+          "benefits": ["Hassle-Free Operation", "Guaranteed Performance", "Extended Warranty Support", "Predictable Costs", "Expert Care"]
+        },
+        { 
+          "title": "Solar Consultancy Services", 
+          "desc": "Our experts guide you through every stage, from feasibility studies and energy audits to vendor evaluation and regulatory guidance.", 
+          "includes": ["Feasibility Studies", "Energy Audits", "Project Planning", "Vendor Evaluation", "ROI Analysis", "Regulatory Guidance"],
+          "benefits": ["Informed Decisions", "Optimized ROI", "Regulatory Compliance", "Risk Mitigation", "Strategic Planning"]
+        }
+      ],
+      "process": [
+        { "step": "Step 1", "title": "Consultation", "desc": "We begin by understanding your energy goals, consumption patterns, and project requirements." },
+        { "step": "Step 2", "title": "Site Survey", "desc": "Our team conducts a detailed assessment of roof structure, sunlight exposure, and electrical systems." },
+        { "step": "Step 3", "title": "System Design", "desc": "A customized technical blueprint is developed, optimized for maximum efficiency and ROI." },
+        { "step": "Step 4", "title": "Installation", "desc": "Certified professionals execute the installation with strict adherence to safety and quality standards." },
+        { "step": "Step 5", "title": "Testing & Commissioning", "desc": "The system is rigorously tested for performance, safety, and seamless grid synchronization." },
+        { "step": "Step 6", "title": "Ongoing Support", "desc": "We provide continuous performance monitoring, maintenance, and expert technical assistance." }
+      ],
+      "industries": ["Residential Communities", "Commercial Buildings", "Manufacturing Industries", "Educational Institutions", "Hospitals", "Hotels & Hospitality", "Warehouses", "Agricultural Facilities", "Government Organizations"],
+      "whyChoose": [
+        { "title": "Experienced Professionals", "desc": "Our solar specialists manage projects of all sizes with deep technical expertise." },
+        { "title": "Customized Solutions", "desc": "Every project is designed specifically for your energy needs, roof layout, and budget." },
+        { "title": "Quality Components", "desc": "We work with top-tier solar technologies and equipment to ensure decades of performance." },
+        { "title": "End-to-End Service", "desc": "From initial energy audit and design to installation and multi-year maintenance." },
+        { "title": "Transparent Approach", "desc": "Accurate ROI estimates, clear technical specs, and honest professional advice." },
+        { "title": "Long-Term Partnership", "desc": "We remain your energy partner long after launch through dedicated support and AMC services." }
+      ],
+      "benefits": [ "Lower Electricity Bills", "Long-Term Cost Savings", "Sustainable Operations", "Energy Independence", "Low Maintenance", "Increased Asset Value", "Carbon Footprint Reduction", "Government Subsidies Support" ],
+      "targetClients": [ "Homeowners", "Apartment Associations", "Industrial SMEs", "Large Manufacturing Units", "Commercial Retailers", "Institutional Campuses", "Cold Storage Units" ],
+      "faqs": [
+        { "q": "How much can I save with solar energy?", "a": "Savings depend on energy consumption and system size. Most users see 70-90% reduction in electricity bills." },
+        { "q": "How long does a solar installation take?", "a": "Timelines vary by size. Residential systems typically take 3-5 days, while commercial projects take 2-4 weeks." },
+        { "q": "Is solar energy suitable for businesses?", "a": "Yes. It's one of the best investments for businesses to reduce fixed operational costs and claim accelerated depreciation." },
+        { "q": "Do solar panels require maintenance?", "a": "Minimal maintenance is needed. Regular cleaning and an annual electrical inspection ensure peak performance." },
+        { "q": "Can solar systems work during cloudy weather?", "a": "Yes. They generate electricity in daylight, though at a lower efficiency than on bright sunny days." }
+      ],
+      "finalCta": {
+        "title": "Invest in a Sustainable Future",
+        "text": "Solar energy is more than just an alternative power source—it's an investment in long-term savings, energy independence, and environmental responsibility.",
+        "closing": "Contact ViYukti today to schedule a consultation and discover how solar energy can transform your home, business, or industrial facility."
+      }
     }
   }
 }
