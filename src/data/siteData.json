@@ -249,6 +249,9 @@
         "title": "Let's Build Your Workforce Together",
         "text": "The success of every organization starts with its people. At ViYukti, we help businesses attract, hire, and retain talented professionals who contribute to long-term growth and success.",
         "closing": "Whether you need a single specialist, a leadership team, or a large workforce, our recruitment and staffing experts are ready to help."
+      },
+      "interactiveData": {
+        "jobCategories": ["IT", "Non-IT", "Management", "Operations"]
       }
     },
     "digital_marketing": {

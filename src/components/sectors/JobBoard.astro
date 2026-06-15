@@ -1,6 +1,6 @@
 ---
 import siteData from '../../data/siteData.json';
-const categories = siteData.services.recruitment.interactiveData.jobCategories;
+const categories = siteData?.services?.recruitment?.interactiveData?.jobCategories || ["IT", "Non-IT", "Management", "Operations"];
 
 // Mock jobs for the interactive layout
 const mockJobs = [
