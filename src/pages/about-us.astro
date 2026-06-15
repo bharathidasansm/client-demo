@@ -5,21 +5,25 @@ import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import { ChevronRight, Target, Rocket, Lightbulb, Users, ShieldCheck, Heart } from 'lucide-astro';
 
-// Robust data fetching with fallbacks
-const aboutPage = siteData.aboutPage || {};
-const hero = aboutPage.hero || { title: "About ViYukti", description: "", mission: "" };
-const whoWeAre = aboutPage.whoWeAre || { title: "Who We Are", description: "" };
-const visionMission = aboutPage.visionMission || { vision: { title: "Vision", text: "" }, mission: { title: "Mission", text: "" } };
-const whyExists = aboutPage.whyExists || { title: "Why We Exist", text: "", solution: "" };
-const differentiators = aboutPage.differentiators || { title: "Differentiators", items: [] };
-const values = aboutPage.values || { title: "Core Values", items: [] };
-const approach = aboutPage.approach || { title: "Our Approach", items: [] };
-const aboutFooter = aboutPage.footer || { title: "", text: "", commitment: "" };
+// Safely access data with multiple levels of protection
+const getSafe = (obj: any, path: string, fallback: any = "") => {
+  return path.split('.').reduce((acc, part) => acc && acc[part], obj) || fallback;
+};
 
-const services = Object.values(siteData.services || {});
+const aboutPage = siteData.aboutPage || {};
+const hero = aboutPage.hero || {};
+const whoWeAre = aboutPage.whoWeAre || {};
+const serviceSummaries = aboutPage.serviceSummaries || [];
+const visionMission = aboutPage.visionMission || { vision: {}, mission: {} };
+const whyExists = aboutPage.whyExists || {};
+const differentiators = aboutPage.differentiators || { items: [] };
+const values = aboutPage.values || { items: [] };
+const approach = aboutPage.approach || { items: [] };
+const aboutFooter = aboutPage.footer || {};
+const industries = siteData.homePage?.industries || [];
 ---
 
-<BaseLayout title="About Us" description={hero.description}>
+<BaseLayout title="About Us" description={getSafe(hero, 'description')}>
 	<Navigation />
 	
 	<!-- Hero Section -->
@@ -31,13 +35,13 @@ const services = Object.values(siteData.services || {});
 				About ViYukti
 			</span>
 			<h1 class="text-4xl md:text-7xl font-black tracking-tighter mb-8 max-w-5xl mx-auto leading-tight">
-				{hero.title}
+				{getSafe(hero, 'title', 'About ViYukti')}
 			</h1>
 			<p class="text-xl text-zinc-400 max-w-3xl mx-auto mb-12 leading-relaxed gsap-reveal">
-				{hero.description}
+				{getSafe(hero, 'description')}
 			</p>
             <p class="text-lg text-zinc-500 max-w-4xl mx-auto gsap-reveal italic">
-                {hero.mission}
+                {getSafe(hero, 'mission')}
             </p>
 		</div>
 	</header>
@@ -47,15 +51,15 @@ const services = Object.values(siteData.services || {});
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div class="gsap-reveal">
-                    <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">{whoWeAre.title}</h2>
+                    <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">{getSafe(whoWeAre, 'title', 'Who We Are')}</h2>
                     <p class="text-xl text-zinc-400 mb-12 leading-relaxed">
-                        {whoWeAre.description}
+                        {getSafe(whoWeAre, 'description')}
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {services.map(service => (
+                        {serviceSummaries.map(item => (
                             <div class="p-6 rounded-2xl border border-white/5 bg-white/[0.01] hover:border-white/10 transition-all">
-                                <h4 class="font-bold mb-2 text-white">{service.title}</h4>
-                                <p class="text-xs text-zinc-500 leading-relaxed">{service.hero?.subtitle}</p>
+                                <h4 class="font-bold mb-2 text-white">{item.title}</h4>
+                                <p class="text-xs text-zinc-500 leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -63,13 +67,13 @@ const services = Object.values(siteData.services || {});
                 <div class="space-y-8">
                     <div class="p-10 rounded-[2.5rem] bg-white text-black gsap-reveal">
                         <Target class="mb-6" size={40} />
-                        <h3 class="text-3xl font-black mb-4">{visionMission.vision.title}</h3>
-                        <p class="text-lg font-medium opacity-80">{visionMission.vision.text}</p>
+                        <h3 class="text-3xl font-black mb-4">{getSafe(visionMission, 'vision.title', 'Our Vision')}</h3>
+                        <p class="text-lg font-medium opacity-80">{getSafe(visionMission, 'vision.text')}</p>
                     </div>
                     <div class="p-10 rounded-[2.5rem] border border-white/10 bg-white/5 backdrop-blur-md gsap-reveal">
                         <Rocket class="text-white mb-6" size={40} />
-                        <h3 class="text-3xl font-black mb-4">{visionMission.mission.title}</h3>
-                        <p class="text-lg text-zinc-400 leading-relaxed">{visionMission.mission.text}</p>
+                        <h3 class="text-3xl font-black mb-4">{getSafe(visionMission, 'mission.title', 'Our Mission')}</h3>
+                        <p class="text-lg text-zinc-400 leading-relaxed">{getSafe(visionMission, 'mission.text')}</p>
                     </div>
                 </div>
             </div>
@@ -79,13 +83,13 @@ const services = Object.values(siteData.services || {});
     <!-- Why ViYukti Exists -->
     <section class="py-32 bg-zinc-900/50 border-y border-white/5">
         <div class="container mx-auto px-6 text-center max-w-4xl">
-            <h2 class="text-4xl md:text-6xl font-black mb-12 gsap-reveal">{whyExists.title}</h2>
+            <h2 class="text-4xl md:text-6xl font-black mb-12 gsap-reveal">{getSafe(whyExists, 'title', 'Why ViYukti Exists')}</h2>
             <p class="text-xl text-zinc-400 mb-8 leading-relaxed gsap-reveal">
-                {whyExists.text}
+                {getSafe(whyExists, 'text')}
             </p>
             <div class="h-px w-20 bg-white/20 mx-auto mb-8"></div>
             <p class="text-2xl font-bold text-white leading-relaxed gsap-reveal">
-                {whyExists.solution}
+                {getSafe(whyExists, 'solution')}
             </p>
         </div>
     </section>
@@ -94,13 +98,13 @@ const services = Object.values(siteData.services || {});
     <section class="py-32 bg-zinc-950">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20 gsap-reveal">
-                <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">{differentiators.title}</h2>
+                <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">{getSafe(differentiators, 'title', 'What Makes Us Different')}</h2>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {differentiators.items.map(item => (
-                    <div class="p-10 rounded-3xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all gsap-reveal">
+                {(differentiators.items || []).map(item => (
+                    <div class="p-10 rounded-3xl border border-white/5 bg-white/[0.01] hover:border-white/20 transition-all gsap-reveal">
                         <h4 class="text-2xl font-bold mb-6 text-white">{item.title}</h4>
-                        <p class="text-zinc-500 leading-relaxed">
+                        <p class="text-zinc-500 leading-relaxed italic">
                             {item.desc}
                         </p>
                     </div>
@@ -114,9 +118,9 @@ const services = Object.values(siteData.services || {});
         <div class="container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-black mb-16 text-center gsap-reveal">Industries We Serve</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {(siteData.homePage?.industries || []).map(industry => (
-                    <div class="p-6 rounded-2xl border border-white/5 bg-white/[0.01] text-center gsap-reveal hover:bg-white hover:text-black transition-all duration-500 cursor-default">
-                        <span class="font-bold tracking-tight uppercase text-xs">{industry}</span>
+                {industries.map(industry => (
+                    <div class="p-6 rounded-2xl border border-white/5 bg-white/[0.01] text-center gsap-reveal hover:bg-white hover:text-black transition-all duration-500 cursor-default group">
+                        <span class="font-bold tracking-tight uppercase text-xs text-zinc-500 group-hover:text-black">{industry}</span>
                     </div>
                 ))}
             </div>
@@ -127,10 +131,10 @@ const services = Object.values(siteData.services || {});
     <section class="py-32 bg-white text-black">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20 gsap-reveal">
-                <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">{values.title}</h2>
+                <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">{getSafe(values, 'title', 'Our Core Values')}</h2>
             </div>
             <div class="grid md:grid-cols-5 gap-8">
-                {values.items.map((value) => (
+                {(values.items || []).map((value) => (
                     <div class="text-center gsap-reveal">
                         <div class="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto mb-6">
                             {value.title === "Integrity" && <ShieldCheck size={28} />}
@@ -151,11 +155,11 @@ const services = Object.values(siteData.services || {});
     <section class="py-32 bg-zinc-950">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20 gsap-reveal">
-                <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">{approach.title}</h2>
+                <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">{getSafe(approach, 'title', 'Our Approach')}</h2>
             </div>
             <div class="grid lg:grid-cols-5 gap-8 relative">
                 <div class="absolute top-1/2 left-0 w-full h-px bg-white/5 hidden lg:block -translate-y-1/2"></div>
-                {approach.items.map((item, index) => (
+                {(approach.items || []).map((item, index) => (
                     <div class="p-8 rounded-3xl bg-zinc-900 border border-white/5 relative z-10 gsap-reveal hover:border-white/20 transition-all">
                         <div class="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center font-black mb-6">
                             {index + 1}
@@ -172,13 +176,13 @@ const services = Object.values(siteData.services || {});
     <section class="py-40 bg-zinc-900 relative overflow-hidden">
         <div class="container mx-auto px-6 text-center relative z-10">
             <h2 class="text-5xl md:text-8xl font-black tracking-tighter mb-12 max-w-5xl mx-auto leading-tight">
-                {aboutFooter.title}
+                {getSafe(aboutFooter, 'title')}
             </h2>
             <p class="text-xl text-zinc-400 max-w-3xl mx-auto mb-16 leading-relaxed font-medium">
-                {aboutFooter.text}
+                {getSafe(aboutFooter, 'text')}
             </p>
             <p class="text-2xl font-black text-white mb-16 tracking-tight uppercase">
-                {aboutFooter.commitment}
+                {getSafe(aboutFooter, 'commitment')}
             </p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center">
                 <a href="/contact" class="px-10 py-6 rounded-full bg-white text-black font-black tracking-widest uppercase text-sm hover:scale-105 transition-transform flex items-center justify-center gap-3">

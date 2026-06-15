@@ -19,6 +19,32 @@
       "title": "Who We Are",
       "description": "ViYukti is a modern business solutions company dedicated to helping organizations overcome challenges and unlock new opportunities. We work with startups, SMEs, enterprises, institutions, and individual clients by providing comprehensive services across multiple sectors."
     },
+    "serviceSummaries": [
+      {
+        "title": "Recruitment & Staffing",
+        "desc": "Helping businesses build high-performing teams through permanent staffing, contract staffing, executive hiring, and workforce management solutions."
+      },
+      {
+        "title": "Digital Marketing",
+        "desc": "Driving brand visibility, lead generation, and online growth through SEO, social media marketing, paid advertising, content marketing, and performance-driven campaigns."
+      },
+      {
+        "title": "IT Development & Support",
+        "desc": "Delivering technology solutions including website development, mobile applications, custom software, ERP systems, CRM solutions, and ongoing IT support."
+      },
+      {
+        "title": "Corporate Gifting",
+        "desc": "Providing customized gifting solutions that strengthen employee engagement, customer relationships, and brand recognition."
+      },
+      {
+        "title": "Real Estate Solutions",
+        "desc": "Assisting businesses and individuals with property consulting, investment opportunities, commercial spaces, residential projects, and real estate advisory services."
+      },
+      {
+        "title": "Solar Installation & Services",
+        "desc": "Promoting sustainable energy through residential, commercial, and industrial solar solutions, maintenance services, and energy optimization."
+      }
+    ],
     "visionMission": {
       "vision": {
         "title": "Our Vision",
@@ -151,13 +177,15 @@
       "Information Technology",
       "Manufacturing",
       "Healthcare",
+      "Education",
       "Retail & E-commerce",
       "Real Estate",
-      "Education",
       "Hospitality",
-      "Logistics",
+      "Logistics & Supply Chain",
+      "Financial Services",
       "Energy & Utilities",
-      "Financial Services"
+      "Professional Services",
+      "Startups & Emerging Businesses"
     ],
     "howWeWork": [
       { "step": "Step 1", "title": "Discovery & Consultation", "desc": "Understanding your business needs and objectives." },
