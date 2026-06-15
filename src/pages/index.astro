@@ -68,8 +68,8 @@ const { homePage } = siteData;
 					</div>
 				</div>
 				<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-					{homePage.whoWeAre.reasons.map((reason, index) => (
-						<div class={`p-8 rounded-3xl border border-white/5 bg-white/[0.01] flex flex-col justify-between gsap-reveal`} style={`transition-delay: ${index * 100}ms`}>
+					{homePage.whoWeAre.reasons.map((reason) => (
+						<div class="who-we-are-card p-8 rounded-3xl border border-white/5 bg-white/[0.01] flex flex-col justify-between">
 							<CheckCircle2 class="text-zinc-600 mb-6" size={32} />
 							<h4 class="text-lg font-bold text-zinc-300">{reason}</h4>
 						</div>
@@ -330,12 +330,31 @@ const { homePage } = siteData;
 		});
 	}
 
+    function initWhoWeAre() {
+        gsap.fromTo('.who-we-are-card', 
+            { y: 50, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                stagger: 0.2,
+                ease: 'expo.out',
+                scrollTrigger: {
+                    trigger: '.who-we-are-card',
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                }
+            }
+        );
+    }
+
 	// Initialize on load and refresh
 	document.addEventListener('astro:page-load', () => {
 		// Force ScrollTrigger to recalculate positions after content load
 		setTimeout(() => {
 			ScrollTrigger.refresh();
 			initCounters();
+            initWhoWeAre();
 		}, 100);
 	});
 </script>

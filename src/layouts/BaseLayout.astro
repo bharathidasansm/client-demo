@@ -21,7 +21,7 @@ const { title, description = siteData.tagline } = Astro.props;
 		<title>{title} | {siteData.companyName}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 		
 		<!-- Google Analytics -->
 		<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${siteData.globalContact.googleAnalyticsId}`}></script>
@@ -69,6 +69,13 @@ const { title, description = siteData.tagline } = Astro.props;
 
 			gsap.registerPlugin(ScrollTrigger);
 
+			// Logic to handle scroll restoration across Astro ViewTransitions
+			let scrollPositions: Record<string, number> = {};
+
+			document.addEventListener('astro:before-preparation', () => {
+				scrollPositions[window.location.pathname] = window.scrollY;
+			});
+
 			function initAnimations() {
 				// Kill all existing triggers to prevent stacking/ghosting
 				ScrollTrigger.getAll().forEach(t => t.kill());
@@ -113,7 +120,14 @@ const { title, description = siteData.tagline } = Astro.props;
 				});
 
 				// Force a refresh after a short delay to ensure DOM is settled
-				setTimeout(() => ScrollTrigger.refresh(), 200);
+				setTimeout(() => {
+					ScrollTrigger.refresh();
+					// Handle manual restoration if Astro's default fails
+					const savedPos = scrollPositions[window.location.pathname];
+					if (savedPos !== undefined && window.scrollY === 0 && savedPos > 0) {
+						window.scrollTo(0, savedPos);
+					}
+				}, 150);
 			}
 
 			// Core lifecycle hook for Astro ViewTransitions
