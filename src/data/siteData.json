@@ -9,6 +9,68 @@
     "credit": "Engineered by StrawcapAI",
     "description": "ViYukti is a leading business services company offering Recruitment & Staffing, Digital Marketing, IT Development & Support, Corporate Gifting, Real Estate Solutions, and Solar Installation Services across India. We help businesses achieve sustainable growth through innovation, expertise, and customer-focused solutions."
   },
+  "aboutPage": {
+    "hero": {
+      "title": "Empowering Businesses Through People, Technology & Innovation",
+      "description": "At ViYukti, we believe every business deserves a reliable partner that can support its growth journey across multiple dimensions. From finding the right talent and building digital presence to implementing technology solutions, managing corporate requirements, facilitating real estate opportunities, and driving sustainable energy adoption, we help businesses move forward with confidence.",
+      "mission": "As a diversified business solutions company, ViYukti brings together expertise from multiple industries under one roof. Our mission is to simplify business operations, accelerate growth, and create long-term value for our clients through innovative, customized, and result-oriented solutions."
+    },
+    "whoWeAre": {
+      "title": "Who We Are",
+      "description": "ViYukti is a modern business solutions company dedicated to helping organizations overcome challenges and unlock new opportunities. We work with startups, SMEs, enterprises, institutions, and individual clients by providing comprehensive services across multiple sectors."
+    },
+    "visionMission": {
+      "vision": {
+        "title": "Our Vision",
+        "text": "To become India's most trusted integrated business solutions partner by helping organizations achieve sustainable growth through innovation, technology, talent, and strategic support."
+      },
+      "mission": {
+        "title": "Our Mission",
+        "text": "Our mission is to empower businesses with practical solutions that drive measurable results. We strive to build long-term relationships by delivering excellence, maintaining transparency, and consistently creating value for our clients. We aim to be more than a service provider—we aim to be a growth partner that businesses can rely on at every stage of their journey."
+      }
+    },
+    "whyExists": {
+      "title": "Why ViYukti Exists",
+      "text": "Modern businesses often work with multiple vendors for recruitment, marketing, technology, operations, and support services. This fragmented approach can create communication gaps, delays, and inefficiencies.",
+      "solution": "ViYukti was created to solve this challenge by offering a centralized business ecosystem where organizations can access multiple professional services through a single trusted partner. By combining expertise across diverse industries, we help businesses save time, reduce complexity, and focus on what matters most—growth."
+    },
+    "differentiators": {
+      "title": "What Makes Us Different",
+      "items": [
+        { "title": "Multi-Service Expertise", "desc": "Unlike traditional service providers that focus on a single area, ViYukti offers a broad range of business solutions designed to support organizations holistically." },
+        { "title": "Client-Centric Approach", "desc": "Every business is unique. We take the time to understand your objectives, challenges, and growth plans before developing customized solutions." },
+        { "title": "Experienced Professionals", "desc": "Our team consists of specialists from various industries who bring practical knowledge and real-world experience to every project." },
+        { "title": "Quality-Driven Execution", "desc": "We follow proven processes, industry best practices, and performance-focused strategies to ensure consistent results." },
+        { "title": "Innovation & Technology", "desc": "We continuously embrace new technologies, tools, and methodologies to help clients stay ahead in a competitive marketplace." },
+        { "title": "Long-Term Partnerships", "desc": "We focus on building lasting relationships rather than one-time transactions. Our success is directly linked to the success of our clients." }
+      ]
+    },
+    "values": {
+      "title": "Our Core Values",
+      "items": [
+        { "title": "Integrity", "desc": "We operate with honesty, transparency, and accountability in everything we do." },
+        { "title": "Excellence", "desc": "We strive for the highest standards in service quality and customer satisfaction." },
+        { "title": "Innovation", "desc": "We continuously seek better ways to solve problems and create value." },
+        { "title": "Collaboration", "desc": "We believe strong partnerships drive better outcomes for everyone involved." },
+        { "title": "Commitment", "desc": "We are dedicated to helping our clients achieve their business goals and long-term success." }
+      ]
+    },
+    "approach": {
+      "title": "Our Approach",
+      "items": [
+        { "step": "Understand", "desc": "We begin by understanding your business, objectives, and challenges." },
+        { "step": "Strategize", "desc": "Our experts develop customized plans aligned with your goals." },
+        { "step": "Execute", "desc": "We implement solutions efficiently while maintaining quality and transparency." },
+        { "step": "Optimize", "desc": "We continuously monitor, evaluate, and improve performance." },
+        { "step": "Support", "desc": "We provide ongoing assistance to ensure sustainable growth and long-term success." }
+      ]
+    },
+    "footer": {
+      "title": "Building a Better Future Together",
+      "text": "At ViYukti, we believe that growth is not just about increasing revenue—it's about creating opportunities, embracing innovation, building strong teams, and making smarter business decisions. Whether you're looking to hire top talent, grow your online presence, develop technology solutions, strengthen business relationships, explore property opportunities, or transition to renewable energy, ViYukti is ready to help.",
+      "commitment": "Our commitment is simple: Deliver meaningful solutions that create lasting impact."
+    }
+  },
   "homePage": {
     "hero": {
       "title": "Empowering Businesses with Smart Workforce, Technology & Growth Solutions",
