@@ -5,11 +5,25 @@ import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import { ChevronRight, CheckCircle2, Phone, Mail, MessageSquare, Plus } from 'lucide-astro';
 
-const services = Object.values(siteData.services);
-const { homePage } = siteData;
+// Safely access data
+const getSafe = (obj: any, path: string, fallback: any = "") => {
+  return path.split('.').reduce((acc, part) => acc && acc[part], obj) || fallback;
+};
+
+const homePage = siteData.homePage || {};
+const hero = homePage.hero || {};
+const whyChoose = homePage.whyChoose || [];
+const whoWeAre = homePage.whoWeAre || {};
+const whyPartner = homePage.whyPartner || { cards: [], statsBar: [] };
+const howWeWork = homePage.howWeWork || [];
+const counters = homePage.counters || [];
+const industries = homePage.industries || [];
+const faqs = homePage.faqs || [];
+
+const services = Object.values(siteData.services || {});
 ---
 
-<BaseLayout title="Home" description={homePage.hero.subtitle}>
+<BaseLayout title="Home" description={getSafe(hero, 'subtitle')}>
 	<Navigation />
 	
 	<!-- Hero Section -->
@@ -22,13 +36,13 @@ const { homePage } = siteData;
 				{siteData.companyName}.com
 			</span>
 			<h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 max-w-5xl mx-auto leading-[1.05]">
-				{homePage.hero.title}
+				{getSafe(hero, 'title')}
 			</h1>
 			<p class="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12 leading-relaxed gsap-reveal">
-				{homePage.hero.subtitle}
+				{getSafe(hero, 'subtitle')}
 			</p>
 			<p class="text-lg text-zinc-500 max-w-2xl mx-auto mb-12 gsap-reveal italic">
-				{homePage.hero.description}
+				{getSafe(hero, 'description')}
 			</p>
 			
 			<div class="flex flex-col sm:flex-row gap-5 justify-center gsap-reveal">
@@ -41,7 +55,7 @@ const { homePage } = siteData;
 			</div>
 
 			<div class="mt-20 grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto opacity-50">
-				{homePage.whyChoose.map(item => (
+				{whyChoose.map(item => (
 					<div class="text-[10px] font-bold tracking-widest uppercase border border-white/10 py-2 rounded-full">
 						{item}
 					</div>
@@ -55,20 +69,20 @@ const { homePage } = siteData;
 		<div class="container mx-auto px-6">
 			<div class="grid lg:grid-cols-2 gap-20 items-center">
 				<div class="gsap-reveal">
-					<span class="text-xs font-bold tracking-[0.3em] uppercase text-zinc-500 mb-6 block">{homePage.whoWeAre.title}</span>
-					<h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">{homePage.whoWeAre.subtitle}</h2>
+					<span class="text-xs font-bold tracking-[0.3em] uppercase text-zinc-500 mb-6 block">{getSafe(whoWeAre, 'title')}</span>
+					<h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">{getSafe(whoWeAre, 'subtitle')}</h2>
 					<p class="text-xl text-zinc-400 mb-8 leading-relaxed">
-						{homePage.whoWeAre.description}
+						{getSafe(whoWeAre, 'description')}
 					</p>
 					<p class="text-zinc-500 mb-8 leading-relaxed">
-						{homePage.whoWeAre.extendedDescription}
+						{getSafe(whoWeAre, 'extendedDescription')}
 					</p>
 					<div class="p-8 rounded-3xl bg-white/[0.02] border border-white/5 italic text-zinc-400 border-l-4 border-l-white/20">
-						"{homePage.whoWeAre.approach}"
+						"{getSafe(whoWeAre, 'approach')}"
 					</div>
 				</div>
 				<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-					{homePage.whoWeAre.reasons.map((reason) => (
+					{(whoWeAre.reasons || []).map((reason) => (
 						<div class="who-we-are-card p-8 rounded-3xl border border-white/5 bg-white/[0.01] flex flex-col justify-between">
 							<CheckCircle2 class="text-zinc-600 mb-6" size={32} />
 							<h4 class="text-lg font-bold text-zinc-300">{reason}</h4>
@@ -76,7 +90,7 @@ const { homePage } = siteData;
 					))}
 					<div class="sm:col-span-2 p-8 rounded-3xl bg-white text-black gsap-reveal">
 						<h4 class="text-2xl font-black mb-2">Different by Design.</h4>
-						<p class="text-black/70">{homePage.whoWeAre.differentiation}</p>
+						<p class="text-black/70">{getSafe(whoWeAre, 'differentiation')}</p>
 					</div>
 				</div>
 			</div>
@@ -89,10 +103,10 @@ const { homePage } = siteData;
 			<div class="max-w-5xl mx-auto">
 				<svg class="w-20 h-20 text-black/10 mx-auto mb-12" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V12C14.017 12.5523 13.5693 13 13.017 13H11.017C10.4647 13 10.017 12.5523 10.017 12V9C10.017 7.89543 10.9124 7 12.017 7H19.017C20.1216 7 21.017 7.89543 21.017 9V15C21.017 18.3137 18.3307 21 15.017 21H14.017ZM3.017 21L3.017 18C3.017 16.8954 3.91243 16 5.017 16H8.017C8.56928 16 9.017 15.5523 9.017 15V9C9.017 8.44772 8.56928 8 8.017 8H4.017C3.46472 8 3.017 8.44772 3.017 9V12C3.017 12.5523 2.56928 13 2.017 13H0.017C-0.535282 13 -1.017 12.5523 -1.017 12V9C-1.017 7.89543 -0.121573 7 0.982999 7H8.017C9.12157 7 10.017 7.89543 10.017 9V15C10.017 18.3137 7.33072 21 4.017 21H3.017Z"/></svg>
 				<h2 class="text-4xl md:text-6xl font-black tracking-tight mb-12 italic leading-tight gsap-reveal">
-					"{homePage.leadershipQuote.text}"
+					"{getSafe(homePage, 'leadershipQuote.text')}"
 				</h2>
 				<div class="h-1 w-20 bg-black/20 mx-auto mb-8"></div>
-				<p class="font-bold tracking-[0.3em] uppercase text-sm">— {homePage.leadershipQuote.author}</p>
+				<p class="font-bold tracking-[0.3em] uppercase text-sm">— {getSafe(homePage, 'leadershipQuote.author')}</p>
 			</div>
 		</div>
 	</section>
@@ -107,7 +121,7 @@ const { homePage } = siteData;
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{services.map((service, index) => (
+				{services.map((service: any, index) => (
 					<div 
 						class={`group p-10 rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-700 relative overflow-hidden gsap-reveal`}
 					>
@@ -124,13 +138,13 @@ const { homePage } = siteData;
 							</h3>
 							
 							<p class="text-zinc-400 mb-8 leading-relaxed">
-								{service.hero.subtitle}
+								{service.hero?.subtitle}
 							</p>
 
 							<div class="mt-auto space-y-3">
 								<p class="text-[10px] font-bold tracking-widest uppercase text-zinc-500 mb-4">Services Include:</p>
 								<div class="flex flex-wrap gap-2">
-									{service.servicesInclude.map(item => (
+									{(service.servicesInclude || []).map((item: string) => (
 										<span class="px-3 py-1 rounded-full border border-white/5 bg-white/5 text-[10px] text-zinc-400">
 											{item}
 										</span>
@@ -152,14 +166,14 @@ const { homePage } = siteData;
 	<section class="py-32 bg-zinc-900/50 border-y border-white/5 relative overflow-hidden">
 		<div class="container mx-auto px-6">
 			<div class="max-w-4xl mb-20 gsap-reveal">
-				<h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">{homePage.whyPartner.title}</h2>
+				<h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">{getSafe(whyPartner, 'title')}</h2>
 				<p class="text-xl text-zinc-400 leading-relaxed">
-					{homePage.whyPartner.description}
+					{getSafe(whyPartner, 'description')}
 				</p>
 			</div>
 
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{homePage.whyPartner.cards.map(card => (
+				{(whyPartner.cards || []).map((card: any) => (
 					<div class="p-10 rounded-3xl border border-white/5 bg-white/[0.01] hover:border-white/20 transition-all gsap-reveal">
 						<span class="px-3 py-1 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-6 inline-block">
 							{card.tag}
@@ -173,12 +187,12 @@ const { homePage } = siteData;
 			</div>
 
 			<div class="mt-20 py-10 border-t border-white/5 flex flex-wrap justify-center gap-10 md:gap-20 grayscale opacity-50">
-				{homePage.whyPartner.statsBar.map(stat => (
+				{(whyPartner.statsBar || []).map((stat: string) => (
 					<div class="text-sm font-bold tracking-widest uppercase">{stat}</div>
 				))}
 			</div>
 			<p class="text-center text-[10px] font-bold tracking-[0.5em] uppercase text-zinc-600 mt-10">
-				{homePage.whyPartner.microCopy}
+				{getSafe(whyPartner, 'microCopy')}
 			</p>
 		</div>
 	</section>
@@ -196,7 +210,7 @@ const { homePage } = siteData;
 				<div class="absolute top-1/2 left-0 w-full h-px bg-white/5 hidden lg:block -translate-y-1/2"></div>
 				
 				<div class="grid lg:grid-cols-5 gap-8 relative z-10">
-					{homePage.howWeWork.map((step, index) => (
+					{howWeWork.map((step: any, index: number) => (
 						<div class="p-8 rounded-3xl bg-zinc-900 border border-white/5 relative group hover:border-white/20 transition-all gsap-reveal">
 							<div class="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center font-black mb-8 group-hover:scale-110 transition-transform">
 								{index + 1}
@@ -218,7 +232,7 @@ const { homePage } = siteData;
 				<p class="text-zinc-500 tracking-widest uppercase text-xs font-bold">Trusted by enterprises across the nation</p>
 			</div>
 			<div class="grid grid-cols-2 lg:grid-cols-3 gap-12">
-				{homePage.counters.map(counter => (
+				{counters.map((counter: any) => (
 					<div class="text-center gsap-reveal">
 						<div class="text-6xl md:text-8xl font-black mb-4 tracking-tighter counter-value" data-target={counter.value}>
 							0{counter.suffix}
@@ -240,7 +254,7 @@ const { homePage } = siteData;
 				<div class="gsap-reveal">
 					<h2 class="text-4xl font-black mb-12">Industries We Serve</h2>
 					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-						{homePage.industries.map(industry => (
+						{industries.map((industry: string) => (
 							<div class="flex items-center gap-4 p-4 rounded-2xl border border-white/5 bg-white/[0.01]">
 								<div class="w-2 h-2 rounded-full bg-zinc-600"></div>
 								<span class="text-zinc-300 font-medium">{industry}</span>
@@ -253,7 +267,7 @@ const { homePage } = siteData;
 				<div class="gsap-reveal">
 					<h2 class="text-4xl font-black mb-12">Frequently Asked Questions</h2>
 					<div class="space-y-4">
-						{homePage.faqs.map((faq, index) => (
+						{faqs.map((faq: any, index: number) => (
 							<details class="group p-6 rounded-2xl border border-white/5 bg-white/[0.01] hover:border-white/10 transition-all cursor-pointer">
 								<summary class="list-none flex justify-between items-center font-bold text-lg text-zinc-300">
 									{faq.q}
