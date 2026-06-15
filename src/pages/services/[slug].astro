@@ -9,7 +9,7 @@ import LuxuryPortfolio from '../../components/sectors/LuxuryPortfolio.astro';
 import GiftingCatalog from '../../components/sectors/GiftingCatalog.astro';
 import Navigation from '../../components/Navigation.astro';
 import Footer from '../../components/Footer.astro';
-import { ChevronRight, CheckCircle2, Plus, ArrowRight, Target, Users, ShieldCheck, Zap } from 'lucide-astro';
+import { ChevronRight, CheckCircle2, Plus, ArrowRight, Target, Users, ShieldCheck, Zap, BarChart3 } from 'lucide-astro';
 
 export async function getStaticPaths() {
   const services = Object.values(siteData.services);
@@ -21,9 +21,9 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 
-// Safely access deep data for recruitment
-const isRecruitment = service.id === 'recruitment';
-const rData = service;
+// Flag for pages with expanded detailed content
+const hasComplexContent = ['recruitment', 'digital_marketing'].includes(service.id);
+const sData = service as any;
 ---
 
 <BaseLayout title={service.title} description={service.hero.subtitle}>
@@ -60,23 +60,48 @@ const rData = service;
         </div>
     </section>
 
-    {isRecruitment && (
-        <!-- Specialized Recruitment Sections -->
+    {hasComplexContent && (
+        <!-- Detailed Content Architecture -->
         
         <!-- Trust Partner Intro -->
         <section class="py-24 bg-zinc-900/30 border-y border-white/5">
             <div class="container mx-auto px-6 max-w-4xl text-center">
-                <h2 class="text-3xl md:text-5xl font-black mb-8 gsap-reveal">{rData.trustIntro.title}</h2>
-                <p class="text-xl text-zinc-400 leading-relaxed gsap-reveal">{rData.trustIntro.text}</p>
+                <h2 class="text-3xl md:text-5xl font-black mb-8 gsap-reveal">{sData.trustIntro?.title}</h2>
+                <p class="text-xl text-zinc-400 leading-relaxed gsap-reveal">{sData.trustIntro?.text}</p>
             </div>
         </section>
 
-        <!-- Recruitment Solutions Grid -->
-        <section class="py-32 bg-zinc-950">
+        {sData.whyMatters && (
+            <!-- Importance Checklist (Specific to Marketing) -->
+            <section class="py-24 bg-zinc-950">
+                <div class="container mx-auto px-6">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="gsap-reveal">
+                             <h2 class="text-3xl md:text-4xl font-black mb-8">Why {service.title} Matters</h2>
+                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+                                {sData.whyMatters.map((item: string) => (
+                                    <div class="flex items-center gap-3 text-zinc-400">
+                                        <Zap size={16} class="text-purple-500" /> {item}
+                                    </div>
+                                ))}
+                             </div>
+                        </div>
+                        <div class="p-10 rounded-3xl bg-white/5 border border-white/10 gsap-reveal">
+                            <p class="text-lg text-zinc-400 italic font-medium leading-relaxed">
+                                "At ViYukti, we help businesses turn digital opportunities into measurable results."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        )}
+
+        <!-- Solutions Grid -->
+        <section class="py-32 bg-zinc-950 border-t border-white/5">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-black mb-20 text-center">Our Recruitment & Staffing Solutions</h2>
+                <h2 class="text-4xl font-black mb-20 text-center">Our {service.title} Solutions</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {rData.solutions.map((sol: any) => (
+                    {(sData.solutions || []).map((sol: any) => (
                         <div class="p-10 rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all gsap-reveal group">
                             <h3 class="text-2xl font-bold mb-6 text-white group-hover:text-blue-400 transition-colors">{sol.title}</h3>
                             <p class="text-zinc-500 text-sm leading-relaxed mb-8">{sol.desc}</p>
@@ -89,6 +114,17 @@ const rData = service;
                                             <CheckCircle2 size={14} class="text-blue-500" /> {b}
                                         </div>
                                     ))}
+                                </div>
+                            )}
+
+                            {sol.platforms && (
+                                <div class="space-y-3 mb-6">
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-zinc-600">Platforms</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        {sol.platforms.map((p: string) => (
+                                            <span class="px-3 py-1 rounded-full bg-blue-500/10 text-[10px] font-bold text-blue-400 border border-blue-500/20">{p}</span>
+                                        ))}
+                                    </div>
                                 </div>
                             )}
 
@@ -141,15 +177,15 @@ const rData = service;
             </div>
         </section>
 
-        <!-- Recruitment Process Stepper -->
+        <!-- Process Stepper -->
         <section class="py-32 bg-zinc-900/50 border-y border-white/5">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-20">
-                    <h2 class="text-4xl font-black mb-6">Our Recruitment Process</h2>
-                    <p class="text-zinc-500">A structured 7-step methodology for talent excellence.</p>
+                    <h2 class="text-4xl font-black mb-6">Our {service.title} Process</h2>
+                    <p class="text-zinc-500">A structured methodology for delivering consistent excellence.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {rData.process.map((step: any, idx: number) => (
+                <div class={`grid grid-cols-1 md:grid-cols-2 ${sData.process.length > 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-5'} gap-6`}>
+                    {(sData.process || []).map((step: any, idx: number) => (
                         <div class="p-8 rounded-3xl bg-zinc-950 border border-white/5 relative group hover:border-blue-500/30 transition-all gsap-reveal">
                             <span class="text-5xl font-black text-white/[0.03] absolute top-4 right-8 group-hover:text-blue-500/10 transition-colors">0{idx+1}</span>
                             <h4 class="text-lg font-bold mb-4 text-white">{step.title}</h4>
@@ -166,7 +202,7 @@ const rData = service;
                 <div class="gsap-reveal">
                     <h2 class="text-4xl font-black mb-12">Industries We Serve</h2>
                     <div class="grid grid-cols-2 gap-4">
-                        {rData.industries.map((ind: string) => (
+                        {(sData.industries || []).map((ind: string) => (
                             <div class="flex items-center gap-4 p-4 rounded-2xl border border-white/5 bg-white/[0.01]">
                                 <div class="w-2 h-2 rounded-full bg-blue-600"></div>
                                 <span class="text-zinc-300 text-sm font-medium">{ind}</span>
@@ -177,7 +213,7 @@ const rData = service;
                 <div class="gsap-reveal">
                     <h2 class="text-4xl font-black mb-12">Why Choose ViYukti?</h2>
                     <div class="space-y-8">
-                        {rData.whyChoose.map((item: any) => (
+                        {(sData.whyChoose || []).map((item: any) => (
                             <div class="flex gap-6 group">
                                 <div class="shrink-0 w-12 h-12 rounded-2xl bg-blue-600/10 border border-blue-600/20 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
                                     <Target size={20} />
@@ -193,16 +229,58 @@ const rData = service;
             </div>
         </section>
 
-        <!-- Supporting Every Size -->
-        <section class="py-32 bg-white text-black">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl md:text-6xl font-black mb-12">Supporting Businesses of Every Size</h2>
-                <p class="text-xl text-black/60 max-w-3xl mx-auto mb-16 font-medium">No hiring requirement is too small or too large for our team.</p>
-                <div class="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
-                    {rData.targetClients.map((client: string) => (
-                        <div class="px-8 py-4 rounded-2xl border border-black/10 bg-black/5 font-bold tracking-tight text-lg hover:bg-black hover:text-white transition-all duration-300 cursor-default">
-                            {client}
-                        </div>
+        {sData.benefits && (
+             <!-- Benefits Grid -->
+            <section class="py-32 bg-white text-black">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-20">
+                        <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">Benefits of Partnering with ViYukti</h2>
+                        <p class="text-xl text-black/60 max-w-3xl mx-auto font-medium">We help businesses maximize their digital potential.</p>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        {sData.benefits.map((benefit: string) => (
+                            <div class="p-8 rounded-3xl border border-black/10 bg-black/5 flex flex-col justify-between group hover:bg-black hover:text-white transition-all duration-300">
+                                <BarChart3 size={32} class="mb-8 text-black/20 group-hover:text-white/20" />
+                                <span class="font-bold text-lg tracking-tight">{benefit}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        )}
+
+        {sData.targetClients && (
+            <!-- Supporting Every Size (Recruitment specific) -->
+            <section class="py-32 bg-white text-black">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-4xl md:text-6xl font-black mb-12">Supporting Businesses of Every Size</h2>
+                    <p class="text-xl text-black/60 max-w-3xl mx-auto mb-16 font-medium">No hiring requirement is too small or too large for our team.</p>
+                    <div class="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+                        {sData.targetClients.map((client: string) => (
+                            <div class="px-8 py-4 rounded-2xl border border-black/10 bg-black/5 font-bold tracking-tight text-lg hover:bg-black hover:text-white transition-all duration-300 cursor-default">
+                                {client}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        )}
+
+        <!-- FAQ Section -->
+        <section class="py-32 bg-zinc-950 border-t border-white/5">
+            <div class="container mx-auto px-6 max-w-4xl">
+                 <h2 class="text-4xl font-black mb-16 text-center">Frequently Asked Questions</h2>
+                 <div class="space-y-4">
+                    {(sData.faqs || []).map((faq: any) => (
+                        <details class="group p-6 rounded-2xl border border-white/5 bg-white/[0.01] hover:border-white/10 transition-all cursor-pointer">
+                            <summary class="list-none flex justify-between items-center font-bold text-lg text-zinc-300">
+                                {faq.q}
+                                <Plus size={20} class="group-open:rotate-45 transition-transform" />
+                            </summary>
+                            <p class="mt-6 text-zinc-500 leading-relaxed text-sm">
+                                {faq.a}
+                            </p>
+                        </details>
                     ))}
                 </div>
             </div>
@@ -212,24 +290,24 @@ const rData = service;
         <section class="py-40 bg-zinc-900 border-t border-white/5 relative overflow-hidden">
              <div class="container mx-auto px-6 text-center relative z-10">
                 <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 max-w-5xl mx-auto leading-tight">
-                    {rData.finalCta.title}
+                    {sData.finalCta?.title}
                 </h2>
                 <p class="text-xl text-zinc-400 max-w-3xl mx-auto mb-8 leading-relaxed font-medium">
-                    {rData.finalCta.text}
+                    {sData.finalCta?.text}
                 </p>
                 <p class="text-lg text-white mb-16 italic opacity-60">
-                    {rData.finalCta.closing}
+                    {sData.finalCta?.closing}
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <a href="/contact-us?industry=recruitment" class="px-10 py-6 rounded-full bg-white text-black font-black tracking-widest uppercase text-sm hover:scale-105 transition-transform flex items-center justify-center gap-3">
-                        Find The Right Talent <ArrowRight size={20} />
+                    <a href={`/contact-us?industry=${service.id}`} class="px-10 py-6 rounded-full bg-white text-black font-black tracking-widest uppercase text-sm hover:scale-105 transition-transform flex items-center justify-center gap-3">
+                        {service.id === 'recruitment' ? 'Find The Right Talent' : 'Get Free Consultation'} <ArrowRight size={20} />
                     </a>
                 </div>
             </div>
         </section>
     )}
 
-    {!isRecruitment && (
+    {!hasComplexContent && (
         <>
             <!-- Feature Grid for other services -->
             <section class="py-32 bg-brand-dark relative border-t border-white/5">

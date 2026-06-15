@@ -211,36 +211,12 @@
         "text": "Hiring skilled professionals can be time-consuming, expensive, and challenging in today's competitive job market. ViYukti simplifies the hiring process by leveraging industry expertise, advanced sourcing techniques, and an extensive talent network to identify candidates who align with your business goals and organizational culture."
       },
       "solutions": [
-        {
-          "title": "Permanent Staffing",
-          "desc": "Finding the right full-time employees is essential for building a stable and productive workforce. Our permanent staffing solutions help organizations recruit qualified professionals across various industries and job functions.",
-          "benefits": ["Access to pre-screened candidates", "Reduced hiring time", "Improved employee retention", "Industry-specific recruitment expertise", "Better cultural fit"]
-        },
-        {
-          "title": "Contract Staffing",
-          "desc": "Businesses often require temporary professionals to support short-term projects, seasonal demands, or specialized assignments. Our contract staffing services provide flexible workforce solutions that help organizations remain agile and efficient.",
-          "idealFor": ["Project-based hiring", "Seasonal workforce requirements", "Temporary replacements", "Specialized skill requirements", "Workforce expansion"]
-        },
-        {
-          "title": "Executive Search & Leadership Hiring",
-          "desc": "Leadership plays a crucial role in organizational growth and performance. ViYukti specializes in identifying and attracting experienced executives and senior professionals who can drive strategic success.",
-          "positions": ["CEOs", "Directors", "Vice Presidents", "General Managers", "Department Heads", "Senior Leadership Roles"]
-        },
-        {
-          "title": "Bulk Hiring Solutions",
-          "desc": "When businesses need to recruit multiple candidates within a short timeframe, our bulk hiring services ensure fast and efficient workforce acquisition.",
-          "suitableFor": ["Manufacturing Facilities", "Retail Chains", "Customer Support Teams", "Logistics Operations", "Large Expansion Projects", "Startup Growth Initiatives"]
-        },
-        {
-          "title": "HR Outsourcing Services",
-          "desc": "Managing HR operations internally can consume valuable resources. Our HR outsourcing services help organizations streamline workforce management while reducing administrative burdens.",
-          "includes": ["Employee Onboarding", "HR Documentation", "Attendance Management", "Employee Record Maintenance", "Compliance Support", "Workforce Administration"]
-        },
-        {
-          "title": "Payroll Management Services",
-          "desc": "Accurate payroll processing is essential for maintaining employee satisfaction and regulatory compliance. Our payroll solutions help businesses manage employee compensation efficiently and securely.",
-          "includes": ["Salary Processing", "Tax Calculations", "Statutory Compliance", "Payslip Generation", "Employee Benefits Administration", "Reporting & Documentation"]
-        }
+        { "title": "Permanent Staffing", "desc": "Finding the right full-time employees is essential for building a stable and productive workforce. Our permanent staffing solutions help organizations recruit qualified professionals across various industries and job functions.", "benefits": ["Access to pre-screened candidates", "Reduced hiring time", "Improved employee retention", "Industry-specific recruitment expertise", "Better cultural fit"] },
+        { "title": "Contract Staffing", "desc": "Businesses often require temporary professionals to support short-term projects, seasonal demands, or specialized assignments. Our contract staffing services provide flexible workforce solutions that help organizations remain agile and efficient.", "idealFor": ["Project-based hiring", "Seasonal workforce requirements", "Temporary replacements", "Specialized skill requirements", "Workforce expansion"] },
+        { "title": "Executive Search & Leadership Hiring", "desc": "Leadership plays a crucial role in organizational growth and performance. ViYukti specializes in identifying and attracting experienced executives and senior professionals who can drive strategic success.", "positions": ["CEOs", "Directors", "Vice Presidents", "General Managers", "Department Heads", "Senior Leadership Roles"] },
+        { "title": "Bulk Hiring Solutions", "desc": "When businesses need to recruit multiple candidates within a short timeframe, our bulk hiring services ensure fast and efficient workforce acquisition.", "suitableFor": ["Manufacturing Facilities", "Retail Chains", "Customer Support Teams", "Logistics Operations", "Large Expansion Projects", "Startup Growth Initiatives"] },
+        { "title": "HR Outsourcing Services", "desc": "Managing HR operations internally can consume valuable resources. Our HR outsourcing services help organizations streamline workforce management while reducing administrative burdens.", "includes": ["Employee Onboarding", "HR Documentation", "Attendance Management", "Employee Record Maintenance", "Compliance Support", "Workforce Administration"] },
+        { "title": "Payroll Management Services", "desc": "Accurate payroll processing is essential for maintaining employee satisfaction and regulatory compliance. Our payroll solutions help businesses manage employee compensation efficiently and securely.", "includes": ["Salary Processing", "Tax Calculations", "Statutory Compliance", "Payslip Generation", "Employee Benefits Administration", "Reporting & Documentation"] }
       ],
       "industries": ["Information Technology", "Manufacturing", "Healthcare", "Retail & E-commerce", "Real Estate", "Education", "Logistics & Supply Chain", "Hospitality", "Financial Services", "Energy & Utilities", "Telecommunications", "Professional Services"],
       "whyChoose": [
@@ -281,16 +257,55 @@
       "slug": "digital-marketing",
       "theme": { "primary": "purple-600", "accent": "pink-500" },
       "hero": {
-        "title": "Accelerate Your Online Growth",
-        "subtitle": "Our data-driven digital marketing services help brands increase visibility, generate leads, and maximize ROI.",
+        "title": "Digital Marketing Services That Drive Growth, Leads & Revenue",
+        "subtitle": "In today's digital-first world, having a strong online presence is no longer optional—it's essential. Businesses need strategic digital marketing solutions that not only increase visibility but also generate qualified leads, improve customer engagement, and deliver measurable business growth.",
+        "description": "At ViYukti, we provide comprehensive digital marketing services designed to help businesses attract the right audience, build brand authority, and achieve sustainable growth. Our data-driven approach combines creativity, technology, and marketing expertise to ensure your brand reaches the right people at the right time.",
         "bgImage": "/images/marketing-hero.webp"
       },
-      "servicesInclude": [ "SEO Services", "Google Ads", "Social Media Marketing", "Content Marketing", "Performance Marketing", "Website Optimization" ],
-      "cta": "Grow Your Business",
-      "features": [
-        { "title": "Performance Marketing", "desc": "High-ROI paid ad campaigns." },
-        { "title": "SEO & Content Strategy", "desc": "Dominating organic search landscapes." }
-      ]
+      "trustIntro": {
+        "title": "Why Digital Marketing Matters for Modern Businesses",
+        "text": "Consumers increasingly rely on search engines, social media, websites, and digital platforms when making purchasing decisions. Businesses that invest in effective digital marketing gain a competitive advantage by staying visible and engaging with potential customers throughout their buying journey."
+      },
+      "whyMatters": [ "Increase online visibility", "Generate high-quality leads", "Build brand awareness", "Improve customer engagement", "Drive website traffic", "Increase conversions and sales", "Measure and optimize performance", "Expand market reach" ],
+      "solutions": [
+        { "title": "Search Engine Optimization (SEO)", "desc": "SEO helps your website rank higher on search engines like Google, making it easier for potential customers to find your business.", "includes": ["Website SEO Audit", "Keyword Research", "On-Page SEO", "Technical SEO", "Local SEO", "Content Optimization", "Link Building", "Performance Tracking"] },
+        { "title": "Search Engine Marketing (Google Ads)", "desc": "Google Ads provides immediate visibility for your business by placing your products and services in front of potential customers actively searching online.", "includes": ["Campaign Setup", "Keyword Research", "Ad Creation", "Landing Page Optimization", "Conversion Tracking", "Bid Management", "Performance Reporting"] },
+        { "title": "Social Media Marketing", "desc": "Social media platforms have become powerful tools for connecting with customers and building brand loyalty.", "platforms": ["Facebook", "Instagram", "LinkedIn", "Twitter (X)", "YouTube", "Pinterest"], "includes": ["Strategy Development", "Content Creation", "Social Media Management", "Paid Advertising", "Audience Engagement", "Performance Analysis"] },
+        { "title": "Content Marketing", "desc": "Quality content helps establish credibility, improve search rankings, and attract potential customers.", "includes": ["Blog Writing", "Website Content", "Service Pages", "SEO Content", "Case Studies", "Articles", "Landing Pages", "Email Content"] },
+        { "title": "Website Design & Optimization", "desc": "Your website is often the first impression customers have of your business. We help businesses create websites that are user-friendly, responsive, and conversion-focused.", "includes": ["User-Friendly UI/UX", "Mobile Responsive Design", "Fast Loading Speed", "SEO Optimized structure", "Conversion Focused Layout", "Secure and Scalable Architecture"] },
+        { "title": "Performance Marketing", "desc": "Performance marketing focuses on measurable outcomes and data-driven decision-making.", "includes": ["Lead Generation Campaigns", "Conversion Optimization", "Remarketing Campaigns", "Audience Targeting", "Funnel Optimization", "ROI Analysis"] },
+        { "title": "Local SEO Services", "desc": "Local businesses need visibility within their target geographic areas. We help attract customers searching for services nearby.", "includes": ["Google Business Profile Optimization", "Local Keyword Targeting", "Citation Building", "Reputation Management", "Location-Based SEO"] },
+        { "title": "Online Reputation Management", "desc": "Your online reputation can directly impact customer trust and business growth. We help build positive brand perception.", "includes": ["Monitor Brand Mentions", "Manage Reviews", "Improve Online Ratings", "Build Positive Perception", "Address Reputation Challenges"] }
+      ],
+      "industries": ["Information Technology", "Healthcare", "Real Estate", "Manufacturing", "Education", "E-Commerce", "Hospitality", "Finance", "Recruitment & Staffing", "Solar Energy", "Professional Services"],
+      "process": [
+        { "step": "Step 1", "title": "Discovery & Consultation", "desc": "We begin by understanding your business objectives, audience, competition, and growth goals." },
+        { "step": "Step 2", "title": "Strategy Development", "desc": "Our experts create a customized digital marketing roadmap aligned with your objectives." },
+        { "step": "Step 3", "title": "Campaign Execution", "desc": "We implement campaigns across relevant digital channels and platforms." },
+        { "step": "Step 4", "title": "Monitoring & Optimization", "desc": "Performance is continuously monitored and optimized for better outcomes." },
+        { "step": "Step 5", "title": "Reporting & Insights", "desc": "Regular reports provide transparency and actionable insights into campaign performance." }
+      ],
+      "whyChoose": [
+        { "title": "Customized Strategies", "desc": "Every business is unique, and so are our solutions." },
+        { "title": "Experienced Professionals", "desc": "Our team combines marketing expertise with industry knowledge." },
+        { "title": "Data-Driven Approach", "desc": "We use analytics and performance data to guide decision-making." },
+        { "title": "Transparent Communication", "desc": "Clear reporting and regular updates keep you informed." },
+        { "title": "Focus on Results", "desc": "We prioritize lead generation, conversions, and business growth." },
+        { "title": "Long-Term Partnership", "desc": "We work as an extension of your team, supporting your growth journey." }
+      ],
+      "benefits": ["Increased Online Visibility", "Better Search Engine Rankings", "More Qualified Leads", "Improved Brand Recognition", "Higher Website Traffic", "Better Customer Engagement", "Increased Conversion Rates", "Sustainable Business Growth"],
+      "faqs": [
+        { "q": "What digital marketing services does ViYukti offer?", "a": "We provide SEO, Google Ads, Social Media Marketing, Content Marketing, Website Optimization, Local SEO, Performance Marketing, and Online Reputation Management." },
+        { "q": "How long does SEO take to show results?", "a": "SEO is a long-term strategy, and results typically begin to appear within a few months depending on competition and website condition." },
+        { "q": "Do you work with small businesses?", "a": "Yes. We work with startups, SMEs, and large enterprises across various industries." },
+        { "q": "Can you manage social media accounts?", "a": "Yes. We provide complete social media management and advertising services." },
+        { "q": "How do you measure campaign success?", "a": "We track key performance indicators such as traffic, rankings, leads, conversions, engagement, and return on investment." }
+      ],
+      "finalCta": {
+        "title": "Ready to Grow Your Business Online?",
+        "text": "Whether you're looking to increase website traffic, improve search rankings, generate more leads, or strengthen your online presence, ViYukti has the expertise and solutions to help.",
+        "closing": "Our team is ready to create a customized digital marketing strategy that delivers measurable results and supports your long-term business growth."
+      }
     },
     "it_development": {
       "id": "it_development",
