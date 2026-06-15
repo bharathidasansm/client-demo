@@ -484,16 +484,85 @@
       "slug": "real-estate",
       "theme": { "primary": "stone-800", "accent": "amber-600" },
       "hero": {
-        "title": "Smart Property Investment Opportunities",
-        "subtitle": "Helping individuals and businesses find commercial and residential properties that align with their investment goals.",
+        "title": "Real Estate Solutions for Smart Investments and Sustainable Growth",
+        "subtitle": "Finding the right property is more than just a transaction—it's a strategic decision that impacts your future.",
+        "description": "Whether you're looking for residential properties, commercial spaces, investment opportunities, project marketing support, or professional property consultation, our experienced team helps simplify the process and maximize value at every stage.",
         "bgImage": "/images/estate-hero.webp"
       },
-      "servicesInclude": [ "Residential Properties", "Commercial Properties", "Property Consultation", "Investment Advisory", "Property Management", "Project Marketing" ],
-      "cta": "Explore Properties",
-      "features": [
-        { "title": "Commercial Spaces", "desc": "Premium corporate offices and retail spaces." },
-        { "title": "Industrial Land", "desc": "Strategic plots optimized for warehouse and manufacturing." }
-      ]
+      "trustIntro": {
+        "title": "Your Trusted Real Estate Partner",
+        "text": "The real estate market is constantly evolving, making it essential to have expert guidance when buying, selling, leasing, or investing in property. At ViYukti, we combine market insights, professional consultation, and strategic planning to help clients navigate the real estate landscape successfully."
+      },
+      "whyMatters": [ "Simplify Complex Transactions", "Maximize Property Value", "Identify High-Growth Opportunities", "Professional Market Insights", "Reduced Investment Risks", "Strategic Portfolio Growth", "Sustainable Wealth Creation", "Data-Backed Decision Making" ],
+      "solutions": [
+        { 
+          "title": "Residential Property Solutions", 
+          "desc": "Finding the perfect home requires more than browsing listings. Our team helps buyers identify properties that align with their lifestyle, budget, and long-term goals.", 
+          "includes": ["Apartment and Flat Selection", "Villa and Independent House Consulting", "Gated Community Projects", "Luxury Property Solutions", "Plot and Land Investments", "Property Evaluation Assistance"],
+          "benefits": ["Personalized Selection", "Lifestyle Alignment", "Budget Optimization", "Market Comparisons", "Investment Security"]
+        },
+        { 
+          "title": "Commercial Real Estate Solutions", 
+          "desc": "Businesses require strategic locations that support growth, accessibility, and operational efficiency.", 
+          "includes": ["Office Spaces", "Retail Properties", "Commercial Complexes", "Industrial Properties", "Warehouses", "Co-working Spaces"],
+          "benefits": ["Strategic Location Sourcing", "Operational Efficiency", "Growth Scalability", "Accessibility Analysis", "Long-term Asset Value"]
+        },
+        { 
+          "title": "Real Estate Investment Advisory", 
+          "desc": "Property investments can generate significant long-term wealth when guided by proper market research and planning.", 
+          "includes": ["Investment Opportunity Assessment", "Market Trend Analysis", "Risk Evaluation", "Portfolio Diversification Strategies", "High-Growth Location Identification", "ROI-Focused Recommendations"],
+          "benefits": ["Wealth Creation", "Risk Mitigation", "High Yield Potential", "Portfolio Balance", "Future-Ready Insights"]
+        },
+        { 
+          "title": "Property Consulting Services", 
+          "desc": "Professional consultation ensures informed decision-making and reduced investment risks through comprehensive market knowledge.", 
+          "includes": ["Property Selection Guidance", "Market Research", "Due Diligence Support", "Property Valuation", "Investment Planning", "Transaction Assistance"],
+          "benefits": ["Reduced Risk", "Informed Decisions", "Legal/Financial Clarity", "Expert Valuation", "Seamless Transactions"]
+        },
+        { 
+          "title": "Property Management Services", 
+          "desc": "Our property management solutions help property owners maintain and maximize the value of their investments while reducing complexity.", 
+          "includes": ["Tenant Coordination", "Rental Management", "Property Maintenance", "Documentation Support", "Asset Monitoring", "Occupancy Optimization"],
+          "benefits": ["Maximized ROI", "Hassle-Free Management", "Asset Preservation", "Reliable Revenue Streams", "Continuous Occupancy"]
+        },
+        { 
+          "title": "Project Marketing & Sales Support", 
+          "desc": "Effective marketing plays a critical role in project success for builders and developers. Leverage our integrated marketing ecosystem.", 
+          "includes": ["Digital Marketing for Real Estate", "Lead Generation Campaigns", "Sales Support", "Branding & Promotion", "Customer Acquisition Strategies", "Project Launch Assistance"],
+          "benefits": ["Increased Visibility", "Higher Lead Velocity", "Strategic Branding", "Faster Inventory Turnover", "Measurable ROI"]
+        }
+      ],
+      "process": [
+        { "step": "Step 1", "title": "Requirement Analysis", "desc": "We begin by understanding your objectives, budget, and specific property preferences." },
+        { "step": "Step 2", "title": "Market Research", "desc": "Our experts identify suitable opportunities based on your unique requirements and goals." },
+        { "step": "Step 3", "title": "Property Evaluation", "desc": "We rigorously assess potential properties and provide detailed insights for decision making." },
+        { "step": "Step 4", "title": "Consultation & Recommendation", "desc": "Clients receive personalized recommendations perfectly aligned with their long-term goals." },
+        { "step": "Step 5", "title": "Transaction Support", "desc": "We assist throughout the purchase, leasing, or investment process to ensure a smooth transition." },
+        { "step": "Step 6", "title": "Ongoing Assistance", "desc": "Post-transaction support helps ensure long-term satisfaction and sustainable value creation." }
+      ],
+      "industries": ["Homebuyers", "Real Estate Investors", "Corporate Businesses", "Builders & Developers", "Non-Resident Indians (NRIs)", "Property Owners", "Startups & Emerging SMEs"],
+      "whyChoose": [
+        { "title": "Market Expertise", "desc": "Our team stays updated with market trends, investment opportunities, and emerging locations." },
+        { "title": "Client-Centric Approach", "desc": "We create personalized strategies based on individual requirements and long-term vision." },
+        { "title": "End-to-End Support", "desc": "From property identification to transaction assistance and post-purchase support." },
+        { "title": "Transparent Process", "desc": "We prioritize transparency, integrity, and professional ethics in every property engagement." },
+        { "title": "Strong Industry Network", "desc": "Our network of developers and consultants enables us to offer exclusive opportunities." },
+        { "title": "Long-Term Value Creation", "desc": "Our focus is on helping clients build sustainable wealth through strategic real estate." }
+      ],
+      "benefits": [ "Smart Property Decisions", "Maximized Investment Returns", "Simplified Transaction Process", "Market-Driven Insights", "Reduced Investment Risks", "Professional Portfolio Management", "Faster Digital Transformation", "Dedicated Asset Support" ],
+      "targetClients": [ "Individual Homebuyers", "Institutional Investors", "Commercial Tenants", "MNCs & Corporates", "NRI Investors", "Real Estate Developers" ],
+      "faqs": [
+        { "q": "What types of properties does ViYukti handle?", "a": "We assist with residential, commercial, industrial, and investment properties." },
+        { "q": "Do you provide property investment consultation?", "a": "Yes. Our experts help clients identify profitable and sustainable investment opportunities." },
+        { "q": "Can businesses find office spaces through ViYukti?", "a": "Absolutely. We provide commercial property consulting for businesses of all sizes." },
+        { "q": "Do you work with developers?", "a": "Yes. We offer project marketing, branding, lead generation, and sales support services." },
+        { "q": "Do you assist NRIs with property investments?", "a": "Yes. We provide professional guidance and support for NRI property investments across India." }
+      ],
+      "finalCta": {
+        "title": "Let's Find the Right Property Opportunity",
+        "text": "Whether you're buying your first home, expanding your business, investing in high-growth markets, or launching a new project, ViYukti is here to help.",
+        "closing": "Contact ViYukti today and discover smarter real estate solutions designed for growth, value, and long-term success."
+      }
     },
     "solar_services": {
       "id": "solar_services",
