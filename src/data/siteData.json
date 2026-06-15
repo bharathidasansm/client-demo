@@ -97,6 +97,61 @@
       "commitment": "Our commitment is simple: Deliver meaningful solutions that create lasting impact."
     }
   },
+  "contactPage": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Let's Connect and Grow Together",
+      "description": "Whether you're looking to hire top talent, boost your digital presence, develop innovative technology solutions, explore real estate opportunities, implement solar energy systems, or find the perfect corporate gifting solution, the team at ViYukti is here to help.",
+      "philosophy": "We believe every successful business partnership begins with a conversation. Our experts are ready to understand your requirements, answer your questions, and provide customized solutions that align with your business goals."
+    },
+    "intro": {
+      "title": "Get in Touch with ViYukti",
+      "text": "At ViYukti, we are committed to delivering professional, reliable, and results-driven services across multiple industries. No matter the size of your business or project, our team is dedicated to providing the guidance and support you need to achieve success."
+    },
+    "helpVerticals": [
+      { "id": "recruitment", "title": "Recruitment & Staffing Solutions", "desc": "Looking for skilled professionals, workforce management, executive hiring, or staffing support? Our recruitment specialists can help you build the right team." },
+      { "id": "marketing", "title": "Digital Marketing Services", "desc": "Need more visibility, leads, and online growth? Our digital marketing experts can create customized strategies to help your business reach its target audience." },
+      { "id": "it", "title": "IT Development & Support", "desc": "From websites and mobile applications to software development and technical support, our technology team is ready to assist." },
+      { "id": "gifting", "title": "Corporate Gifting Solutions", "desc": "Strengthen relationships with employees, customers, and business partners through customized corporate gifting programs." },
+      { "id": "realestate", "title": "Real Estate Services", "desc": "Whether you're looking for commercial spaces, residential properties, or investment opportunities, our real estate consultants can guide you." },
+      { "id": "solar", "title": "Solar Installation & Services", "desc": "Interested in reducing energy costs and embracing sustainability? Our solar experts provide end-to-end solar installation and maintenance solutions." }
+    ],
+    "businessHours": {
+      "title": "Business Hours",
+      "support": { "label": "Customer Support", "days": "Monday – Saturday", "time": "9:00 AM – 7:00 PM" },
+      "sales": { "label": "Sales & Consultation", "days": "Monday – Saturday", "time": "9:00 AM – 6:30 PM" },
+      "online": { "label": "Online Inquiries", "desc": "Available 24/7 through our website contact form." }
+    },
+    "consultation": {
+      "title": "Request a Free Consultation",
+      "subtitle": "Looking for expert guidance for your business?",
+      "description": "Our consultants can help you identify opportunities, solve challenges, and create a roadmap for growth.",
+      "areas": [
+        "Recruitment & Staffing",
+        "Digital Marketing",
+        "Website Development",
+        "Mobile App Development",
+        "Corporate Gifting",
+        "Real Estate Advisory",
+        "Solar Installation Services"
+      ],
+      "closing": "Schedule a free consultation and discover how ViYukti can help your organization achieve its objectives."
+    },
+    "trustReasons": [
+      { "title": "Experienced Professionals", "desc": "Our team brings expertise across multiple industries and business functions." },
+      { "title": "Customized Solutions", "desc": "We understand that every business has unique challenges and goals." },
+      { "title": "Quick Response Time", "desc": "We value your time and strive to respond promptly to all inquiries." },
+      { "title": "Transparent Communication", "desc": "We maintain clear and honest communication throughout every project." },
+      { "title": "Long-Term Partnership Approach", "desc": "Our focus is not just on delivering services but on building lasting relationships." }
+    ],
+    "faqs": [
+      { "q": "How quickly will I receive a response?", "a": "Most inquiries receive a response within one business day." },
+      { "q": "Do you provide services across India?", "a": "Yes. ViYukti offers services to clients across India." },
+      { "q": "Can I request multiple services together?", "a": "Absolutely. We specialize in providing integrated business solutions tailored to your needs." },
+      { "q": "Is the initial consultation free?", "a": "Yes. We offer a free consultation to understand your requirements and recommend suitable solutions." },
+      { "q": "Do you work with startups and small businesses?", "a": "Yes. We work with startups, SMEs, large enterprises, and organizations across various industries." }
+    ]
+  },
   "homePage": {
     "hero": {
       "title": "Empowering Businesses with Smart Workforce, Technology & Growth Solutions",

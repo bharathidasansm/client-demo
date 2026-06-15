@@ -1,0 +1,297 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteData from '../data/siteData.json';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { Phone, Mail, MapPin, Clock, Plus, ChevronRight, Send, Briefcase, Globe, ShieldCheck } from 'lucide-astro';
+
+const { globalContact, contactPage } = siteData;
+
+// Safely access data
+const getSafe = (obj: any, path: string, fallback: any = "") => {
+  return path.split('.').reduce((acc, part) => acc && acc[part], obj) || fallback;
+};
+---
+
+<BaseLayout title="Contact Us" description={getSafe(contactPage, 'hero.description')}>
+    <Navigation />
+    
+    <!-- Hero Section -->
+    <header class="relative pt-40 pb-20 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-blue-500/5 to-transparent pointer-events-none"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/10 mb-8 bg-white/5 text-zinc-400 gsap-reveal">
+                {getSafe(contactPage, 'hero.title')}
+            </span>
+            <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-tight">
+                {getSafe(contactPage, 'hero.subtitle')}
+            </h1>
+            <p class="text-xl text-zinc-400 max-w-3xl mx-auto mb-12 leading-relaxed gsap-reveal">
+                {getSafe(contactPage, 'hero.description')}
+            </p>
+            <div class="p-8 rounded-3xl bg-white/[0.02] border border-white/5 max-w-4xl mx-auto italic text-zinc-500 gsap-reveal">
+                "{getSafe(contactPage, 'hero.philosophy')}"
+            </div>
+        </div>
+    </header>
+
+    <!-- Help Vertical Grid -->
+    <section class="py-24 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 gsap-reveal">
+                <h2 class="text-3xl md:text-5xl font-black mb-6">{getSafe(contactPage, 'intro.title')}</h2>
+                <p class="text-zinc-500 max-w-2xl mx-auto">{getSafe(contactPage, 'intro.text')}</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {(contactPage.helpVerticals || []).map((vertical) => (
+                    <div class="p-8 rounded-3xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all gsap-reveal group">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all">
+                            {vertical.id === 'recruitment' && <Briefcase size={24} />}
+                            {vertical.id === 'marketing' && <Globe size={24} />}
+                            {vertical.id === 'it' && <Send size={24} />}
+                            {vertical.id === 'gifting' && <ShieldCheck size={24} />}
+                            {vertical.id === 'realestate' && <MapPin size={24} />}
+                            {vertical.id === 'solar' && <Clock size={24} />}
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 text-white">{vertical.title}</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">{vertical.desc}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact & Form Section -->
+    <section class="py-32 bg-zinc-950 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20">
+                <!-- Info Column -->
+                <div class="space-y-12 gsap-reveal">
+                    <div>
+                        <h3 class="text-4xl font-black mb-10">Contact Information</h3>
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                    <MapPin size={24} class="text-zinc-400" />
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest font-black text-zinc-600 mb-2">Corporate Office</p>
+                                    <p class="text-lg text-white font-medium">{globalContact.address}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                    <Phone size={24} class="text-zinc-400" />
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest font-black text-zinc-600 mb-2">Call Us</p>
+                                    <p class="text-lg text-white font-medium">{globalContact.phone}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                                    <Mail size={24} class="text-zinc-400" />
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest font-black text-zinc-600 mb-2">Email Us</p>
+                                    <p class="text-lg text-white font-medium">{globalContact.email}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-10 rounded-[2.5rem] bg-white/[0.02] border border-white/5">
+                        <h4 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                            <Clock class="text-zinc-500" /> {contactPage.businessHours.title}
+                        </h4>
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                                <span class="text-zinc-400">{contactPage.businessHours.support.label}</span>
+                                <div class="text-right">
+                                    <p class="text-sm font-bold text-white">{contactPage.businessHours.support.days}</p>
+                                    <p class="text-xs text-zinc-500">{contactPage.businessHours.support.time}</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                                <span class="text-zinc-400">{contactPage.businessHours.sales.label}</span>
+                                <div class="text-right">
+                                    <p class="text-sm font-bold text-white">{contactPage.businessHours.sales.days}</p>
+                                    <p class="text-xs text-zinc-500">{contactPage.businessHours.sales.time}</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-zinc-400">{contactPage.businessHours.online.label}</span>
+                                <span class="text-sm font-bold text-white">{contactPage.businessHours.online.desc}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="p-10 md:p-14 rounded-[3rem] bg-white text-black gsap-reveal">
+                    <h3 class="text-3xl font-black mb-4 text-black">Send Us a Message</h3>
+                    <p class="text-black/50 mb-10">Fill out our contact form, and one of our specialists will get back to you as soon as possible.</p>
+                    
+                    <form action={globalContact.formEndpoint} method="POST" class="space-y-6">
+                        <input type="hidden" name="access_key" value={globalContact.web3FormsAccessKey} />
+                        <input type="hidden" name="subject" value="New Inquiry from ViYukti.com" />
+                        
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-widest font-black text-black/40 ml-2">Full Name</label>
+                            <input type="text" name="name" required placeholder="John Doe" class="w-full px-8 py-5 rounded-2xl bg-black/5 border border-black/5 focus:border-black transition-all outline-none text-black placeholder:text-black/20" />
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-widest font-black text-black/40 ml-2">Company Name</label>
+                            <input type="text" name="company" placeholder="Your Company Ltd" class="w-full px-8 py-5 rounded-2xl bg-black/5 border border-black/5 focus:border-black transition-all outline-none text-black placeholder:text-black/20" />
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase tracking-widest font-black text-black/40 ml-2">Phone Number</label>
+                                <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX" class="w-full px-8 py-5 rounded-2xl bg-black/5 border border-black/5 focus:border-black transition-all outline-none text-black placeholder:text-black/20" />
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] uppercase tracking-widest font-black text-black/40 ml-2">Email Address</label>
+                                <input type="email" name="email" required placeholder="john@company.com" class="w-full px-8 py-5 rounded-2xl bg-black/5 border border-black/5 focus:border-black transition-all outline-none text-black placeholder:text-black/20" />
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-widest font-black text-black/40 ml-2">Service Required</label>
+                            <select name="service" id="industry-select" class="w-full px-8 py-5 rounded-2xl bg-black/5 border border-black/5 focus:border-black transition-all outline-none text-black appearance-none cursor-pointer">
+                                <option value="general">General Inquiry</option>
+                                <option value="recruitment">Recruitment & Staffing</option>
+                                <option value="digital_marketing">Digital Marketing</option>
+                                <option value="it_development">IT Development & Support</option>
+                                <option value="corporate_gifting">Corporate Gifting</option>
+                                <option value="real_estate">Real Estate</option>
+                                <option value="solar_services">Solar Installation & Services</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-widest font-black text-black/40 ml-2">Your Message</label>
+                            <textarea name="message" rows="4" required placeholder="How can we help you?" class="w-full px-8 py-5 rounded-2xl bg-black/5 border border-black/5 focus:border-black transition-all outline-none text-black placeholder:text-black/20 resize-none"></textarea>
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="submit" class="w-full py-6 rounded-2xl bg-black text-white font-black uppercase tracking-widest hover:scale-[1.02] transition-transform flex items-center justify-center gap-3">
+                                Send Message <ChevronRight size={20} />
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Areas -->
+    <section class="py-24 bg-white text-black">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="gsap-reveal">
+                    <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">{getSafe(contactPage, 'consultation.title')}</h2>
+                    <p class="text-xl text-black/60 mb-8 leading-relaxed">{getSafe(contactPage, 'consultation.subtitle')}</p>
+                    <p class="text-lg text-black/40 mb-12">{getSafe(contactPage, 'consultation.description')}</p>
+                    <div class="p-8 rounded-3xl bg-black text-white font-bold tracking-tight">
+                        {getSafe(contactPage, 'consultation.closing')}
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {(contactPage.consultation.areas || []).map(area => (
+                        <div class="p-6 rounded-2xl border border-black/10 bg-black/5 flex items-center gap-4 group hover:bg-black hover:text-white transition-all duration-300">
+                            <div class="w-2 h-2 rounded-full bg-black group-hover:bg-white transition-colors"></div>
+                            <span class="font-bold text-sm tracking-tight">{area}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Trust & FAQ -->
+    <section class="py-32 bg-zinc-950 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-24">
+                <!-- Trust Reasons -->
+                <div class="gsap-reveal">
+                    <h2 class="text-4xl font-black mb-12">Why Businesses Trust ViYukti</h2>
+                    <div class="space-y-8">
+                        {(contactPage.trustReasons || []).map(reason => (
+                            <div class="flex gap-6">
+                                <div class="shrink-0 w-1 bg-white/10 group-hover:bg-white transition-colors"></div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2 text-white">{reason.title}</h4>
+                                    <p class="text-zinc-500 leading-relaxed text-sm">{reason.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="gsap-reveal">
+                    <h2 class="text-4xl font-black mb-12">Frequently Asked Questions</h2>
+                    <div class="space-y-4">
+                        {(contactPage.faqs || []).map((faq) => (
+                            <details class="group p-6 rounded-2xl border border-white/5 bg-white/[0.01] hover:border-white/10 transition-all cursor-pointer">
+                                <summary class="list-none flex justify-between items-center font-bold text-lg text-zinc-300">
+                                    {faq.q}
+                                    <Plus size={20} class="group-open:rotate-45 transition-transform" />
+                                </summary>
+                                <p class="mt-6 text-zinc-500 leading-relaxed text-sm">
+                                    {faq.a}
+                                </p>
+                            </details>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner CTA -->
+    <section class="py-40 bg-white text-black relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-5xl md:text-8xl font-black tracking-tighter mb-12 max-w-4xl mx-auto leading-tight">
+                Partner with ViYukti.
+            </h2>
+            <p class="text-xl text-black/60 max-w-3xl mx-auto mb-16 leading-relaxed font-medium">
+                At ViYukti, we are passionate about helping businesses succeed through innovative solutions, professional expertise, and dedicated support.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="tel:XXXXXXXXXX" class="px-10 py-6 rounded-full bg-black text-white font-black tracking-widest uppercase text-sm hover:scale-105 transition-transform flex items-center justify-center gap-3">
+                    <Phone size={20} /> Contact Our Team
+                </a>
+                <a href="#message" class="px-10 py-6 rounded-full border border-black/10 font-black tracking-widest uppercase text-sm hover:bg-black/5 transition-all flex items-center justify-center gap-3">
+                    <Mail size={20} /> Request a Proposal
+                </a>
+            </div>
+            <p class="mt-16 text-zinc-400 font-bold uppercase tracking-[0.3em] text-xs">ViYukti – Your Trusted Partner for Business Growth</p>
+        </div>
+    </section>
+
+    <Footer />
+</BaseLayout>
+
+<script>
+    // Smart Routing Logic
+    document.addEventListener('astro:page-load', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const industry = urlParams.get('industry');
+        
+        const selectElement = document.getElementById('industry-select') as HTMLSelectElement;
+
+        if (industry && selectElement) {
+            for (let i = 0; i < selectElement.options.length; i++) {
+                if (selectElement.options[i].value === industry) {
+                    selectElement.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+    });
+</script>

@@ -33,6 +33,20 @@
 - **Smart Routing (Lead Gen)**: Upgraded the "Consult Our Experts" buttons to pass URL parameters (e.g., `?industry=solar`) and automatically pre-fill the form's "Industry of Interest" dropdown.
 - **UI Cleanup**: Removed redundant "Explore Solutions" buttons from the dispatcher. Simplified the Corporate Gifting widget.
 
+## [2026-06-15] Phase 8: Contact Us Transformation & Lead Gen
+- **New URL Structure**: Migrated `/contact` to `/contact-us` for improved SEO and brand consistency.
+- **Data Enrichment**: Added detailed business hours, help vertical descriptions, and trust indicators to `src/data/siteData.json`.
+- **Advanced Lead Form**:
+    - Upgraded form with "Company Name" and "Phone Number" fields.
+    - Implemented high-contrast "Dark-on-White" card styling for the form container to drive conversion.
+    - Maintained smart routing logic to pre-select services based on user journey.
+- **Visual Information Blocks**:
+    - **Help Verticals**: Built a grid of 6 industry-specific support summaries.
+    - **Business Hours**: Implemented a clean, readable schedule for Support and Sales.
+    - **Trust Grid**: Showcase 5 core reasons businesses partner with ViYukti.
+- **Global Link Sync**: Updated every internal link, CTA, and navigation entry across the site to point to the new `/contact-us` route.
+- **Local Git Milestone**: Committed all changes locally.
+
 ## [2026-06-15] Phase 7: About Us Page Implementation
 - **New Page Creation**: Built `src/pages/about-us.astro` from scratch using the client's detailed brand narrative.
 - **Sectional Architecture**:
