@@ -33,6 +33,19 @@
 - **Smart Routing (Lead Gen)**: Upgraded the "Consult Our Experts" buttons to pass URL parameters (e.g., `?industry=solar`) and automatically pre-fill the form's "Industry of Interest" dropdown.
 - **UI Cleanup**: Removed redundant "Explore Solutions" buttons from the dispatcher. Simplified the Corporate Gifting widget.
 
+## [2026-06-15] Phase 6: Content Depth & Homepage Expansion
+- **Data Schema Expansion**: Restructured `src/data/siteData.json` to include comprehensive company descriptions, multi-step process flows, success metrics (counters), and industry lists.
+- **Service Enrichment**: Added `servicesInclude` arrays to all 6 business sectors, providing granular detail on specific offerings.
+- **Homepage Redesign**: Completely refactored `index.astro` into a high-impact landing page:
+    - **Dual CTAs**: Added "Get Free Consultation" and "Explore Services" with routing logic.
+    - **Who We Are**: Implemented a split-screen narrative section with a premium leadership quote block.
+    - **Value Grid**: Built a "Why Partner" section with 6 high-impact value proposition cards.
+    - **Visual Stepper**: Created a 5-step "How We Work" visual flow from Discovery to Support.
+    - **GSAP Counters**: Integrated ScrollTrigger-powered number animations for key business metrics.
+    - **Industry & FAQ**: Added a grid of served industries and a custom-styled FAQ accordion.
+- **Footer Sync**: Updated the global footer to consume the new client-provided brand narrative.
+- **UI Consistency**: Leveraged Lucide-Astro for consistent iconography and maintained full light/dark theme compatibility across all new sections.
+
 ## [2026-06-05] Phase 5: Light/Dark Theme System
 - **Tailwind Configuration**: Enabled explicit `darkMode: 'class'` in Tailwind config.
 - **Global CSS Overrides**: Injected a clever CSS ruleset into `BaseLayout.astro` that automatically overrides the hardcoded dark utility classes (e.g., flipping `text-white` to `text-zinc-900` and `bg-white/5` to `bg-black/5`) when the light theme is active. This instantly enables a pristine light theme without requiring an exhaustive codebase rewrite.
