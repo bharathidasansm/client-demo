@@ -304,29 +304,38 @@ const { homePage } = siteData;
 	gsap.registerPlugin(ScrollTrigger);
 
 	function initCounters() {
-		// Counter Animation
-		gsap.utils.toArray('.counter-value').forEach((el: any) => {
-			const target = parseInt(el.getAttribute('data-target'));
-			const suffix = el.innerText.replace(/[0-9]/g, '');
+		const counters = document.querySelectorAll('.counter-value');
+		
+		counters.forEach((el: any) => {
+			const targetValue = parseInt(el.getAttribute('data-target'));
+			const suffix = el.innerText.replace(/[0-9]/g, '') || '';
 			
-			gsap.to(el, {
-				scrollTrigger: {
-					trigger: el,
-					start: 'top 90%',
-				},
-				innerText: target,
-				duration: 2.5,
-				snap: { innerText: 1 },
-				ease: 'power4.out',
-				onUpdate: function() {
-					el.innerText = Math.ceil(this.targets()[0].innerText) + suffix;
+			gsap.fromTo(el, 
+				{ innerText: 0 },
+				{
+					scrollTrigger: {
+						trigger: el,
+						start: 'top 92%',
+						toggleActions: 'play none none none'
+					},
+					innerText: targetValue,
+					duration: 2.5,
+					snap: { innerText: 1 },
+					ease: 'power4.out',
+					onUpdate: function() {
+						el.innerText = Math.floor(this.targets()[0].innerText) + suffix;
+					}
 				}
-			});
+			);
 		});
 	}
 
-	// Initialize on load
+	// Initialize on load and refresh
 	document.addEventListener('astro:page-load', () => {
-		initCounters();
+		// Force ScrollTrigger to recalculate positions after content load
+		setTimeout(() => {
+			ScrollTrigger.refresh();
+			initCounters();
+		}, 100);
 	});
 </script>
