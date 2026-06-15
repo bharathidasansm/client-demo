@@ -1,5 +1,13 @@
 # ViYukti Project Progress
 
+## [2026-06-16] Phase 13: Corporate Gifting Deep-Dive
+- **Comprehensive Data Expansion**: Enriched `src/data/siteData.json` with detailed corporate gifting solutions including Employee recognition, Client appreciation, Festive gifting, and Promotional merchandise.
+- **Dynamic Specialized Layout**: Upgraded `src/pages/services/[slug].astro` to enable the "Complex Content" architecture for the Gifting sector:
+    - **Adaptive Solutions Grid**: Showcases diverse gift categories with specific inclusions and benefits.
+    - **Gifting Process Roadmap**: Implemented a 5-step delivery process from Consultation to timely Delivery.
+    - **Engagement & Promotion Sections**: Added targeted content for employee engagement and brand promotion.
+- **Local Git Milestone**: Committed all changes locally.
+
 ## [2026-06-16] Phase 12: IT Development & Support Deep-Dive
 - **Copy-Perfect Data Expansion**: Refined `src/data/siteData.json` with the client's detailed service copy, covering Website Development, Mobile Apps, Custom Software, ERP, CRM, Cloud Solutions, and IT Support.
 - **Dynamic Specialized Layout**: Upgraded `src/pages/services/[slug].astro` to enable the "Complex Content" architecture for the IT sector:

@@ -405,16 +405,78 @@
       "slug": "corporate-gifting",
       "theme": { "primary": "amber-700", "accent": "yellow-500" },
       "hero": {
-        "title": "Strengthen Business Relationships",
-        "subtitle": "Premium corporate gifting solutions designed to enhance employee engagement, customer loyalty, and brand recognition.",
+        "title": "Corporate Gifting Solutions That Strengthen Business Relationships",
+        "subtitle": "Corporate gifting is more than just exchanging presents—it is a powerful way to build relationships, appreciate employees, engage customers, and enhance brand recognition.",
+        "description": "At ViYukti, we provide customized corporate gifting solutions designed to help businesses create lasting impressions and strengthen professional connections.",
         "bgImage": "/images/gifting-hero.webp"
       },
-      "servicesInclude": [ "Employee Gifts", "Festival Gifts", "Client Gifts", "Customized Merchandise", "Promotional Products", "Luxury Corporate Gifts" ],
-      "cta": "View Gift Solutions",
-      "features": [
-        { "title": "Employee Welcome Kits", "desc": "Customized premium onboarding merchandise." },
-        { "title": "Festive & Luxury Boxes", "desc": "Bespoke executive gifts for high-value clients." }
-      ]
+      "trustIntro": {
+        "title": "Why Corporate Gifting Matters",
+        "text": "A thoughtful gift can have a significant impact on business relationships. Corporate gifting helps organizations express appreciation, improve employee morale, foster customer loyalty, and reinforce brand identity."
+      },
+      "whyMatters": [ "Strengthens client relationships", "Enhances employee engagement", "Improves brand visibility", "Creates positive business impressions", "Increases customer retention", "Supports employee recognition programs", "Builds long-term business partnerships", "Foster professional goodwill" ],
+      "solutions": [
+        { 
+          "title": "Employee Gifting Solutions", 
+          "desc": "Recognize and reward employees for their dedication, achievements, and contributions to improve workplace culture.", 
+          "includes": ["Welcome Kits", "Joining Kits", "Work Anniversary Gifts", "Employee Appreciation Gifts", "Retirement Gifts", "Achievement Awards", "Personalized Merchandise"],
+          "benefits": ["Improved Employee Retention", "Boosted Morale", "Stronger Company Culture", "Increased Loyalty", "Recognized Contribution"]
+        },
+        { 
+          "title": "Client Gifting Solutions", 
+          "desc": "Build stronger relationships with your customers, partners, and stakeholders through thoughtful gifting initiatives.", 
+          "includes": ["Premium Gift Hampers", "Customized Business Gifts", "Executive Gift Sets", "Luxury Corporate Gifts", "Personalized Accessories", "Seasonal Appreciation Gifts"],
+          "benefits": ["Enhanced Client Loyalty", "Better Brand Recall", "Professional Goodwill", "Referral Opportunities", "Long-Term Partnerships"]
+        },
+        { 
+          "title": "Festival Gifting", 
+          "desc": "Celebrate special occasions with customized gifting programs designed for employees, clients, and business partners.", 
+          "includes": ["Diwali Gift Hampers", "New Year Gifts", "Christmas Gifts", "Corporate Celebration Kits", "Customized Festive Merchandise"],
+          "benefits": ["Shared Joy & Celebration", "Goodwill Building", "Positive Brand Image", "Seasonal Engagement", "Strengthened Connections"]
+        },
+        { 
+          "title": "Promotional Merchandise", 
+          "desc": "Increase brand visibility through customized promotional products that maintain consistent brand presence.", 
+          "includes": ["Branded T-Shirts", "Coffee Mugs", "Water Bottles", "Notebooks", "Office Accessories", "Travel Accessories", "Corporate Stationery"],
+          "benefits": ["Mass Brand Exposure", "Low-Cost Marketing", "Utility-Based Recalls", "Tangible Brand Presence", "Event Success"]
+        },
+        { 
+          "title": "Customized Corporate Gifts", 
+          "desc": "Personalization adds value and creates a stronger emotional connection while reinforcing your brand identity.", 
+          "includes": ["Company Logo Printing", "Personalized Packaging", "Employee Name Customization", "Event-Based Branding", "Corporate Message Cards"],
+          "benefits": ["Unique Brand Identity", "Personal Emotional Connection", "Premium Brand Perception", "Memorable Experiences", "Attention to Detail"]
+        }
+      ],
+      "process": [
+        { "step": "Step 1", "title": "Consultation", "desc": "We understand your objectives, audience, budget, and specific gifting requirements." },
+        { "step": "Step 2", "title": "Product Selection", "desc": "Our experts recommend suitable gift options tailored to your needs and goals." },
+        { "step": "Step 3", "title": "Customization", "desc": "Branding, packaging, and personalization elements are added to create a unique experience." },
+        { "step": "Step 4", "title": "Quality Review", "desc": "Every order undergoes rigorous quality checks before dispatch to ensure excellence." },
+        { "step": "Step 5", "title": "Delivery", "desc": "Products are delivered safely and on time for your important occasions and events." }
+      ],
+      "industries": ["Information Technology", "Healthcare", "Manufacturing", "Education", "Real Estate", "Retail", "Hospitality", "Financial Services", "Logistics", "Startups and SMEs"],
+      "whyChoose": [
+        { "title": "Customized Solutions", "desc": "We provide personalized recommendations based on your objectives, audience, and budget." },
+        { "title": "Extensive Product Range", "desc": "From affordable promotional merchandise to premium executive gifts, we offer diverse options." },
+        { "title": "Quality Assurance", "desc": "We work with trusted suppliers to ensure every product meets high-quality standards." },
+        { "title": "Branding Expertise", "desc": "Our team helps integrate your brand identity into every gifting campaign seamlessly." },
+        { "title": "Bulk Order Management", "desc": "We efficiently manage large-scale gifting requirements for all corporate initiatives." },
+        { "title": "Timely Delivery", "desc": "Reliable delivery ensures your gifts arrive on schedule for every important occasion." }
+      ],
+      "benefits": [ "Strengthen Business Relationships", "Improve Employee Morale", "Boost Brand Loyalty", "Foster Professional Goodwill", "Increase Brand Recall", "Elevate Corporate Culture", "Streamlined Bulk Logistics", "High-Impact Customization" ],
+      "targetClients": [ "Startups", "SMEs", "Corporate Enterprises", "MNCs", "Educational Institutions", "Healthcare Groups", "Event Planners" ],
+      "faqs": [
+        { "q": "What is corporate gifting?", "a": "Corporate gifting involves providing gifts to employees, clients, customers, or business partners to build relationships, express appreciation, and promote brand recognition." },
+        { "q": "Do you provide customized gifts?", "a": "Yes. We offer logo branding, personalized packaging, customized merchandise, and tailored gifting solutions." },
+        { "q": "Can you handle bulk corporate orders?", "a": "Absolutely. We manage both small and large-scale corporate gifting requirements efficiently." },
+        { "q": "What types of gifts do you offer?", "a": "We provide employee gifts, client gifts, executive gifts, promotional products, festive hampers, and customized merchandise." },
+        { "q": "Do you deliver across India?", "a": "Yes. We provide corporate gifting solutions and delivery services across India." }
+      ],
+      "finalCta": {
+        "title": "Create Meaningful Business Connections",
+        "text": "Corporate gifting is an investment in relationships. Whether you want to appreciate employees, reward customers, celebrate milestones, or strengthen your brand presence, ViYukti provides solutions that leave a lasting impression.",
+        "closing": "Contact ViYukti today to discuss your requirements and discover customized gifting options that align with your business goals."
+      }
     },
     "real_estate": {
       "id": "real_estate",
