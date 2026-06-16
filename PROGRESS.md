@@ -1,5 +1,12 @@
 # ViYukti Project Progress
 
+## [2026-06-16] Phase 17: Background Parallax & Global Transparency Overhaul
+- **Dynamic Background System**: Refactored `BaseLayout.astro` to support page-specific parallax backgrounds. Integrated unique high-resolution images for Home, About, Contact, and all Service verticals.
+- **"Ghost Layer" Depth Effect**: Implemented a fixed, grayscaled background layer with GSAP parallax scrolling (15% vertical shift) for a 3D sense of depth.
+- **Global Transparency Engine**: Added automated CSS overrides to convert solid `bg-zinc-950` and `bg-zinc-900` sections into semi-transparent glass layers with `backdrop-blur-md` (8px).
+- **Navigation UX Refinement**: Optimized the services dropdown visibility by increasing background opacity to 90%, ensuring text readability against dynamic backgrounds.
+- **Visual Continuity**: Synchronized background transitions across all routes for a seamless, premium browsing experience.
+
 ## [2026-06-16] Phase 16: Contact Us Visual Overhaul & Image Optimization
 - **Premium 3-Column Layout**: Refactored the Contact Us page from a 2-column grid to a sophisticated 3-column "Balanced Trio" architecture (Image Sidebar, Information, Lead Form).
 - **High-Resolution Image Integration**: Integrated a 4000x6000 portrait image (`contact us.jpg`) using Astro's `Image` component for automatic compression and WebP conversion.

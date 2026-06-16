@@ -1,17 +1,19 @@
 ---
 import siteData from '../data/siteData.json';
 import { ViewTransitions } from 'astro:transitions';
+import homeBgDefault from '../assets/home.jpg';
 
 interface Props {
 	title: string;
 	description?: string;
+	bgImage?: any;
 }
 
-const { title, description = siteData.tagline } = Astro.props;
+const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark bg-zinc-950 text-white selection:bg-white/20">
+<html lang="en" class="dark text-white selection:bg-white/20">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -34,7 +36,13 @@ const { title, description = siteData.tagline } = Astro.props;
 
 		<ViewTransitions />
 	</head>
-	<body class="antialiased overflow-x-hidden bg-zinc-950 text-white">
+	<body class="antialiased overflow-x-hidden text-white relative bg-transparent">
+		<!-- Global Background Layer -->
+		<div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-zinc-950">
+			<div id="global-parallax-bg" class="absolute inset-0 w-full h-[120%] bg-cover bg-center grayscale opacity-30 contrast-125 transition-all duration-1000" style={`background-image: url(${bgImage.src});`}></div>
+			<div class="absolute inset-0 bg-zinc-950/70 backdrop-blur-[1px]"></div>
+		</div>
+
 		<slot />
 
 		<style is:global>
@@ -44,9 +52,24 @@ const { title, description = siteData.tagline } = Astro.props;
 			}
 			body {
 				font-family: 'Inter', sans-serif;
-				background-color: #09090b;
+				background-color: transparent;
 				color: #ffffff;
 			}
+
+			/* Global Transparency Overrides to show background */
+			.bg-zinc-950 {
+				background-color: rgba(9, 9, 11, 0.7) !important;
+				backdrop-filter: blur(8px);
+			}
+			.bg-zinc-900 {
+				background-color: rgba(24, 24, 27, 0.6) !important;
+				backdrop-filter: blur(8px);
+			}
+			.bg-black {
+				background-color: rgba(0, 0, 0, 0.5) !important;
+				backdrop-filter: blur(8px);
+			}
+
 			/* Custom Scrollbar */
 			::-webkit-scrollbar {
 				width: 8px;
@@ -118,6 +141,21 @@ const { title, description = siteData.tagline } = Astro.props;
 						gsap.to(card, { y: 0, borderColor: 'rgba(255,255,255,0.1)', backgroundColor: 'rgba(255,255,255,0.02)', duration: 0.3 });
 					});
 				});
+
+				// 4. Global Background Parallax
+				const bg = document.getElementById('global-parallax-bg');
+				if (bg) {
+					gsap.to(bg, {
+						yPercent: 15,
+						ease: "none",
+						scrollTrigger: {
+							trigger: "body",
+							start: "top top",
+							end: "bottom bottom",
+							scrub: true
+						}
+					});
+				}
 
 				// Force a refresh after a short delay to ensure DOM is settled
 				setTimeout(() => {

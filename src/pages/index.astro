@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import siteData from '../data/siteData.json';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import homeBg from '../assets/home.jpg';
 import { ChevronRight, CheckCircle2, Phone, Mail, MessageSquare, Plus } from 'lucide-astro';
 
 // Safely access data
@@ -23,7 +24,7 @@ const faqs = homePage.faqs || [];
 const services = Object.values(siteData.services || {});
 ---
 
-<BaseLayout title="Home" description={getSafe(hero, 'subtitle')}>
+<BaseLayout title="Home" description={getSafe(hero, 'subtitle')} bgImage={homeBg}>
 	<Navigation />
 	
 	<!-- Hero Section -->

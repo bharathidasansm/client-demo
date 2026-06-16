@@ -11,6 +11,14 @@ import Navigation from '../../components/Navigation.astro';
 import Footer from '../../components/Footer.astro';
 import { ChevronRight, CheckCircle2, Plus, ArrowRight, Target, Users, ShieldCheck, Zap, BarChart3 } from 'lucide-astro';
 
+// Import Backgrounds
+import recruitmentBg from '../../assets/recruitment and staffing.jpg';
+import marketingBg from '../../assets/Digital marketing.jpg';
+import itBg from '../../assets/it dev and support.jpg';
+import giftingBg from '../../assets/gifting.jpg';
+import estateBg from '../../assets/realestate.jpg';
+import homeBg from '../../assets/home.jpg';
+
 export async function getStaticPaths() {
   const services = Object.values(siteData.services);
   return services.map((service) => ({
@@ -21,12 +29,24 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 
+// Map Service ID to Image
+const bgMap: Record<string, any> = {
+    'recruitment': recruitmentBg,
+    'digital_marketing': marketingBg,
+    'it_development': itBg,
+    'corporate_gifting': giftingBg,
+    'real_estate': estateBg,
+    'solar_services': homeBg
+};
+
+const currentBg = bgMap[service.id] || homeBg;
+
 // Flag for pages with expanded detailed content
 const hasComplexContent = ['recruitment', 'digital_marketing', 'it_development', 'corporate_gifting', 'real_estate', 'solar_services'].includes(service.id);
 const sData = service as any;
 ---
 
-<BaseLayout title={service.title} description={service.hero.subtitle}>
+<BaseLayout title={service.title} description={service.hero.subtitle} bgImage={currentBg}>
     <Navigation />
     
     <!-- Industry-Specific Hero -->
