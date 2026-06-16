@@ -1,5 +1,12 @@
 # ViYukti Project Progress
 
+## [2026-06-16] Phase 16: Contact Us Visual Overhaul & Image Optimization
+- **Premium 3-Column Layout**: Refactored the Contact Us page from a 2-column grid to a sophisticated 3-column "Balanced Trio" architecture (Image Sidebar, Information, Lead Form).
+- **High-Resolution Image Integration**: Integrated a 4000x6000 portrait image (`contact us.jpg`) using Astro's `Image` component for automatic compression and WebP conversion.
+- **Advanced CSS Masking**: Implemented a custom `mask-image` linear gradient to create a smooth fade-out effect on the image's right edge (solid to 80%, transparent at 100%), blending it seamlessly into the dark theme.
+- **Interactive Visuals**: Added GSAP-powered reveals and hover-based grayscale-to-color transitions with scale effects to the contact portrait.
+- **Local Git Milestone**: Committed all visual and structural changes locally.
+
 ## [2026-06-16] Phase 15: Solar Installation & Services Deep-Dive
 - **Comprehensive Data Expansion**: Enriched `src/data/siteData.json` with detailed solar content covering Residential, Commercial, and Industrial installations, plus Maintenance and AMC services.
 - **Dynamic Specialized Layout**: Enabled the "Complex Content" architecture for the Solar sector:
