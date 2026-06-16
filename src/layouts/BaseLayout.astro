@@ -39,7 +39,7 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 	<body class="antialiased overflow-x-hidden text-white relative bg-transparent">
 		<!-- Global Background Layer -->
 		<div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-zinc-950">
-			<div id="global-parallax-bg" class="absolute inset-0 w-full h-[120%] bg-cover bg-center grayscale opacity-30 contrast-125 transition-all duration-1000" style={`background-image: url(${bgImage.src});`}></div>
+			<div id="global-parallax-bg" class="absolute inset-0 w-full h-[120%] bg-cover bg-center grayscale opacity-30 contrast-125 transition-all duration-1000" style={`background-image: url('${bgImage.src}');`}></div>
 			<div class="absolute inset-0 bg-zinc-950/70 backdrop-blur-[1px]"></div>
 		</div>
 

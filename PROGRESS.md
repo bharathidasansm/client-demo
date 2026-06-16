@@ -1,5 +1,10 @@
 # ViYukti Project Progress
 
+## [2026-06-16] Phase 18: Asset Parsing Correction & Visibility Finalization
+- **CSS URL Quote Protection**: Resolved a critical rendering issue where background images with spaces in filenames (e.g., `about us.jpg`) were failing to load. Implemented single-quote wrapping in `BaseLayout.astro` for robust path parsing.
+- **Page-Specific Background Audit**: Verified and synchronized background props across `index.astro`, `about-us.astro`, `contact-us.astro`, and dynamic `[slug].astro` service pages.
+- **Final Visual Verification**: Confirmed that all high-resolution assets are correctly displaying through the site's glassmorphism layers with active GSAP parallax.
+
 ## [2026-06-16] Phase 17: Background Parallax & Global Transparency Overhaul
 - **Dynamic Background System**: Refactored `BaseLayout.astro` to support page-specific parallax backgrounds. Integrated unique high-resolution images for Home, About, Contact, and all Service verticals.
 - **"Ghost Layer" Depth Effect**: Implemented a fixed, grayscaled background layer with GSAP parallax scrolling (15% vertical shift) for a 3D sense of depth.

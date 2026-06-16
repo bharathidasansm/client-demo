@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 
-// Map Service ID to Image
+// Map Service ID to Image (Must match siteData.json IDs exactly)
 const bgMap: Record<string, any> = {
     'recruitment': recruitmentBg,
     'digital_marketing': marketingBg,
@@ -47,6 +47,7 @@ const sData = service as any;
 ---
 
 <BaseLayout title={service.title} description={service.hero.subtitle} bgImage={currentBg}>
+
     <Navigation />
     
     <!-- Industry-Specific Hero -->
