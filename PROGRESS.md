@@ -1,5 +1,11 @@
 # ViYukti Project Progress
 
+## [2026-06-16] Phase 20: Interactive Component Optimization (Solar Calculator)
+- **Responsive Layout Refactor**: Redesigned the Solar Calculator with a flexible 7/5 grid split to prevent text clipping and improve visual balance across devices.
+- **Fluid Typography Implementation**: Added dynamic font scaling for the savings display, ensuring high-value calculations remain legible on all screen sizes.
+- **Dashboard UI Refinement**: Streamlined padding and labels to achieve a more premium, data-focused "Dashboard" aesthetic.
+- **GSAP Logic Preservation**: Maintained all rolling-number animations and interactive feedback while improving the underlying container flexibility.
+
 ## [2026-06-16] Phase 19: Corporate Gifting Catalog Overhaul
 - **Asset Integration**: Replaced all external unsplash images in the Gifting Catalog with four new high-resolution local assets (`corporate gifting (image1-4).jpg`).
 - **Minimalist UI Refactor**: Streamlined the catalog design by removing detailed descriptions and focusing strictly on core categories (Onboarding, Tech Gadgets, Festive, Self-Care).
