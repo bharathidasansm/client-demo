@@ -1,5 +1,11 @@
 # ViYukti Project Progress
 
+## [2026-06-16] Phase 19: Corporate Gifting Catalog Overhaul
+- **Asset Integration**: Replaced all external unsplash images in the Gifting Catalog with four new high-resolution local assets (`corporate gifting (image1-4).jpg`).
+- **Minimalist UI Refactor**: Streamlined the catalog design by removing detailed descriptions and focusing strictly on core categories (Onboarding, Tech Gadgets, Festive, Self-Care).
+- **Astro Image Optimization**: Implemented the `<Image />` component for the new gifting assets to ensure optimal performance and lazy-loading.
+- **Enhanced Overlays**: Added high-contrast text overlays to the gifting cards for improved readability and a premium "Lookbook" aesthetic.
+
 ## [2026-06-16] Phase 18: Asset Parsing Correction & Visibility Finalization
 - **CSS URL Quote Protection**: Resolved a critical rendering issue where background images with spaces in filenames (e.g., `about us.jpg`) were failing to load. Implemented single-quote wrapping in `BaseLayout.astro` for robust path parsing.
 - **Background Visibility Tuning**: Increased background visibility by 5% (Image: 35% opacity, Overlay: 65% opacity) to enhance the "Ghost Layer" depth while maintaining accessibility.
