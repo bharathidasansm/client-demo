@@ -511,34 +511,9 @@ const serviceImageMap: Record<string, any> = {
 			},
 			// Mobile
 			"(max-width: 767px)": function() {
-				// Reduced range on mobile to prevent horizontal screen overflow
-				gsap.fromTo(textCol,
-					{ x: 30 },
-					{
-						x: -30,
-						ease: 'none',
-						scrollTrigger: {
-							trigger: section,
-							start: 'top bottom',
-							end: 'bottom top',
-							scrub: 1
-						}
-					}
-				);
-
-				gsap.fromTo(imgCol,
-					{ x: -30 },
-					{
-						x: 30,
-						ease: 'none',
-						scrollTrigger: {
-							trigger: section,
-							start: 'top bottom',
-							end: 'bottom top',
-							scrub: 1
-						}
-					}
-				);
+				// Keep text and image perfectly centered and aligned without horizontal sliding
+				gsap.set(textCol, { x: 0 });
+				gsap.set(imgCol, { x: 0 });
 			}
 		});
 	}

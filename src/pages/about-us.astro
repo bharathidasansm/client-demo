@@ -4,6 +4,7 @@ import siteData from '../data/siteData.json';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import aboutBg from '../assets/about us.jpg';
+import { Image } from 'astro:assets';
 import { ChevronRight, Target, Rocket, Lightbulb, Users, ShieldCheck, Heart } from 'lucide-astro';
 
 // Safely access data with multiple levels of protection
@@ -82,16 +83,29 @@ const industries = siteData.homePage?.industries || [];
     </section>
 
     <!-- Why ViYukti Exists -->
-    <section class="py-32 bg-zinc-900/50 border-y border-white/5">
-        <div class="container mx-auto px-6 text-center max-w-4xl">
-            <h2 class="text-4xl md:text-6xl font-black mb-12 gsap-reveal">{getSafe(whyExists, 'title', 'Why ViYukti Exists')}</h2>
-            <p class="text-xl text-zinc-400 mb-8 leading-relaxed gsap-reveal">
-                {getSafe(whyExists, 'text')}
-            </p>
-            <div class="h-px w-20 bg-white/20 mx-auto mb-8"></div>
-            <p class="text-2xl font-bold text-white leading-relaxed gsap-reveal">
-                {getSafe(whyExists, 'solution')}
-            </p>
+    <section id="why-exists-section" class="py-32 bg-zinc-900/50 border-y border-white/5 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <!-- Left Column: Why exists Text -->
+                <div id="why-exists-text" class="text-left flex flex-col justify-center">
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-8 leading-tight text-white">{getSafe(whyExists, 'title', 'Why ViYukti Exists')}</h2>
+                    <p class="text-xl text-zinc-400 mb-8 leading-relaxed">
+                        {getSafe(whyExists, 'text')}
+                    </p>
+                    <div class="h-px w-20 bg-[#1ea99a] mb-8"></div>
+                    <p class="text-2xl font-bold text-white leading-relaxed">
+                        {getSafe(whyExists, 'solution')}
+                    </p>
+                </div>
+                <!-- Right Column: Why exists Image -->
+                <div id="why-exists-image" class="w-full flex items-center justify-center">
+                    <Image 
+                        src={aboutBg} 
+                        alt="Why ViYukti Exists" 
+                        class="w-full max-w-[550px] md:max-w-none h-auto object-contain md:scale-110" 
+                    />
+                </div>
+            </div>
         </div>
     </section>
 
@@ -195,3 +209,65 @@ const industries = siteData.homePage?.industries || [];
 
 	<Footer />
 </BaseLayout>
+
+<script>
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	function initWhyExistsAnimation() {
+		const section = document.getElementById('why-exists-section');
+		const textCol = document.getElementById('why-exists-text');
+		const imgCol = document.getElementById('why-exists-image');
+		if (!section || !textCol || !imgCol) return;
+
+		ScrollTrigger.matchMedia({
+			// Desktop & Tablet
+			"(min-width: 768px)": function() {
+				// Text moves left when scrolling down (from right to left)
+				gsap.fromTo(textCol,
+					{ x: 100 },
+					{
+						x: -100,
+						ease: 'none',
+						scrollTrigger: {
+							trigger: section,
+							start: 'top bottom',
+							end: 'bottom top',
+							scrub: 1
+						}
+					}
+				);
+
+				// Image moves right when scrolling down (from left to right)
+				gsap.fromTo(imgCol,
+					{ x: -100 },
+					{
+						x: 100,
+						ease: 'none',
+						scrollTrigger: {
+							trigger: section,
+							start: 'top bottom',
+							end: 'bottom top',
+							scrub: 1
+						}
+					}
+				);
+			},
+			// Mobile
+			"(max-width: 767px)": function() {
+				// Keep text and image perfectly centered and aligned without horizontal sliding
+				gsap.set(textCol, { x: 0 });
+				gsap.set(imgCol, { x: 0 });
+			}
+		});
+	}
+
+	document.addEventListener('astro:page-load', () => {
+		setTimeout(() => {
+			ScrollTrigger.refresh();
+			initWhyExistsAnimation();
+		}, 100);
+	});
+</script>
