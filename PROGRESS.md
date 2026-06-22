@@ -1,5 +1,11 @@
 # ViYukti Project Progress
 
+## [2026-06-22] Phase 21: Widescreen Hero Auto-Slider & Hover Aesthetic Upgrades
+- **Widescreen Inline Slider (Option A)**: Implemented a prominent, auto-advancing slideshow component at the top of the homepage hero section. Features 6 key vertical service assets with Ken Burns zoom-in and smooth cross-fade transitions.
+- **Micro-Interaction Hover Glows**: Upgraded the Premium Sectors Grid cards with glowing border highlights, fuchsia-violet gradient overlays, and dynamic radial blur orbs on hover for a richer aesthetic.
+- **Astro ViewTransitions Optimization**: Integrated the slider lifecycle hooks into the `astro:page-load` event structure to prevent transition delays and state loss.
+- **Production Verification**: Built and verified compilation of all optimized static pages.
+
 ## [2026-06-16] Phase 20: Interactive Component Optimization (Solar Calculator)
 - **Responsive Layout Refactor**: Redesigned the Solar Calculator with a flexible 7/5 grid split to prevent text clipping and improve visual balance across devices.
 - **Fluid Typography Implementation**: Added dynamic font scaling for the savings display, ensuring high-value calculations remain legible on all screen sizes.
