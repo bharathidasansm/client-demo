@@ -64,7 +64,7 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 				color: #334155 !important; /* Slate 700 body text */
 			}
 			.text-zinc-500 {
-				color: #64748b !important; /* Slate 500 captions */
+				color: #475569 !important; /* Slate 600 captions for higher contrast */
 			}
 			.text-zinc-400 span {
 				color: #334155 !important;
@@ -87,6 +87,14 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 				background-color: rgba(255, 255, 255, 0.75) !important;
 				backdrop-filter: blur(12px);
 				border-color: rgba(226, 232, 240, 0.8) !important;
+			}
+			.bg-white\/\[0\.01\],
+			.bg-white\/\[0\.02\],
+			.bg-white\/\[0\.03\] {
+				background-color: rgba(255, 255, 255, 0.8) !important;
+				backdrop-filter: blur(12px) !important;
+				border-color: rgba(226, 232, 240, 0.85) !important;
+				box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.03) !important;
 			}
 
 			/* Dividers & Borders */
@@ -154,6 +162,7 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 			.bg-white {
 				background-color: #2563eb !important;
 				color: #ffffff !important;
+				transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, transform 0.3s ease !important;
 			}
 			.bg-white:hover {
 				background-color: #1d4ed8 !important;

@@ -2,9 +2,11 @@
 
 ## [2026-06-22] Phase 23: Permanent Clean Light Blue & White Theme Refactor
 - **Light Theme Global Styling**: Shifted the global layout background from dark (#09090b) to soft light slate-blue (#f8fafc), and body text to navy-slate (#0f172a).
-- **Parallax Image Overlay Adaptation**: Lightened the grayscale parallax background layer mask from dark overlay to light translucent overlay (slate-50/85) with reduced opacity (16%) for optimal readability.
-- **Glassmorphic Card Mapping**: Mapped all dark glassmorphic cards (.bg-zinc-950 and .bg-zinc-900) to white semi-transparent glass cards with light borders (slate-200) and soft subtle shadows.
-- **Navigation & Footer Updates**: Re-styled the navbar to use a semi-transparent light glass backdrop and dark text, and transformed the footer to a light slate background with dark typography.
+- **Parallax Image Overlay Adaptation**: Lightened the grayscale parallax background layer mask from dark overlay to light translucent overlay (slate-50/85) with 28% opacity and 60% color retention (grayscale(0.4)) on service detail pages for enhanced depth, color presence, and legibility.
+- **Glassmorphic Card Mapping**: Mapped all dark glassmorphic cards (including `.bg-zinc-950`, `.bg-zinc-900`, and translucent `.bg-white/[0.01]` / `.bg-white/[0.02]`) to white semi-transparent glass cards with light borders (slate-200) and soft subtle shadows.
+- **Improved Typography Contrast**: Re-mapped `.text-zinc-500` to dark slate-gray (#475569) to guarantee high-contrast legibility inside cards and captions.
+- **Smooth Transition Effects**: Added fluid transitions to primary `.bg-white` (blue button) elements to smooth out hover color changes.
+- **Navigation, Hero Gradient, & Footer Updates**: Re-styled the navbar to use a semi-transparent light glass backdrop and dark text. Replaced the dark black-to-transparent overlay gradients in the service heroes with clean light slate-50 gradients. Transformed the footer to a light slate background with dark typography.
 - **Contrast Section & Safeguard Preservation**: Retained alternating design rhythm by converting high-contrast sections (Leadership Quote, CTA) to royal blue with white text, and added CSS safeguards to preserve white text on colored tags/buttons.
 - **Production Verification**: Built and verified compilation of all optimized static pages with no layout or contrast warnings.
 
