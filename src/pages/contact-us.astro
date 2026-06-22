@@ -161,7 +161,7 @@ const serviceOptions = [
                     
                     <form action={globalContact.formEndpoint} method="POST" class="space-y-6 relative z-10">
                         <input type="hidden" name="access_key" value={globalContact.web3FormsAccessKey} />
-                        <input type="hidden" name="subject" value="New Inquiry from ViYukti.com" />
+                        <input type="hidden" name="subject" value={`New Inquiry from ${siteData.domain}`} />
                         
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase tracking-widest font-black text-zinc-600 ml-2">Full Name</label>

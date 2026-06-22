@@ -1,5 +1,6 @@
 ---
 import siteData from '../data/siteData.json';
+import { Facebook, Instagram, Linkedin } from 'lucide-astro';
 ---
 <footer class="py-20 bg-brand-dark border-t border-white/5">
     <div class="container mx-auto px-6">
@@ -12,9 +13,21 @@ import siteData from '../data/siteData.json';
                     {siteData.footer.description}
                 </p>
                 <div class="flex gap-4">
-                    <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white transition-all cursor-pointer">In</div>
-                    <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white transition-all cursor-pointer">Tw</div>
-                    <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white transition-all cursor-pointer">Ig</div>
+                    {siteData.globalContact.socials?.linkedin && (
+                        <a href={siteData.globalContact.socials.linkedin} target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white hover:bg-white/5 transition-all" aria-label="LinkedIn">
+                            <Linkedin size={18} />
+                        </a>
+                    )}
+                    {siteData.globalContact.socials?.facebook && (
+                        <a href={siteData.globalContact.socials.facebook} target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white hover:bg-white/5 transition-all" aria-label="Facebook">
+                            <Facebook size={18} />
+                        </a>
+                    )}
+                    {siteData.globalContact.socials?.instagram && (
+                        <a href={siteData.globalContact.socials.instagram} target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white hover:bg-white/5 transition-all" aria-label="Instagram">
+                            <Instagram size={18} />
+                        </a>
+                    )}
                 </div>
             </div>
             

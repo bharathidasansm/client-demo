@@ -4,6 +4,8 @@
 - **Widescreen Inline Slider (Option A)**: Implemented a prominent, auto-advancing slideshow component at the top of the homepage hero section. Features 6 key vertical service assets with Ken Burns zoom-in and smooth cross-fade transitions.
 - **Micro-Interaction Hover Glows**: Upgraded the Premium Sectors Grid cards with glowing border highlights, fuchsia-violet gradient overlays, and dynamic radial blur orbs on hover for a richer aesthetic.
 - **Astro ViewTransitions Optimization**: Integrated the slider lifecycle hooks into the `astro:page-load` event structure to prevent transition delays and state loss.
+- **Global Settings Update**: Updated global configuration parameters in `siteData.json` with the new domain name (`viyuktigroup.com`), corresponding support email address, and official social media channel links (Facebook, Instagram, LinkedIn).
+- **Dynamic Social Navigation**: Updated `Footer.astro` to dynamically import brand-specific Lucide icons and bind active socials from configuration.
 - **Production Verification**: Built and verified compilation of all optimized static pages.
 
 ## [2026-06-16] Phase 20: Interactive Component Optimization (Solar Calculator)

@@ -1,6 +1,6 @@
 {
   "companyName": "ViYukti",
-  "domain": "ViYukti.com",
+  "domain": "viyuktigroup.com",
   "tagline": "Empowering Businesses with Smart Workforce, Technology & Growth Solutions",
   "description": "ViYukti is your trusted partner for complete business growth solutions. We help organizations scale faster with expert services in recruitment, staffing, digital marketing, IT development, corporate gifting, real estate support, and solar energy solutions.",
   "subDescription": "From building strong teams to improving digital presence, streamlining technology, creating meaningful corporate gifts, supporting property needs, and enabling sustainable energy adoption, ViYukti brings multiple professional services under one reliable platform.",
@@ -187,12 +187,17 @@
     ]
   },
   "globalContact": {
-    "email": "info@viyukti.com",
+    "email": "info@viyuktigroup.com",
     "phone": "+91 XXXXXXXXXX",
     "address": "Chennai, Tamil Nadu, India",
     "formEndpoint": "https://api.web3forms.com/submit",
     "googleAnalyticsId": "G-BRC38EDQHF",
-    "web3FormsAccessKey": "47cf5750-7d94-42a7-9460-3f56debf1f01"
+    "web3FormsAccessKey": "47cf5750-7d94-42a7-9460-3f56debf1f01",
+    "socials": {
+      "facebook": "https://www.facebook.com/profile.php?id=61591099863105",
+      "instagram": "https://www.instagram.com/viyukti/",
+      "linkedin": "https://www.linkedin.com/company/134834019/admin/dashboard/"
+    }
   },
   "services": {
     "recruitment": {
