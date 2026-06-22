@@ -3,7 +3,8 @@
 ## [2026-06-22] Phase 24: SmartGenesis.io Premium Theme & Sectors Grid Image Integration
 - **SmartGenesis Dark Theme & Fonts**: Replaced the light theme with a slate/purple radial gradient background (`#5d5172` / `#463f57` / `#2f2940`), subtle white grid overlay lines (`rgba(255,255,255,0.05)`), and three animated glowing orbs (Teal `#1ea99a`, Gold `#fec624`, Purple `#8b5cf6`). Configured the Exo font for headings and Fira Sans for body copy.
 - **Sectors Grid Image Integration**: Added customizable `"image"` properties to each service in `siteData.json`. Refactored the homepage Premium Sectors Grid cards to dynamically display the representative sector image with a premium hover zoom transition and a bottom colored border accent matching the sector's theme.
-- **Hero Gradient & Readability Fixes**: Replaced the white hero-to-page gradient inside `[slug].astro` service pages with a dark slate/purple gradient to ensure smooth visual transitions and prevent text-contrast spoiling.
+- **Infinite Draggable Marquee Carousel**: Refactored the homepage Premium Sectors Grid to a single-row flexbox track. Implemented a seamless infinite auto-slide scroller (left-to-right) that supports mouse grab-dragging and touch drag controls.
+- **Hero Gradient & Readability Fixes**: Aligned the service details page (`[slug].astro`) hero setup exactly with the Home and About Us pages by removing custom gradient overlays and local styling overrides, making background parallax behave consistently across all routes.
 - **Job Board Filter UI Polish**: Upgraded the Job Board component unselected filters to clean, semi-transparent buttons with zinc text, and the active filter button to solid brand teal with a glow effect, addressing flat/gray visual issues.
 - **Production Verification**: Built and verified static compilation of the updated layouts and templates.
 
