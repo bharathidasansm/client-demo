@@ -171,71 +171,153 @@ const serviceImageMap: Record<string, any> = {
 				<p class="text-zinc-500 max-w-2xl mx-auto">Explore specialized services engineered for industry leadership and measurable growth.</p>
 			</div>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{services.map((service: any, index) => {
-					const accentColor = {
-						'recruitment': '#3b82f6',
-						'digital_marketing': '#a855f7',
-						'it_development': '#06b6d4',
-						'corporate_gifting': '#fec624',
-						'real_estate': '#f59e0b',
-						'solar_services': '#10b981'
-					}[service.id] || '#1ea99a';
+			<!-- Infinite Draggable Services Slider -->
+			<div 
+				id="services-slider-container" 
+				class="overflow-x-auto scrollbar-none cursor-grab active:cursor-grabbing select-none w-full gsap-reveal"
+			>
+				<div 
+					id="services-slider-track" 
+					class="flex gap-8 w-max py-6 px-4"
+				>
+					{/* First set of cards */}
+					{services.map((service: any, index) => {
+						const accentColor = {
+							'recruitment': '#3b82f6',
+							'digital_marketing': '#a855f7',
+							'it_development': '#06b6d4',
+							'corporate_gifting': '#fec624',
+							'real_estate': '#f59e0b',
+							'solar_services': '#10b981'
+						}[service.id] || '#1ea99a';
 
-					return (
-						<div 
-							class="group rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] hover:border-white/20 transition-all duration-500 relative overflow-hidden flex flex-col h-full gsap-reveal"
-						>
-							<!-- Image Header Container -->
-							<div class="relative h-56 overflow-hidden rounded-t-[2.5rem]">
-								<Image 
-									src={serviceImageMap[service.id]} 
-									alt={service.title} 
-									class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110" 
-								/>
-								<div class="absolute inset-0 bg-gradient-to-t from-[#2f2940] via-black/35 to-transparent"></div>
-								<span class="absolute top-6 left-8 text-3xl font-black text-white/30 group-hover:text-white/60 transition-colors">0{index + 1}</span>
-								
-								<!-- Dynamic border accent line -->
-								<div class="absolute bottom-0 left-0 w-full h-1" style={`background-color: ${accentColor}`}></div>
-							</div>
+						return (
+							<div 
+								class="group rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] hover:border-white/20 transition-all duration-500 relative overflow-hidden flex flex-col h-[520px] shrink-0 w-[85vw] sm:w-[380px] md:w-[420px]"
+							>
+								<!-- Image Header Container -->
+								<div class="relative h-56 overflow-hidden rounded-t-[2.5rem]">
+									<Image 
+										src={serviceImageMap[service.id]} 
+										alt={service.title} 
+										class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110 pointer-events-none" 
+									/>
+									<div class="absolute inset-0 bg-gradient-to-t from-[#2f2940] via-black/35 to-transparent"></div>
+									<span class="absolute top-6 left-8 text-3xl font-black text-white/30 group-hover:text-white/60 transition-colors">0{index + 1}</span>
+									
+									<!-- Dynamic border accent line -->
+									<div class="absolute bottom-0 left-0 w-full h-1" style={`background-color: ${accentColor}`}></div>
+								</div>
 
-							<!-- Content Container -->
-							<div class="p-8 md:p-10 flex flex-col flex-grow relative z-10">
-								<h3 class="text-2xl font-black mb-4 text-white transition-colors duration-300" style={`--hover-color: ${accentColor}`}>
-									{service.title}
-								</h3>
-								
-								<p class="text-zinc-400 text-sm leading-relaxed mb-8">
-									{service.hero?.subtitle}
-								</p>
+								<!-- Content Container -->
+								<div class="p-8 md:p-10 flex flex-col flex-grow relative z-10">
+									<h3 class="text-2xl font-black mb-4 text-white transition-colors duration-300" style={`--hover-color: ${accentColor}`}>
+										{service.title}
+									</h3>
+									
+									<p class="text-zinc-400 text-sm leading-relaxed mb-8">
+										{service.hero?.subtitle}
+									</p>
 
-								<div class="mt-auto space-y-4">
-									<p class="text-[10px] font-bold tracking-widest uppercase text-zinc-500">Services Include:</p>
-									<div class="flex flex-wrap gap-2">
-										{(service.servicesInclude || []).slice(0, 3).map((item: string) => (
-											<span class="px-3 py-1 rounded-full border border-white/5 bg-white/5 text-[10px] text-zinc-300">
-												{item}
-											</span>
-										))}
-									</div>
+									<div class="mt-auto space-y-4">
+										<p class="text-[10px] font-bold tracking-widest uppercase text-zinc-500">Services Include:</p>
+										<div class="flex flex-wrap gap-2">
+											{(service.servicesInclude || []).slice(0, 3).map((item: string) => (
+												<span class="px-3 py-1 rounded-full border border-white/5 bg-white/5 text-[10px] text-zinc-300">
+													{item}
+												</span>
+											))}
+										</div>
 
-									<div class="pt-6 border-t border-white/5 flex justify-between items-center">
-										<a href={`/services/${service.slug}`} class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white hover:text-white/80 transition-colors group/link">
-											{service.cta || 'Learn More'} <ChevronRight size={14} class="text-zinc-500 group-hover/link:text-white" />
-										</a>
-										<a href={`/services/${service.slug}`} class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-[#1ea99a] group-hover:text-white group-hover:border-[#1ea99a] transition-all">
-											<ChevronRight size={18} />
-										</a>
+										<div class="pt-6 border-t border-white/5 flex justify-between items-center">
+											<a href={`/services/${service.slug}`} class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white hover:text-white/80 transition-colors group/link">
+												{service.cta || 'Learn More'} <ChevronRight size={14} class="text-zinc-500 group-hover/link:text-white" />
+											</a>
+											<a href={`/services/${service.slug}`} class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-[#1ea99a] group-hover:text-white group-hover:border-[#1ea99a] transition-all">
+												<ChevronRight size={18} />
+											</a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					);
-				})}
+						);
+					})}
+					{/* Cloned set of cards for seamless infinite wrap */}
+					{services.map((service: any, index) => {
+						const accentColor = {
+							'recruitment': '#3b82f6',
+							'digital_marketing': '#a855f7',
+							'it_development': '#06b6d4',
+							'corporate_gifting': '#fec624',
+							'real_estate': '#f59e0b',
+							'solar_services': '#10b981'
+						}[service.id] || '#1ea99a';
+
+						return (
+							<div 
+								class="group rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] hover:border-white/20 transition-all duration-500 relative overflow-hidden flex flex-col h-[520px] shrink-0 w-[85vw] sm:w-[380px] md:w-[420px]"
+							>
+								<!-- Image Header Container -->
+								<div class="relative h-56 overflow-hidden rounded-t-[2.5rem]">
+									<Image 
+										src={serviceImageMap[service.id]} 
+										alt={service.title} 
+										class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110 pointer-events-none" 
+									/>
+									<div class="absolute inset-0 bg-gradient-to-t from-[#2f2940] via-black/35 to-transparent"></div>
+									<span class="absolute top-6 left-8 text-3xl font-black text-white/30 group-hover:text-white/60 transition-colors">0{index + 1}</span>
+									
+									<!-- Dynamic border accent line -->
+									<div class="absolute bottom-0 left-0 w-full h-1" style={`background-color: ${accentColor}`}></div>
+								</div>
+
+								<!-- Content Container -->
+								<div class="p-8 md:p-10 flex flex-col flex-grow relative z-10">
+									<h3 class="text-2xl font-black mb-4 text-white transition-colors duration-300" style={`--hover-color: ${accentColor}`}>
+										{service.title}
+									</h3>
+									
+									<p class="text-zinc-400 text-sm leading-relaxed mb-8">
+										{service.hero?.subtitle}
+									</p>
+
+									<div class="mt-auto space-y-4">
+										<p class="text-[10px] font-bold tracking-widest uppercase text-zinc-500">Services Include:</p>
+										<div class="flex flex-wrap gap-2">
+											{(service.servicesInclude || []).slice(0, 3).map((item: string) => (
+												<span class="px-3 py-1 rounded-full border border-white/5 bg-white/5 text-[10px] text-zinc-300">
+													{item}
+												</span>
+											))}
+										</div>
+
+										<div class="pt-6 border-t border-white/5 flex justify-between items-center">
+											<a href={`/services/${service.slug}`} class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white hover:text-white/80 transition-colors group/link">
+												{service.cta || 'Learn More'} <ChevronRight size={14} class="text-zinc-500 group-hover/link:text-white" />
+											</a>
+											<a href={`/services/${service.slug}`} class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-[#1ea99a] group-hover:text-white group-hover:border-[#1ea99a] transition-all">
+												<ChevronRight size={18} />
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						);
+					})}
+				</div>
 			</div>
 		</div>
 	</section>
+
+	<style>
+		#services-slider-container {
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+		}
+		#services-slider-container::-webkit-scrollbar {
+			display: none;
+		}
+	</style>
 
 	<!-- Why Partner Section -->
 	<section class="py-32 bg-zinc-900/50 border-y border-white/5 relative overflow-hidden">
@@ -511,6 +593,97 @@ const serviceImageMap: Record<string, any> = {
 		startAutoPlay();
 	}
 
+	function initServicesSlider() {
+		const container = document.getElementById('services-slider-container');
+		const track = document.getElementById('services-slider-track');
+		if (!container || !track) return;
+
+		let isDragging = false;
+		let startX = 0;
+		let scrollLeft = 0;
+		let autoplaySpeed = -0.8; // Slow, smooth auto-slide left-to-right
+		let animationFrameId: any = null;
+
+		let oneSetWidth = track.scrollWidth / 2;
+
+		// Initial center position so there is content in both directions
+		container.scrollLeft = oneSetWidth;
+
+		// Handle resize responsiveness
+		window.addEventListener('resize', () => {
+			oneSetWidth = track.scrollWidth / 2;
+		});
+
+		function updateSlider() {
+			if (!isDragging) {
+				container.scrollLeft += autoplaySpeed;
+
+				// Infinite wrapping checks (left-to-right)
+				if (container.scrollLeft <= 0) {
+					container.scrollLeft = oneSetWidth;
+				} else if (container.scrollLeft >= oneSetWidth * 2 - container.clientWidth) {
+					container.scrollLeft = oneSetWidth;
+				}
+			}
+			animationFrameId = requestAnimationFrame(updateSlider);
+		}
+
+		// Dragging support
+		const startDrag = (e: any) => {
+			isDragging = true;
+			container.classList.add('cursor-grabbing');
+			container.classList.remove('cursor-grab');
+			startX = (e.pageX || e.touches[0].pageX) - container.offsetLeft;
+			scrollLeft = container.scrollLeft;
+		};
+
+		const stopDrag = () => {
+			isDragging = false;
+			container.classList.remove('cursor-grabbing');
+			container.classList.add('cursor-grab');
+		};
+
+		const doDrag = (e: any) => {
+			if (!isDragging) return;
+			e.preventDefault();
+			const x = (e.pageX || e.touches[0].pageX) - container.offsetLeft;
+			const walk = (x - startX) * 1.5; // Sensitivity multiplier
+			let targetScroll = scrollLeft - walk;
+
+			// Wrapping during dragging to prevent hitting edges
+			if (targetScroll <= 0) {
+				targetScroll = oneSetWidth + targetScroll;
+				startX = x;
+				scrollLeft = targetScroll;
+			} else if (targetScroll >= oneSetWidth * 2 - container.clientWidth) {
+				targetScroll = targetScroll - oneSetWidth;
+				startX = x;
+				scrollLeft = targetScroll;
+			}
+
+			container.scrollLeft = targetScroll;
+		};
+
+		// Mouse Events
+		container.addEventListener('mousedown', startDrag);
+		container.addEventListener('mouseleave', stopDrag);
+		container.addEventListener('mouseup', stopDrag);
+		container.addEventListener('mousemove', doDrag);
+
+		// Touch Events
+		container.addEventListener('touchstart', startDrag, { passive: true });
+		container.addEventListener('touchend', stopDrag);
+		container.addEventListener('touchmove', doDrag, { passive: false });
+
+		// Start loop
+		updateSlider();
+
+		// Cleanup on Astro transitions
+		document.addEventListener('astro:before-preparation', () => {
+			if (animationFrameId) cancelAnimationFrame(animationFrameId);
+		}, { once: true });
+	}
+
 	// Initialize on load and refresh
 	document.addEventListener('astro:page-load', () => {
 		// Force ScrollTrigger to recalculate positions after content load
@@ -519,6 +692,7 @@ const serviceImageMap: Record<string, any> = {
 			initCounters();
             initWhoWeAre();
 			initHeroSlider();
+			initServicesSlider();
 		}, 100);
 	});
 </script>
