@@ -202,6 +202,7 @@
   "services": {
     "recruitment": {
       "id": "recruitment",
+      "image": "/src/assets/recruitment and staffing.jpg",
       "title": "Recruitment & Staffing",
       "slug": "recruitment-staffing",
       "theme": { "primary": "blue-600", "accent": "sky-400" },
@@ -261,6 +262,7 @@
     },
     "digital_marketing": {
       "id": "digital_marketing",
+      "image": "/src/assets/Digital marketing.jpg",
       "title": "Digital Marketing",
       "slug": "digital-marketing",
       "theme": { "primary": "purple-600", "accent": "pink-500" },
@@ -317,6 +319,7 @@
     },
     "it_development": {
       "id": "it_development",
+      "image": "/src/assets/it dev and support.jpg",
       "title": "IT Development & Support",
       "slug": "it-development-support",
       "theme": { "primary": "cyan-600", "accent": "indigo-500" },
@@ -409,6 +412,7 @@
     },
     "corporate_gifting": {
       "id": "corporate_gifting",
+      "image": "/src/assets/gifting.jpg",
       "title": "Corporate Gifting",
       "slug": "corporate-gifting",
       "theme": { "primary": "amber-700", "accent": "yellow-500" },
@@ -488,6 +492,7 @@
     },
     "real_estate": {
       "id": "real_estate",
+      "image": "/src/assets/realestate.jpg",
       "title": "Real Estate Solutions",
       "slug": "real-estate",
       "theme": { "primary": "stone-800", "accent": "amber-600" },
@@ -574,6 +579,7 @@
     },
     "solar_services": {
       "id": "solar_services",
+      "image": "/src/assets/home.jpg",
       "title": "Solar Installation & Services",
       "slug": "solar-installation-services",
       "theme": { "primary": "emerald-600", "accent": "lime-400" },

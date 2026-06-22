@@ -23,7 +23,7 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 		<title>{title} | {siteData.companyName}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 		
 		<!-- Google Analytics -->
 		<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${siteData.globalContact.googleAnalyticsId}`}></script>
@@ -36,154 +36,189 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 
 		<ViewTransitions />
 	</head>
-	<body class="antialiased overflow-x-hidden text-zinc-900 relative bg-transparent">
-		<!-- Global Background Layer -->
-		<div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-slate-50">
-			<div id="global-parallax-bg" class="absolute inset-0 w-full h-[120%] bg-cover bg-center grayscale opacity-[0.16] contrast-[1.1] transition-all duration-1000" style={`background-image: url('${bgImage.src}');`}></div>
-			<div class="absolute inset-0 bg-slate-50/85 backdrop-blur-[1px]"></div>
+	<body class="antialiased overflow-x-hidden text-zinc-300 relative bg-transparent">
+		<!-- Global Background Layer (SmartGenesis Theme) -->
+		<div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-[#2f2940]">
+			<!-- Radial Slate/Purple Gradient Base -->
+			<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(93,81,114,0.65),rgba(70,63,87,0.85)_50%,rgba(47,41,64,1))]"></div>
+			
+			<!-- Subtle Grid Pattern overlay -->
+			<div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 46px 46px;"></div>
+
+			<!-- Dynamic Animated Floating Glowing Orbs -->
+			<div class="absolute top-[10%] right-[15%] w-[400px] h-[400px] bg-[#1ea99a]/15 rounded-full blur-[100px] animate-pulse-slow"></div>
+			<div class="absolute bottom-[20%] left-[10%] w-[500px] h-[500px] bg-[#8b5cf6]/10 rounded-full blur-[120px] animate-bounce-slow"></div>
+			<div class="absolute top-[60%] right-[5%] w-[350px] h-[350px] bg-[#fec624]/10 rounded-full blur-[90px] animate-pulse-slow"></div>
+
+			<!-- Parallax Image Layer (Blended with Base) -->
+			<div id="global-parallax-bg" class="absolute inset-0 w-full h-[120%] bg-cover bg-center opacity-[0.2] transition-all duration-1000" style={`background-image: url('${bgImage.src}');`}></div>
+			<div class="absolute inset-0 bg-[#2f2940]/80 backdrop-blur-[2px]"></div>
 		</div>
 
 		<slot />
 
 		<style is:global>
-			html {
-				scroll-behavior: smooth;
-				background-color: #f8fafc;
+			@keyframes pulse-slow {
+				0%, 100% { transform: scale(1); opacity: 0.15; }
+				50% { transform: scale(1.08); opacity: 0.25; }
 			}
-			body {
-				font-family: 'Inter', sans-serif;
-				background-color: transparent;
-				color: #0f172a;
+			@keyframes bounce-slow {
+				0%, 100% { transform: translateY(0) scale(1); }
+				50% { transform: translateY(-25px) scale(1.03); }
+			}
+			.animate-pulse-slow {
+				animation: pulse-slow 8s ease-in-out infinite;
+			}
+			.animate-bounce-slow {
+				animation: bounce-slow 15s ease-in-out infinite;
 			}
 
-			/* 1. Global Typography Mapping for Light Theme */
-			h1, h2, h3, h4, h5, h6, .text-white {
-				color: #0f172a !important; /* Navy/Slate 900 headings */
+			html {
+				scroll-behavior: smooth;
+				background-color: #2f2940;
 			}
-			.text-zinc-300, .text-zinc-400 {
-				color: #334155 !important; /* Slate 700 body text */
+			body {
+				font-family: 'Fira Sans', sans-serif;
+				background-color: transparent;
+				color: #d4d4d8;
+			}
+
+			/* 1. Global Typography Mapping for Dark Theme */
+			h1, h2, h3, h4, h5, h6 {
+				font-family: 'Exo', sans-serif;
+				color: #ffffff !important;
+				letter-spacing: -0.02em;
+			}
+			.text-white {
+				color: #ffffff !important;
+			}
+			.text-zinc-300 {
+				color: #d4d4d8 !important;
+			}
+			.text-zinc-400 {
+				color: #a1a1aa !important;
 			}
 			.text-zinc-500 {
-				color: #475569 !important; /* Slate 600 captions for higher contrast */
-			}
-			.text-zinc-400 span {
-				color: #334155 !important;
+				color: #71717a !important;
 			}
 
 			/* 2. Glassmorphism Card Overrides */
-			.bg-zinc-950 {
-				background-color: rgba(255, 255, 255, 0.85) !important;
-				backdrop-filter: blur(12px);
-				border-color: rgba(226, 232, 240, 0.8) !important;
-				box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
-			}
-			.bg-zinc-900 {
-				background-color: rgba(239, 246, 255, 0.65) !important; /* Premium Ice-Blue instead of Gray */
-				backdrop-filter: blur(12px);
-				border-color: rgba(226, 232, 240, 0.8) !important;
-				box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
-			}
-			.bg-black {
-				background-color: rgba(255, 255, 255, 0.8) !important;
-				backdrop-filter: blur(12px);
-				border-color: rgba(226, 232, 240, 0.8) !important;
+			.bg-zinc-950, .bg-zinc-900, .bg-black {
+				background-color: rgba(47, 41, 64, 0.45) !important;
+				backdrop-filter: blur(12px) !important;
+				border: 1px solid rgba(255, 255, 255, 0.05) !important;
+				box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4) !important;
 			}
 			.bg-white\/\[0\.01\],
 			.bg-white\/\[0\.02\],
 			.bg-white\/\[0\.03\] {
-				background-color: rgba(255, 255, 255, 0.82) !important;
+				background-color: rgba(255, 255, 255, 0.02) !important;
 				backdrop-filter: blur(12px) !important;
-				border-color: rgba(226, 232, 240, 0.85) !important;
-				box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.03) !important;
+				border: 1px solid rgba(255, 255, 255, 0.05) !important;
+				box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4) !important;
 			}
 
 			/* Dividers & Borders */
 			.border-white\/5, .border-white\/10 {
-				border-color: rgba(226, 232, 240, 0.85) !important;
+				border-color: rgba(255, 255, 255, 0.06) !important;
 			}
 
 			/* 3. Navigation Bar Customizations */
 			.bg-black\/20 {
-				background-color: rgba(255, 255, 255, 0.55) !important;
-				border-color: rgba(226, 232, 240, 0.85) !important;
-				box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.05);
+				background-color: rgba(47, 41, 64, 0.6) !important;
+				border-color: rgba(255, 255, 255, 0.08) !important;
+				box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
 			}
 			.nav-services-text {
-				color: #334155 !important;
+				color: #d4d4d8 !important;
 			}
 			.nav-services-text:hover {
-				color: #2563eb !important;
+				color: #1ea99a !important;
 			}
 			.bg-zinc-900\/90 {
-				background-color: rgba(255, 255, 255, 0.95) !important;
-				border-color: rgba(226, 232, 240, 0.9) !important;
-				box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+				background-color: rgba(31, 27, 42, 0.95) !important;
+				border-color: rgba(255, 255, 255, 0.08) !important;
+				box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5) !important;
 			}
 
 			/* 4. Footer Overrides */
 			.bg-brand-dark {
-				background-color: #f1f5f9 !important; /* Soft Slate Footer */
-				border-top: 1px solid rgba(226, 232, 240, 0.9) !important;
+				background-color: rgba(31, 27, 42, 0.8) !important;
+				border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
 			}
 			.bg-brand-dark .text-white {
-				color: #0f172a !important;
+				color: #ffffff !important;
 			}
 			.bg-brand-dark .text-zinc-500, .bg-brand-dark .text-zinc-600 {
-				color: #475569 !important;
+				color: #a1a1aa !important;
 			}
 
-			/* 5. Alternating High-Contrast sections (Leadership Quote & final CTA) */
-			/* We keep these sections high-impact by transforming them to Deep Navy Blue */
+			/* 5. Custom Sections Adaptations (Adapting light content to dark style) */
 			section.bg-white {
-				background-color: #1e3a8a !important;
+				background-color: rgba(47, 41, 64, 0.35) !important;
 				color: #ffffff !important;
+				border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
 			}
 			section.bg-white h2, 
 			section.bg-white p, 
 			section.bg-white svg,
 			section.bg-white div,
-			section.bg-white span {
+			section.bg-white span,
+			section.bg-white label {
 				color: #ffffff !important;
 			}
-			section.bg-white a.bg-black {
-				background-color: #ffffff !important;
-				color: #1e3a8a !important;
+			section.bg-white .bg-black\/5 {
+				background-color: rgba(255, 255, 255, 0.03) !important;
 			}
-			section.bg-white a.border-black\/10 {
-				border-color: rgba(255, 255, 255, 0.25) !important;
+			section.bg-white .border-black\/10 {
+				border-color: rgba(255, 255, 255, 0.08) !important;
+			}
+			section.bg-white .text-black\/60,
+			section.bg-white .text-black\/40 {
+				color: #a1a1aa !important;
+			}
+			
+			/* Div elements styled as light card blocks become dark glass */
+			div.bg-white.text-black {
+				background-color: rgba(255, 255, 255, 0.02) !important;
+				border: 1px solid rgba(255, 255, 255, 0.05) !important;
 				color: #ffffff !important;
 			}
-			section.bg-white a.border-black\/10:hover {
-				background-color: rgba(255, 255, 255, 0.1) !important;
+			div.bg-white.text-black h3,
+			div.bg-white.text-black p,
+			div.bg-white.text-black svg {
+				color: #ffffff !important;
 			}
 
 			/* 6. Buttons & Interactions */
-			/* White CTA buttons become blue with white text */
-			.bg-white {
-				background-color: #2563eb !important;
+			/* White CTA links and buttons become brand teal */
+			a.bg-white, button.bg-white, section.bg-white a.bg-black {
+				background-color: #1ea99a !important;
 				color: #ffffff !important;
-				transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, transform 0.3s ease !important;
+				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 			}
-			.bg-white:hover {
-				background-color: #1d4ed8 !important;
+			a.bg-white:hover, button.bg-white:hover, section.bg-white a.bg-black:hover {
+				background-color: #168d80 !important;
+				transform: translateY(-2px);
+				box-shadow: 0 8px 25px rgba(30, 169, 154, 0.3);
 			}
-			.bg-white .text-black {
-				color: #ffffff !important;
-			}
-			.bg-white svg {
+			a.bg-white .text-black, button.bg-white .text-black {
 				color: #ffffff !important;
 			}
 
 			/* Outline CTA buttons */
 			.bg-white\/5 {
-				background-color: rgba(37, 99, 235, 0.05) !important;
-				color: #2563eb !important;
+				background-color: rgba(255, 255, 255, 0.03) !important;
+				color: #ffffff !important;
+				border: 1px solid rgba(255, 255, 255, 0.08) !important;
 			}
 			.bg-white\/5:hover {
-				background-color: rgba(37, 99, 235, 0.1) !important;
+				background-color: rgba(255, 255, 255, 0.08) !important;
+				border-color: rgba(255, 255, 255, 0.2) !important;
 			}
 			.border-white\/10 {
-				border-color: rgba(37, 99, 235, 0.18) !important;
+				border-color: rgba(255, 255, 255, 0.08) !important;
 			}
 
 			/* 7. Safeguards for white text in explicit dark layout elements */
@@ -197,8 +232,8 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 			/* Hero slider label */
 			.hero-slide span {
 				color: #ffffff !important;
-				border-color: rgba(255, 255, 255, 0.2) !important;
-				background-color: rgba(0, 0, 0, 0.6) !important;
+				border-color: rgba(255, 255, 255, 0.1) !important;
+				background-color: rgba(0, 0, 0, 0.7) !important;
 			}
 			
 			/* 8. Image Card Overlay Contrast Protection */
@@ -214,14 +249,14 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 				width: 8px;
 			}
 			::-webkit-scrollbar-track {
-				background: #f1f5f9;
+				background: #231f30;
 			}
 			::-webkit-scrollbar-thumb {
-				background: #cbd5e1;
+				background: rgba(255, 255, 255, 0.1);
 				border-radius: 10px;
 			}
 			::-webkit-scrollbar-thumb:hover {
-				background: #94a3b8;
+				background: rgba(255, 255, 255, 0.25);
 			}
 		</style>
 

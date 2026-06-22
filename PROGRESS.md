@@ -1,5 +1,12 @@
 # ViYukti Project Progress
 
+## [2026-06-22] Phase 24: SmartGenesis.io Premium Theme & Sectors Grid Image Integration
+- **SmartGenesis Dark Theme & Fonts**: Replaced the light theme with a slate/purple radial gradient background (`#5d5172` / `#463f57` / `#2f2940`), subtle white grid overlay lines (`rgba(255,255,255,0.05)`), and three animated glowing orbs (Teal `#1ea99a`, Gold `#fec624`, Purple `#8b5cf6`). Configured the Exo font for headings and Fira Sans for body copy.
+- **Sectors Grid Image Integration**: Added customizable `"image"` properties to each service in `siteData.json`. Refactored the homepage Premium Sectors Grid cards to dynamically display the representative sector image with a premium hover zoom transition and a bottom colored border accent matching the sector's theme.
+- **Hero Gradient & Readability Fixes**: Replaced the white hero-to-page gradient inside `[slug].astro` service pages with a dark slate/purple gradient to ensure smooth visual transitions and prevent text-contrast spoiling.
+- **Job Board Filter UI Polish**: Upgraded the Job Board component unselected filters to clean, semi-transparent buttons with zinc text, and the active filter button to solid brand teal with a glow effect, addressing flat/gray visual issues.
+- **Production Verification**: Built and verified static compilation of the updated layouts and templates.
+
 ## [2026-06-22] Phase 23: Permanent Clean Light Blue & White Theme Refactor
 - **Light Theme Global Styling**: Shifted the global layout background from dark (#09090b) to soft light slate-blue (#f8fafc), and body text to navy-slate (#0f172a).
 - **Parallax Image Overlay Adaptation**: Lightened the grayscale parallax background layer mask from dark overlay to light translucent overlay (slate-50/85) with 28% opacity and 60% color retention (grayscale(0.4)) on service detail pages for enhanced depth, color presence, and legibility.
