@@ -36,11 +36,11 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 
 		<ViewTransitions />
 	</head>
-	<body class="antialiased overflow-x-hidden text-white relative bg-transparent">
+	<body class="antialiased overflow-x-hidden text-zinc-900 relative bg-transparent">
 		<!-- Global Background Layer -->
-		<div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-zinc-950">
-			<div id="global-parallax-bg" class="absolute inset-0 w-full h-[120%] bg-cover bg-center grayscale opacity-[0.35] contrast-125 transition-all duration-1000" style={`background-image: url('${bgImage.src}');`}></div>
-			<div class="absolute inset-0 bg-zinc-950/65 backdrop-blur-[1px]"></div>
+		<div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-slate-50">
+			<div id="global-parallax-bg" class="absolute inset-0 w-full h-[120%] bg-cover bg-center grayscale opacity-[0.16] contrast-[1.1] transition-all duration-1000" style={`background-image: url('${bgImage.src}');`}></div>
+			<div class="absolute inset-0 bg-slate-50/85 backdrop-blur-[1px]"></div>
 		</div>
 
 		<slot />
@@ -48,26 +48,148 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 		<style is:global>
 			html {
 				scroll-behavior: smooth;
-				background-color: #09090b;
+				background-color: #f8fafc;
 			}
 			body {
 				font-family: 'Inter', sans-serif;
 				background-color: transparent;
-				color: #ffffff;
+				color: #0f172a;
 			}
 
-			/* Global Transparency Overrides to show background */
+			/* 1. Global Typography Mapping for Light Theme */
+			h1, h2, h3, h4, h5, h6, .text-white {
+				color: #0f172a !important; /* Navy/Slate 900 headings */
+			}
+			.text-zinc-300, .text-zinc-400 {
+				color: #334155 !important; /* Slate 700 body text */
+			}
+			.text-zinc-500 {
+				color: #64748b !important; /* Slate 500 captions */
+			}
+			.text-zinc-400 span {
+				color: #334155 !important;
+			}
+
+			/* 2. Glassmorphism Card Overrides */
 			.bg-zinc-950 {
-				background-color: rgba(9, 9, 11, 0.7) !important;
-				backdrop-filter: blur(8px);
+				background-color: rgba(255, 255, 255, 0.75) !important;
+				backdrop-filter: blur(12px);
+				border-color: rgba(226, 232, 240, 0.8) !important;
+				box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
 			}
 			.bg-zinc-900 {
-				background-color: rgba(24, 24, 27, 0.6) !important;
-				backdrop-filter: blur(8px);
+				background-color: rgba(241, 245, 249, 0.7) !important;
+				backdrop-filter: blur(12px);
+				border-color: rgba(226, 232, 240, 0.8) !important;
+				box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
 			}
 			.bg-black {
-				background-color: rgba(0, 0, 0, 0.5) !important;
-				backdrop-filter: blur(8px);
+				background-color: rgba(255, 255, 255, 0.75) !important;
+				backdrop-filter: blur(12px);
+				border-color: rgba(226, 232, 240, 0.8) !important;
+			}
+
+			/* Dividers & Borders */
+			.border-white\/5, .border-white\/10 {
+				border-color: rgba(226, 232, 240, 0.85) !important;
+			}
+
+			/* 3. Navigation Bar Customizations */
+			.bg-black\/20 {
+				background-color: rgba(255, 255, 255, 0.55) !important;
+				border-color: rgba(226, 232, 240, 0.85) !important;
+				box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.05);
+			}
+			.nav-services-text {
+				color: #334155 !important;
+			}
+			.nav-services-text:hover {
+				color: #2563eb !important;
+			}
+			.bg-zinc-900\/90 {
+				background-color: rgba(255, 255, 255, 0.95) !important;
+				border-color: rgba(226, 232, 240, 0.9) !important;
+				box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+			}
+
+			/* 4. Footer Overrides */
+			.bg-brand-dark {
+				background-color: #f1f5f9 !important; /* Soft Slate Footer */
+				border-top: 1px solid rgba(226, 232, 240, 0.9) !important;
+			}
+			.bg-brand-dark .text-white {
+				color: #0f172a !important;
+			}
+			.bg-brand-dark .text-zinc-500, .bg-brand-dark .text-zinc-600 {
+				color: #475569 !important;
+			}
+
+			/* 5. Alternating High-Contrast sections (Leadership Quote & final CTA) */
+			/* We keep these sections high-impact by transforming them to Deep Navy Blue */
+			section.bg-white {
+				background-color: #1e3a8a !important;
+				color: #ffffff !important;
+			}
+			section.bg-white h2, 
+			section.bg-white p, 
+			section.bg-white svg,
+			section.bg-white div,
+			section.bg-white span {
+				color: #ffffff !important;
+			}
+			section.bg-white a.bg-black {
+				background-color: #ffffff !important;
+				color: #1e3a8a !important;
+			}
+			section.bg-white a.border-black\/10 {
+				border-color: rgba(255, 255, 255, 0.25) !important;
+				color: #ffffff !important;
+			}
+			section.bg-white a.border-black\/10:hover {
+				background-color: rgba(255, 255, 255, 0.1) !important;
+			}
+
+			/* 6. Buttons & Interactions */
+			/* White CTA buttons become blue with white text */
+			.bg-white {
+				background-color: #2563eb !important;
+				color: #ffffff !important;
+			}
+			.bg-white:hover {
+				background-color: #1d4ed8 !important;
+			}
+			.bg-white .text-black {
+				color: #ffffff !important;
+			}
+			.bg-white svg {
+				color: #ffffff !important;
+			}
+
+			/* Outline CTA buttons */
+			.bg-white\/5 {
+				background-color: rgba(37, 99, 235, 0.05) !important;
+				color: #2563eb !important;
+			}
+			.bg-white\/5:hover {
+				background-color: rgba(37, 99, 235, 0.1) !important;
+			}
+			.border-white\/10 {
+				border-color: rgba(37, 99, 235, 0.18) !important;
+			}
+
+			/* 7. Safeguards for white text in explicit dark layout elements */
+			.bg-blue-600 .text-white,
+			.bg-violet-600 .text-white,
+			.bg-fuchsia-600 .text-white,
+			.bg-black .text-white {
+				color: #ffffff !important;
+			}
+			
+			/* Hero slider label */
+			.hero-slide span {
+				color: #ffffff !important;
+				border-color: rgba(255, 255, 255, 0.2) !important;
+				background-color: rgba(0, 0, 0, 0.6) !important;
 			}
 
 			/* Custom Scrollbar */
@@ -75,14 +197,14 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 				width: 8px;
 			}
 			::-webkit-scrollbar-track {
-				background: #09090b;
+				background: #f1f5f9;
 			}
 			::-webkit-scrollbar-thumb {
-				background: #27272a;
+				background: #cbd5e1;
 				border-radius: 10px;
 			}
 			::-webkit-scrollbar-thumb:hover {
-				background: #3f3f46;
+				background: #94a3b8;
 			}
 		</style>
 
