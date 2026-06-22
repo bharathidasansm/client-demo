@@ -1,6 +1,7 @@
 # ViYukti Project Progress
 
 ## [2026-06-22] Phase 24: SmartGenesis.io Premium Theme & Sectors Grid Image Integration
+- **Animated Leadership Quote Grid Layout**: Reconstructed the quote section into a 2-column grid layout on desktop, displaying the quote left-aligned and incorporating a right-column image card (`viyukti quote.png`). Configured a custom GSAP animation so that, when scrolled into view, the text column slides left (from `x: 100`) while the image smoothly slides up (from `y: 120`).
 - **Clickable Service Cards & CTA Simplification**: Removed the 'Learn More' link/button and horizontal dividers entirely from the homepage service cards, converting the entire card into a clickable anchor tag linking directly to the service details page. Added hover-triggered accent color shifts to the card titles.
 - **SmartGenesis Dark Theme & Fonts**: Replaced the light theme with a slate/purple radial gradient background (`#5d5172` / `#463f57` / `#2f2940`), subtle white grid overlay lines (`rgba(255,255,255,0.05)`), and three animated glowing orbs (Teal `#1ea99a`, Gold `#fec624`, Purple `#8b5cf6`). Configured the Exo font for headings and Fira Sans for body copy.
 - **Sectors Grid Image Integration**: Added customizable `"image"` properties to each service in `siteData.json`. Refactored the homepage Premium Sectors Grid cards to dynamically display the representative sector image with a premium hover zoom transition and a bottom colored border accent matching the sector's theme.
