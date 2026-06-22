@@ -3,10 +3,11 @@
 ## [2026-06-22] Phase 23: Permanent Clean Light Blue & White Theme Refactor
 - **Light Theme Global Styling**: Shifted the global layout background from dark (#09090b) to soft light slate-blue (#f8fafc), and body text to navy-slate (#0f172a).
 - **Parallax Image Overlay Adaptation**: Lightened the grayscale parallax background layer mask from dark overlay to light translucent overlay (slate-50/85) with 28% opacity and 60% color retention (grayscale(0.4)) on service detail pages for enhanced depth, color presence, and legibility.
-- **Glassmorphic Card Mapping**: Mapped all dark glassmorphic cards (including `.bg-zinc-950`, `.bg-zinc-900`, and translucent `.bg-white/[0.01]` / `.bg-white/[0.02]`) to white semi-transparent glass cards with light borders (slate-200) and soft subtle shadows.
-- **Improved Typography Contrast**: Re-mapped `.text-zinc-500` to dark slate-gray (#475569) to guarantee high-contrast legibility inside cards and captions.
+- **Glassmorphic Card Mapping**: Mapped all dark glassmorphic cards (including `.bg-zinc-950`, `.bg-zinc-900` - now styled with soft ice-blue `rgba(239,246,255,0.65)` to eliminate muddy gray tones - and translucent `.bg-white/[0.01]` / `.bg-white/[0.02]` / `.bg-white/[0.03]`) to white semi-transparent glass cards with light borders (slate-200) and soft subtle shadows.
+- **Improved Typography Contrast & Image Overlays**: Re-mapped `.text-zinc-500` to dark slate-gray (#475569) to guarantee high-contrast legibility inside cards and captions. Added CSS overrides to protect text layouts inside image cards (Gifting & Real Estate), forcing them to remain high-contrast white.
 - **Smooth Transition Effects**: Added fluid transitions to primary `.bg-white` (blue button) elements to smooth out hover color changes.
 - **Navigation, Hero Gradient, & Footer Updates**: Re-styled the navbar to use a semi-transparent light glass backdrop and dark text. Replaced the dark black-to-transparent overlay gradients in the service heroes with clean light slate-50 gradients. Transformed the footer to a light slate background with dark typography.
+- **Job Board Component Restyling**: Upgraded `JobBoard.astro` filter controls to match the blue/white branding. The active state now uses a solid blue button, while inactive filters use a clean ice-blue layout with royal blue text.
 - **Contrast Section & Safeguard Preservation**: Retained alternating design rhythm by converting high-contrast sections (Leadership Quote, CTA) to royal blue with white text, and added CSS safeguards to preserve white text on colored tags/buttons.
 - **Production Verification**: Built and verified compilation of all optimized static pages with no layout or contrast warnings.
 

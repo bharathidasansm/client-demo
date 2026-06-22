@@ -72,26 +72,26 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 
 			/* 2. Glassmorphism Card Overrides */
 			.bg-zinc-950 {
-				background-color: rgba(255, 255, 255, 0.75) !important;
+				background-color: rgba(255, 255, 255, 0.85) !important;
 				backdrop-filter: blur(12px);
 				border-color: rgba(226, 232, 240, 0.8) !important;
 				box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
 			}
 			.bg-zinc-900 {
-				background-color: rgba(241, 245, 249, 0.7) !important;
+				background-color: rgba(239, 246, 255, 0.65) !important; /* Premium Ice-Blue instead of Gray */
 				backdrop-filter: blur(12px);
 				border-color: rgba(226, 232, 240, 0.8) !important;
 				box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
 			}
 			.bg-black {
-				background-color: rgba(255, 255, 255, 0.75) !important;
+				background-color: rgba(255, 255, 255, 0.8) !important;
 				backdrop-filter: blur(12px);
 				border-color: rgba(226, 232, 240, 0.8) !important;
 			}
 			.bg-white\/\[0\.01\],
 			.bg-white\/\[0\.02\],
 			.bg-white\/\[0\.03\] {
-				background-color: rgba(255, 255, 255, 0.8) !important;
+				background-color: rgba(255, 255, 255, 0.82) !important;
 				backdrop-filter: blur(12px) !important;
 				border-color: rgba(226, 232, 240, 0.85) !important;
 				box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.03) !important;
@@ -199,6 +199,14 @@ const { title, description = siteData.tagline, bgImage = homeBgDefault } = Astro
 				color: #ffffff !important;
 				border-color: rgba(255, 255, 255, 0.2) !important;
 				background-color: rgba(0, 0, 0, 0.6) !important;
+			}
+			
+			/* 8. Image Card Overlay Contrast Protection */
+			.property-card h3,
+			.property-card span,
+			.property-card svg,
+			.gift-card h4 {
+				color: #ffffff !important;
 			}
 
 			/* Custom Scrollbar */
