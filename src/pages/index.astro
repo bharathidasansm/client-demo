@@ -192,8 +192,9 @@ const serviceImageMap: Record<string, any> = {
 						}[service.id] || '#1ea99a';
 
 						return (
-							<div 
-								class="group rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] hover:border-white/20 transition-all duration-500 relative overflow-hidden flex flex-col h-[520px] shrink-0 w-[85vw] sm:w-[380px] md:w-[420px]"
+							<a 
+								href={`/services/${service.slug}`}
+								class="group rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] hover:border-white/20 transition-all duration-500 relative overflow-hidden flex flex-col h-[460px] shrink-0 w-[85vw] sm:w-[380px] md:w-[420px]"
 							>
 								<!-- Image Header Container -->
 								<div class="relative h-56 overflow-hidden rounded-t-[2.5rem] shrink-0">
@@ -211,7 +212,7 @@ const serviceImageMap: Record<string, any> = {
 
 								<!-- Content Container -->
 								<div class="p-8 md:p-10 flex flex-col flex-grow relative z-10">
-									<h3 class="text-2xl font-black mb-4 text-white transition-colors duration-300" style={`--hover-color: ${accentColor}`}>
+									<h3 class="text-2xl font-black mb-4 text-white group-hover:text-[var(--hover-color)] transition-colors duration-300" style={`--hover-color: ${accentColor}`}>
 										{service.title}
 									</h3>
 									
@@ -228,15 +229,9 @@ const serviceImageMap: Record<string, any> = {
 												</span>
 											))}
 										</div>
-
-										<div class="pt-6 border-t border-white/5">
-											<a href={`/services/${service.slug}`} class="text-xs font-bold tracking-widest uppercase text-white hover:text-[#1ea99a] transition-colors">
-												{service.cta || 'Learn More'}
-											</a>
-										</div>
 									</div>
 								</div>
-							</div>
+							</a>
 						);
 					})}
 					{/* Cloned set of cards for seamless infinite wrap */}
@@ -251,8 +246,9 @@ const serviceImageMap: Record<string, any> = {
 						}[service.id] || '#1ea99a';
 
 						return (
-							<div 
-								class="group rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] hover:border-white/20 transition-all duration-500 relative overflow-hidden flex flex-col h-[520px] shrink-0 w-[85vw] sm:w-[380px] md:w-[420px]"
+							<a 
+								href={`/services/${service.slug}`}
+								class="group rounded-[2.5rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] hover:border-white/20 transition-all duration-500 relative overflow-hidden flex flex-col h-[460px] shrink-0 w-[85vw] sm:w-[380px] md:w-[420px]"
 							>
 								<!-- Image Header Container -->
 								<div class="relative h-56 overflow-hidden rounded-t-[2.5rem] shrink-0">
@@ -270,7 +266,7 @@ const serviceImageMap: Record<string, any> = {
 
 								<!-- Content Container -->
 								<div class="p-8 md:p-10 flex flex-col flex-grow relative z-10">
-									<h3 class="text-2xl font-black mb-4 text-white transition-colors duration-300" style={`--hover-color: ${accentColor}`}>
+									<h3 class="text-2xl font-black mb-4 text-white group-hover:text-[var(--hover-color)] transition-colors duration-300" style={`--hover-color: ${accentColor}`}>
 										{service.title}
 									</h3>
 									
@@ -287,15 +283,9 @@ const serviceImageMap: Record<string, any> = {
 												</span>
 											))}
 										</div>
-
-										<div class="pt-6 border-t border-white/5">
-											<a href={`/services/${service.slug}`} class="text-xs font-bold tracking-widest uppercase text-white hover:text-[#1ea99a] transition-colors">
-												{service.cta || 'Learn More'}
-											</a>
-										</div>
 									</div>
 								</div>
-							</div>
+							</a>
 						);
 					})}
 				</div>
