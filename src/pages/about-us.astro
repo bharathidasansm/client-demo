@@ -4,6 +4,7 @@ import siteData from '../data/siteData.json';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import aboutBg from '../assets/about us.jpg';
+import whyExistImg from '../assets/why exist.png';
 import { Image } from 'astro:assets';
 import { ChevronRight, Target, Rocket, Lightbulb, Users, ShieldCheck, Heart } from 'lucide-astro';
 
@@ -29,22 +30,36 @@ const industries = siteData.homePage?.industries || [];
 	<Navigation />
 	
 	<!-- Hero Section -->
-	<header class="relative min-h-[70vh] flex items-center justify-center pt-32 pb-20 overflow-hidden">
+	<header id="about-hero-section" class="relative min-h-[90vh] flex items-center justify-center pt-32 pb-20 overflow-hidden">
 		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
 		
 		<div class="container mx-auto px-6 relative z-10 text-center">
-			<span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-white/10 mb-8 bg-white/5 text-zinc-400 gsap-reveal">
+			<span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-white/10 mb-12 bg-white/5 text-zinc-400">
 				About ViYukti
 			</span>
-			<h1 class="text-4xl md:text-7xl font-black tracking-tighter mb-8 max-w-5xl mx-auto leading-tight">
-				{getSafe(hero, 'title', 'About ViYukti')}
-			</h1>
-			<p class="text-xl text-zinc-400 max-w-3xl mx-auto mb-12 leading-relaxed gsap-reveal">
-				{getSafe(hero, 'description')}
-			</p>
-            <p class="text-lg text-zinc-500 max-w-4xl mx-auto gsap-reveal italic">
-                {getSafe(hero, 'mission')}
-            </p>
+			
+			<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+				<!-- Left Column: Hero Text -->
+				<div id="about-hero-text" class="text-left flex flex-col justify-center">
+					<h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 leading-tight text-white">
+						{getSafe(hero, 'title', 'About ViYukti')}
+					</h1>
+					<p class="text-lg md:text-xl text-zinc-400 mb-8 leading-relaxed">
+						{getSafe(hero, 'description')}
+					</p>
+					<p class="text-zinc-500 italic leading-relaxed">
+						{getSafe(hero, 'mission')}
+					</p>
+				</div>
+				<!-- Right Column: Hero Image -->
+				<div id="about-hero-image" class="w-full flex items-center justify-center">
+					<Image 
+						src={whyExistImg} 
+						alt="About ViYukti" 
+						class="w-full max-w-[550px] md:max-w-none h-auto object-contain md:scale-110" 
+					/>
+				</div>
+			</div>
 		</div>
 	</header>
 
@@ -216,6 +231,54 @@ const industries = siteData.homePage?.industries || [];
 
 	gsap.registerPlugin(ScrollTrigger);
 
+	function initAboutHeroAnimation() {
+		const section = document.getElementById('about-hero-section');
+		const textCol = document.getElementById('about-hero-text');
+		const imgCol = document.getElementById('about-hero-image');
+		if (!section || !textCol || !imgCol) return;
+
+		ScrollTrigger.matchMedia({
+			// Desktop & Tablet
+			"(min-width: 768px)": function() {
+				// Text moves left when scrolling down (from right to left)
+				gsap.fromTo(textCol,
+					{ x: 100 },
+					{
+						x: -100,
+						ease: 'none',
+						scrollTrigger: {
+							trigger: section,
+							start: 'top bottom',
+							end: 'bottom top',
+							scrub: 1
+						}
+					}
+				);
+
+				// Image moves right when scrolling down (from left to right)
+				gsap.fromTo(imgCol,
+					{ x: -100 },
+					{
+						x: 100,
+						ease: 'none',
+						scrollTrigger: {
+							trigger: section,
+							start: 'top bottom',
+							end: 'bottom top',
+							scrub: 1
+						}
+					}
+				);
+			},
+			// Mobile
+			"(max-width: 767px)": function() {
+				// Keep text and image perfectly centered and aligned without horizontal sliding
+				gsap.set(textCol, { x: 0 });
+				gsap.set(imgCol, { x: 0 });
+			}
+		});
+	}
+
 	function initWhyExistsAnimation() {
 		const section = document.getElementById('why-exists-section');
 		const textCol = document.getElementById('why-exists-text');
@@ -267,6 +330,7 @@ const industries = siteData.homePage?.industries || [];
 	document.addEventListener('astro:page-load', () => {
 		setTimeout(() => {
 			ScrollTrigger.refresh();
+			initAboutHeroAnimation();
 			initWhyExistsAnimation();
 		}, 100);
 	});
