@@ -1,13 +1,18 @@
 ---
 import siteData from '../data/siteData.json';
 import { Facebook, Instagram, Linkedin } from 'lucide-astro';
+import { Image } from 'astro:assets';
+import logoImg from '../assets/logo/logo.png';
 ---
 <footer class="py-20 bg-brand-dark border-t border-white/5">
     <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
             <div class="col-span-1 md:col-span-2">
-                <a href="/" class="text-3xl font-black tracking-tighter text-white mb-6 inline-block">
-                    {siteData.companyName}
+                <a href="/" class="flex items-center gap-3 group mb-6 inline-flex">
+                    <Image src={logoImg} alt={siteData.companyName} class="h-10 w-auto object-contain group-hover:scale-105 transition-transform" />
+                    <span class="text-3xl font-black tracking-tighter text-white transition-colors">
+                        {siteData.companyName}
+                    </span>
                 </a>
                 <p class="text-zinc-500 max-w-sm leading-relaxed mb-8">
                     {siteData.footer.description}
